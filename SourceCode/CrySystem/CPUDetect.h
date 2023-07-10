@@ -123,7 +123,7 @@ inline bool IsAMD64()
 #ifdef _AMD64_
 	return true;
 #else
-#error not supported here
+  return false; 
 #endif
 }
 #else
