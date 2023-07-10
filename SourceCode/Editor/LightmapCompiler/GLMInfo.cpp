@@ -4,5 +4,5 @@
 //	- Created by Michael Glueck
 // ---------------------------------------------------------------------------------------------
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "GLMInfo.h"

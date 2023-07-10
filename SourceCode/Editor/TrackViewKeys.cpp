@@ -14,7 +14,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TrackViewKeys.h"
 #include "Controls\MemDC.h"
 

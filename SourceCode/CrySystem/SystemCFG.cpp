@@ -11,7 +11,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h" 
+#include "StdAfx.h" 
 #include "System.h"
 #include <time.h>
 #include "XConsole.h"

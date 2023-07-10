@@ -1,7 +1,7 @@
 // ShaderTemplatePanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ShaderTemplatePanel.h"
 #include "ShaderTemplateTool.h"									// CTemplateTool
 #include "resource.h"														// IDC_SHADERTEMPL_XML

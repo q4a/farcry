@@ -4,7 +4,7 @@
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 // Shell utility library
 #pragma comment(lib, "Shlwapi.lib")

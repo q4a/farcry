@@ -6,7 +6,7 @@
 //	- Partial rewrite for editor integration
 // ---------------------------------------------------------------------------------------------
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <float.h>
 #include <I3dEngine.h>
 #include <IEntityRenderstate.h>

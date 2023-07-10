@@ -1,7 +1,7 @@
 // TerrainDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TerrainDialog.h"
 #include "DimensionsDialog.h"
 #include "CryEditDoc.h"

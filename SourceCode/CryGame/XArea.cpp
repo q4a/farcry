@@ -11,7 +11,7 @@
 //
 //////////////////////////////////////////////////////////////////////
  
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "xarea.h"
 #include "xPlayer.h"
 #include "TagPoint.h"

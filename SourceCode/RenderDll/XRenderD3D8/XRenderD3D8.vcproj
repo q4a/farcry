@@ -35,7 +35,7 @@
 				BufferSecurityCheck="FALSE"
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile=".\Release/XRenderD3D8.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
@@ -99,7 +99,7 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile=".\Profile/XRenderD3D8.pch"
 				AssemblerListingLocation=".\Profile/"
 				ObjectFile=".\Profile/"
@@ -163,7 +163,7 @@
 				BufferSecurityCheck="TRUE"
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile=".\Debug/XRenderD3D8.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
@@ -766,7 +766,7 @@ copy $(TargetDir)$(TargetName).pdb C:\MasterCD
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="..\stdafx.h">
+			RelativePath="..\StdAfx.h">
 		</File>
 	</Files>
 	<Globals>

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "RenderMeshBuilder.h"
 #include "StlUtils.h"
 #include "NvTriStrip/NvTriStrip.h"

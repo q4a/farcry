@@ -1,7 +1,7 @@
 // gsMasterServerClientDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "gsMasterServerClient.h"
 #include "gsMasterServerClientDlg.h"
 #include "SubmitScoresdlg.h"

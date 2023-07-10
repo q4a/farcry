@@ -14,7 +14,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ObjectBrowserDialog.h"
 
 #include "Objects\ObjectManager.h"

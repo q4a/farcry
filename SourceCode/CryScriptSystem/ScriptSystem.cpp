@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <string.h>
 #include <stdio.h>
 #include "ScriptSystem.h"

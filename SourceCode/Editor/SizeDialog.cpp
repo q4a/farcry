@@ -1,7 +1,7 @@
 // SizeDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "SizeDialog.h"
 
 #ifdef _DEBUG

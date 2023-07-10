@@ -245,7 +245,7 @@
     <ClInclude Include="BasicConsole.h" />
     <ClInclude Include="DedicatedServer.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StdAfx.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="FarCry.ico" />

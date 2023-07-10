@@ -9,7 +9,7 @@
 //	August 16, 2002: Created by Sergiy Migdalskiy <sergiy@crytek.de>
 //
 //////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
+#include "StdAfx.h"
 //#include "CryAnimation.h"
 #include <CryAnimationScriptCommands.h>
 #include <Cry_Camera.h>

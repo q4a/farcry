@@ -1,7 +1,7 @@
 // SoundPresetsDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "SoundPresetsDlg.h"
 #include "SoundPresetMgr.h"
 #include "StringDlg.h"

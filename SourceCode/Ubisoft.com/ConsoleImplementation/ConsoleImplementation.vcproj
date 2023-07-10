@@ -212,7 +212,7 @@
 					RelativePath="src\UbisoftMemory.h">
 				</File>
 				<File
-					RelativePath="src\stdafx.h">
+					RelativePath="src\StdAfx.h">
 				</File>
 			</Filter>
 			<Filter

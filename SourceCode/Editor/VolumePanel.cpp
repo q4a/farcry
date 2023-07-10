@@ -1,7 +1,7 @@
 // VolumePanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "VolumePanel.h"
 
 #ifdef _DEBUG

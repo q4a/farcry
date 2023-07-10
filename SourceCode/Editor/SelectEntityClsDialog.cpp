@@ -14,7 +14,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "SelectEntityClsDialog.h"
 
 #include "Objects\EntityScript.h"

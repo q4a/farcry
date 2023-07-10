@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "GoalOp.h"
 #include "Puppet.h"
 #include "aivehicle.h"

@@ -14,7 +14,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TVEventKeyDialog.h"
 #include "CryEditDoc.h"
 #include "Objects\EntityScript.h"

@@ -4,7 +4,7 @@
 //	- Created by Michael Glueck
 // ---------------------------------------------------------------------------------------------
 
-#include "stdafx.h"							// precompiled headers
+#include "StdAfx.h"							// precompiled headers
 #include "TexelSampler.h"					// CSimpleTriangleRastizer
 
 

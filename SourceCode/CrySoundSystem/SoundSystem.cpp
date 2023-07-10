@@ -13,7 +13,7 @@
 //////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #ifndef _XBOX
 #include <ISystem.h>
 #include <CrySizer.h>

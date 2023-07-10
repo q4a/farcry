@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "cvars.h"
 #include <MakMatInfoFromMAT_ENTITY.h>
 #include <MeshIdx.h>

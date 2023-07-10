@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "formation.h"
 #include "AIObject.h"
 #include "CAISystem.h"

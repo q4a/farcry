@@ -6,7 +6,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "xobjectproxy.h"
 #include "xplayer.h"
 

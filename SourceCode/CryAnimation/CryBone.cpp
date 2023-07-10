@@ -9,7 +9,7 @@
 //  Single bone implementation
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <float.h>
 #include <StlUtils.h>
 #include "CryModel.h"

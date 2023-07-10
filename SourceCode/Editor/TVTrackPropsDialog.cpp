@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TVTrackPropsDialog.h"
 #include "TVSelectKeyDialog.h"
 #include "TVSoundKeyDialog.h"

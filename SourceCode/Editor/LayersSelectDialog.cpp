@@ -1,7 +1,7 @@
 // LayersSelectDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "LayersSelectDialog.h"
 #include "Objects\ObjectManager.h"
 

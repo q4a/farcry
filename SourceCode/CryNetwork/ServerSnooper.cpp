@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "CNP.h"
 #include "serversnooper.h"
 

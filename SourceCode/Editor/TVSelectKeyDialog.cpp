@@ -1,7 +1,7 @@
 // TVSelectKeyDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TVSelectKeyDialog.h"
 #include "ientitysystem.h"
 #include "objects/objectmanager.h"

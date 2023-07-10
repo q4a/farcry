@@ -6,7 +6,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <crysizer.h>
 #include "Game.h" 
 #include "TagPoint.h"

@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ErrorReportDialog.h"
 #include "ErrorReport.h"
 #include "Clipboard.h"

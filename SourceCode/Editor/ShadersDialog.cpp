@@ -1,7 +1,7 @@
 // ShadersDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ShadersDialog.h"
 #include "ShaderEnum.h"
 

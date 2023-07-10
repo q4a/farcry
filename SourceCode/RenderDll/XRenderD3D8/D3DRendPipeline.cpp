@@ -7,7 +7,7 @@
     
 =============================================================================*/
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "DriverD3D8.h"
 #include "..\common\shadow_renderer.h"
 #include "D3DPShaders.h"

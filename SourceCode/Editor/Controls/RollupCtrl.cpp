@@ -51,7 +51,7 @@
 
 /////////////////////////////////////////////////////////////////////////////
 // CRollupCtrl Includes
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "RollupCtrl.h"
 #include "XTToolkit.h"
 

@@ -1,7 +1,7 @@
 // ObjectTypeBrowser.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ObjectTypeBrowser.h"
 #include "ObjectCreateTool.h"
 #include "Objects\ObjectManager.h"

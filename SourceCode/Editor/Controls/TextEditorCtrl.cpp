@@ -1,7 +1,7 @@
 // C:\Dev\Crytek\Editor\Controls\RichEditCtrlEx.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TextEditorCtrl.h"
 
 #define GRP_KEYWORD		0

@@ -1,7 +1,7 @@
 // ToolBarTab.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ToolBarTab.h"
 
 #ifdef _DEBUG

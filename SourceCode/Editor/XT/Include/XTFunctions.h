@@ -1,7 +1,7 @@
 // XTFunctions.h interface for the XT_AUX_DATA struct.
 //
 // This file is a part of the Xtreme Toolkit for MFC.
-// ©1998-2003 Codejock Software, All Rights Reserved.
+// ï¿½1998-2003 Codejock Software, All Rights Reserved.
 //
 // This source code can only be used under the terms and conditions 
 // outlined in the accompanying license agreement.
@@ -24,7 +24,7 @@
 //////////////////////////////////////////////////////////////////////
 // Summary: This member function will initialize the resources for the Xtreme Toolkit.
 //			If using the Xtreme Toolkit as an extension DLL within a regular DLL,
-//			add the following two lines to your stdafx.h file. This will give you
+//			add the following two lines to your StdAfx.h file. This will give you
 //			access to the exported function InitXtremeExtDll():
 // 
 //			<pre>#define XT_INIT_BY_REGULAR_DLL

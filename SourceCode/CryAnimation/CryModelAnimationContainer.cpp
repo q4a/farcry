@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <CryCompiledFile.h>
 #include <stlutils.h>
 //#include "CryAnimation.h"

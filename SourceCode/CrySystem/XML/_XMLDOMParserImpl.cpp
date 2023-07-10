@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 //#ifndef _XBOX
-#include "stdafx.h"
+#include "StdAfx.h"
 //#endif
 
 #include "_XMLDOMParserImpl.h"

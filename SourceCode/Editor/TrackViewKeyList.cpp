@@ -1,7 +1,7 @@
 // TrackViewKeyList.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TrackViewKeyList.h"
 #include "Controls\MemDC.h"
 

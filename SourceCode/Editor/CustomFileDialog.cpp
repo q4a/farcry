@@ -1,7 +1,7 @@
 // CustomFileDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "CustomFileDialog.h"
 
 #include <io.h>

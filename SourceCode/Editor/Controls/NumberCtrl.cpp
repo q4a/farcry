@@ -1,7 +1,7 @@
 // NumberCtrl.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "NumberCtrl.h"
 
 #ifdef _DEBUG

@@ -1,7 +1,7 @@
 // SetHeightDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "SetHeightDlg.h"
 
 #ifdef _DEBUG

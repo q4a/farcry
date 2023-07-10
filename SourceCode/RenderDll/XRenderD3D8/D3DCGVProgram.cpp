@@ -7,7 +7,7 @@
 
 =============================================================================*/
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "DriverD3D8.h"
 #include "D3DCGVProgram.h"
 

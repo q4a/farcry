@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <IPhysics.h>
 
 #if !defined(LINUX)

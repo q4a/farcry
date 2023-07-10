@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "StatObj.h"
 #include "../RenderDll/Common/shadow_renderer.h"
 

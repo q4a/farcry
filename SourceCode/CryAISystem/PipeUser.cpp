@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "CAISystem.h"
 #include <ISystem.h>
 #include <IConsole.h>

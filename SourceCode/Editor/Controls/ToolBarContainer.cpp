@@ -1,7 +1,7 @@
 // ToolBarContainer.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ToolBarContainer.h"
 
 #ifdef _DEBUG

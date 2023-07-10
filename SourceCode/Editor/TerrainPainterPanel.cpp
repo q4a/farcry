@@ -14,7 +14,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TerrainPainterPanel.h"
 #include "TerrainTexturePainter.h"
 

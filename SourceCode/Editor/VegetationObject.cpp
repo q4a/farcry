@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "VegetationObject.h"
 #include "Material\Material.h"
 #include "Material\MaterialManager.h"

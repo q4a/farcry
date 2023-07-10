@@ -78,7 +78,7 @@
 				BufferSecurityCheck="TRUE"
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile=".\Debug_XBox/FarCry.pch"
 				AssemblerListingLocation=".\Debug_XBox/"
 				ObjectFile=".\Debug_XBox/"

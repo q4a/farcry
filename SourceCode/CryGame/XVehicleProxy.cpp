@@ -11,7 +11,7 @@
 //////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "xvehicleproxy.h"
 #include "XVehicle.h"
 #include <IAISystem.h>

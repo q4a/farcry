@@ -25,7 +25,7 @@
 //1  0  1	A selection gain on itemNew
 //else undefined
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <windowsx.h>
 #include "MltiTree.h"
 

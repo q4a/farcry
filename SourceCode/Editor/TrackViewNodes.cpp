@@ -1,7 +1,7 @@
 // TrackViewNodes.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TrackViewNodes.h"
 #include "TrackViewKeyList.h"
 #include "TrackViewUndo.h"

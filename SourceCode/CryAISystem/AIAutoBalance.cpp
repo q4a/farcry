@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "aiautobalance.h"
 #include "caisystem.h"
 #include <irenderer.h>

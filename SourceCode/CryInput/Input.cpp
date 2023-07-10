@@ -11,7 +11,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #pragma warning(disable:4786)
 #include <stdio.h>
 #include <ILog.h>

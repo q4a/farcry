@@ -356,7 +356,7 @@
     <ClInclude Include="CryCharManager.h">
       <Filter>Front-End</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="StdAfx.h">
       <Filter>Front-End</Filter>
     </ClInclude>
     <ClInclude Include="ControllerTCB.h">

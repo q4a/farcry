@@ -1,7 +1,7 @@
 // PanelDisplayRender.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "PanelDisplayRender.h"
 #include "DisplaySettings.h"
 #include "Settings.h"

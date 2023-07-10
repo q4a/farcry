@@ -1,7 +1,7 @@
 // AIPointPanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "AIPointPanel.h"
 
 #include "Objects\AIPoint.h"

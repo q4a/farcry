@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "XMLDOMDocumentImpl.h"
 #include "XMLDOMNodeImpl.h"
 #include "nanoxml.h"

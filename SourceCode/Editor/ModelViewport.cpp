@@ -1,7 +1,7 @@
 // RenderViewport.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ModelViewport.h"
 #include "Controls\AnimationToolBar.h"
 #include "ModelViewPanel.h"

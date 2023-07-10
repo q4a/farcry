@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "LogFile.h"
 
 #include "ProcessInfo.h"
@@ -750,7 +750,7 @@ unsigned int CLogFile::GetCPUSpeed()
 
 	About RDSTC instruction:
 
-	Beginning with the Pentium« processor, Intel processors allow the 
+	Beginning with the Pentiumï¿½ processor, Intel processors allow the 
 	programmer to access a time-stamp counter. 
 	The time-stamp counter keeps an accurate count of every cycle 
 	that occurs on the processor. The Intel time-stamp counter is a 

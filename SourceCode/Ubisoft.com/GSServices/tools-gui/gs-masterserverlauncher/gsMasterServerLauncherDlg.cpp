@@ -1,7 +1,7 @@
 // gsMasterServerLauncherDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "gsMasterServerLauncher.h"
 #include "gsMasterServerLauncherDlg.h"
 //#include "GSHttpInterface.h"

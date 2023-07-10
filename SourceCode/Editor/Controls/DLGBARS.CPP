@@ -24,7 +24,7 @@
   Copyright (c) 1996 Microsoft Corporation. All rights reserved.
 \****************************************************************************/
 
-#include "stdafx.h" 
+#include "StdAfx.h" 
 #include <afxpriv.h>
 #include "dlgbars.h"
 

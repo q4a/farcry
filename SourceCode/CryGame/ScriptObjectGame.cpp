@@ -9,7 +9,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #if defined LINUX
 #include <sys/io.h>
 #else

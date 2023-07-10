@@ -1,6 +1,6 @@
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <assert.h>							// assert()
 #include <Dbghelp.h>						// GetTimestampForLoadedLibrary
 #include "IRCLog.h"								// IRCLog

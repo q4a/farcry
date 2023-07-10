@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "vertexlist.h"
 #include <ISystem.h>
 #include <CryFile.h>

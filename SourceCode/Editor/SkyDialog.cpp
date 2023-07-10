@@ -1,7 +1,7 @@
 // SkyDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "SkyDialog.h"
 #include "CryEditDoc.h"
 #include "PropertiesDialog.h"

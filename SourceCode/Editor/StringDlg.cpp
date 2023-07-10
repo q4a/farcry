@@ -1,7 +1,7 @@
 // StringDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "StringDlg.h"
 
 #ifdef _DEBUG

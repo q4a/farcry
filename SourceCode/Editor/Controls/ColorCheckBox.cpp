@@ -1,7 +1,7 @@
 // ColorCheckBox.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ColorCheckBox.h"
 
 #ifdef _DEBUG

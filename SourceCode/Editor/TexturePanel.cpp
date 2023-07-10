@@ -1,7 +1,7 @@
 // TexturePanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "cryedit.h"
 #include "TexturePanel.h"
 

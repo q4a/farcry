@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <ISystem.h>
 #include <ILog.h>
 #include <IEntitySystem.h>

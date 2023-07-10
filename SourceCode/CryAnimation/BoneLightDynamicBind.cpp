@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "cvars.h"
 #include "DebugUtils.h"
 #include "MathUtils.h"

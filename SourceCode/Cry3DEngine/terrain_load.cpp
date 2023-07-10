@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "terrain_sector.h"
 #include "objman.h"
 #include "detail_grass.h"

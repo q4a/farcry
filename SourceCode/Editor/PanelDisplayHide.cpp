@@ -1,7 +1,7 @@
 // PanelDisplatHide.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "PanelDisplayHide.h"
 #include "DisplaySettings.h"
 

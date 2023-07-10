@@ -1,7 +1,7 @@
 // StartupLogoDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "StartupLogoDialog.h"
 
 #ifdef _DEBUG

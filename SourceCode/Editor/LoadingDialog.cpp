@@ -1,7 +1,7 @@
 // LoadingDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "LoadingDialog.h"
 
 #ifdef _DEBUG

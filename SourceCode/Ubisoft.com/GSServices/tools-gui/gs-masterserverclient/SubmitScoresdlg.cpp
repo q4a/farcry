@@ -1,7 +1,7 @@
 // SubmitScoresdlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "gsMasterServerClient.h"
 #include "SubmitScoresdlg.h"
 #include "GSTypes.h"

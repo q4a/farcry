@@ -317,7 +317,7 @@
 				RelativePath=".\resource.h">
 			</File>
 			<File
-				RelativePath="stdafx.h">
+				RelativePath="StdAfx.h">
 			</File>
 		</Filter>
 		<Filter

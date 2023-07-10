@@ -1,7 +1,7 @@
 // DrawWnd.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "DrawWnd.h"
 #include "Heightmap.h"
 

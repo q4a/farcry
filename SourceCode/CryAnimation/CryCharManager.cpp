@@ -10,7 +10,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <IGame.h> // to examine whether we're in dedicated server mode
 #include "CryCharDecal.h"
 #include "CryCharInstance.h"

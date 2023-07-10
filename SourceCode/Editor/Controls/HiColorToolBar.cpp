@@ -1,7 +1,7 @@
 // HiColorToolBar.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "HiColorToolBar.h"
 
 #ifdef _DEBUG

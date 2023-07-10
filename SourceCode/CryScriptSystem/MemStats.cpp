@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ScriptSystem.h"
 #include <crysizer.h>
 extern "C" {

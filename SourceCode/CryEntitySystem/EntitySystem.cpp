@@ -13,7 +13,7 @@
 //////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <Cry_Math.h>
 #include <list2.h>
 #include "EntitySystem.h"

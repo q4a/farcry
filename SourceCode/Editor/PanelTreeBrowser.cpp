@@ -1,7 +1,7 @@
 // PanelTreeBrowser.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "PanelTreeBrowser.h"
 #include "PanelPreview.h"
 

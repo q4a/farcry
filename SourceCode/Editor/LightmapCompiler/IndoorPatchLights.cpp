@@ -6,7 +6,7 @@
 //	- Partial rewrite for editor GLM integration (Tim Schroeder)
 //  - Debug code added (Tim Schroeder)
 // ---------------------------------------------------------------------------------------------
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <ILMSerializationManager.h>
 #include <float.h>
 #include <direct.h>
@@ -793,10 +793,10 @@ void CLightScene::CheckLight(LMCompLight& rLight, const int iCurLightIdx)
 	{
 		if (rLight.fLightFrustumAngleDegree <= 0.0f || rLight.fLightFrustumAngleDegree > 89.9f )
 		{
-			_TRACE(m_LogInfo, true, "WARNING: Spotlight %i has an invalid frustum (%f°)\r\n", iCurLightIdx, rLight.fLightFrustumAngleDegree);
+			_TRACE(m_LogInfo, true, "WARNING: Spotlight %i has an invalid frustum (%fï¿½)\r\n", iCurLightIdx, rLight.fLightFrustumAngleDegree);
 			rLight.fLightFrustumAngleDegree = 89.9f;
 			char text[scuiWarningTextAllocation];
-			sprintf(text, "Spotlight: %s has an invalid frustum (%f°)\r\n",(const char*)rLight.m_Name, rLight.fLightFrustumAngleDegree);
+			sprintf(text, "Spotlight: %s has an invalid frustum (%fï¿½)\r\n",(const char*)rLight.m_Name, rLight.fLightFrustumAngleDegree);
 			m_WarningInfo.insert(std::pair<unsigned int, std::string>(EWARNING_LIGHT_FRUSTUM, std::string(text)));
 		}
 	}

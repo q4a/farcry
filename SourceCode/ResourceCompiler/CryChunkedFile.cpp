@@ -12,7 +12,7 @@
 //  History:
 //
 ////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <stdarg.h>
 #include "CryVertexBinding.h"
 #include "CgfUtils.h"

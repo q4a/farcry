@@ -1,7 +1,7 @@
 // PropertiesDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "PropertiesDialog.h"
 
 #ifdef _DEBUG

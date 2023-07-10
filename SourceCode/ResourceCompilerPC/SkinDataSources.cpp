@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "RenderMeshBuilder.h"
 #include "SkinDataSources.h"
 #include "CryBoneDesc.h"

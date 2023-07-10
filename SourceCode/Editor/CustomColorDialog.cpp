@@ -1,7 +1,7 @@
 // CustomColorDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "CustomColorDialog.h"
 
 #ifdef _DEBUG

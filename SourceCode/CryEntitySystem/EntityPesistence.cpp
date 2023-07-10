@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "Entity.h"
 #include "EntitySystem.h"
 #include <stream.h>

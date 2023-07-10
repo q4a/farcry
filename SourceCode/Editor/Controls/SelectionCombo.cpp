@@ -1,7 +1,7 @@
 // SelectionCombo.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "SelectionCombo.h"
 
 #ifdef _DEBUG

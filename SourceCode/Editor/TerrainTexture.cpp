@@ -1,7 +1,7 @@
 // TerrainTexture.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TerrainTexture.h"
 #include "CryEditDoc.h"
 #include "StringDlg.h"

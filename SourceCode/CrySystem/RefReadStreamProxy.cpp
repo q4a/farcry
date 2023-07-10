@@ -4,7 +4,7 @@
 // Engine clients via StartRead() API. Several Proxies can refer to the same
 // Stream (file) but perform their operations independently.
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <ISystem.h>
 #include <ILog.h>
 #include "RefStreamEngine.h"

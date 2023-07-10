@@ -1,7 +1,7 @@
 // ModelViewPanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <ICryAnimation.h>
 #include "ModelViewPanel.h"
 

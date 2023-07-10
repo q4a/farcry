@@ -1,7 +1,7 @@
 // RenderViewport.cpp : implementation filefov
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "RenderViewport.h"
 #include "DisplaySettings.h"
 #include "EditTool.h"

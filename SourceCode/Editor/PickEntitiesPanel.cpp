@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "PickEntitiesPanel.h"
 #include "objects/BaseObject.h"
 #include "objects/entity.h"

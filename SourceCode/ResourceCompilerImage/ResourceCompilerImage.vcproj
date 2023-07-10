@@ -202,7 +202,7 @@
 				RelativePath="ResourceCompilerImage.h">
 			</File>
 			<File
-				RelativePath="stdafx.h">
+				RelativePath="StdAfx.h">
 			</File>
 			<File
 				RelativePath="UserDialog.h">

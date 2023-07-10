@@ -13,7 +13,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "scriptobjectAdvCamSystem.h"
 #include "AdvCamSystem.h"
 

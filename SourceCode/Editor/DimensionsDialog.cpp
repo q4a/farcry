@@ -1,7 +1,7 @@
 // DimensionsDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "DimensionsDialog.h"
 
 #ifdef _DEBUG

@@ -14,7 +14,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "scriptobjectserverslot.h"
 #include "XSystemBase.h"
 #include "XServerslot.h"

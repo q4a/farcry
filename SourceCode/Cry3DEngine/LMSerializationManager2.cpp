@@ -1,5 +1,5 @@
 #define NO_GDI
-	#include "stdafx.h"
+	#include "StdAfx.h"
 #undef NO_GDI
 #include "Cry3dEngineBase.h"
 //#include <d3d8types.h>

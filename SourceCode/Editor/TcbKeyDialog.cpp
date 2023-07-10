@@ -1,7 +1,7 @@
 // TcbKeyDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TcbKeyDialog.h"
 
 #include "AnimationContext.h"

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <crysizer.h>
 #include "CAISystem.h"
 #include "Puppet.h"

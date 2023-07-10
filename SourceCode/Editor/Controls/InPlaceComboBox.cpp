@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "InPlaceComboBox.h"
 
 #ifdef _DEBUG
@@ -484,7 +484,7 @@ void CInPlaceComboBox::OnPaint()
 {
 	CPaintDC dc(this);
 	
-	// Nakresli tlaèítko
+	// Nakresli tlaï¿½ï¿½tko
 	CRect rect;
 
 	GetClientRect(rect);

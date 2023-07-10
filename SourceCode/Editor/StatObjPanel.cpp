@@ -1,7 +1,7 @@
 // StatObjPanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "StatObjPanel.h"
 #include "Objects\ObjectManager.h"
 #include "Objects\BaseObject.h"

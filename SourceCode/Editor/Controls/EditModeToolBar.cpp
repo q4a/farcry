@@ -1,7 +1,7 @@
 // EditModeToolBar.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "EditModeToolBar.h"
 #include "Objects\ObjectManager.h"
 #include "UndoDropDown.h"
