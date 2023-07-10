@@ -23,7 +23,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#if !defined(LINUX)
+#if defined(LINUX)
 typedef void *THREAD_HANDLE;
 typedef void *EVENT_HANDLE;
 #endif
