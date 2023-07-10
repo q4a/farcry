@@ -15,8 +15,8 @@ include(CMake/Utils.cmake)
 # Additional Global Settings(add specific info there)
 ################################################################################
 include(CMake/GlobalSettingsInclude.cmake OPTIONAL)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLINUX")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLINUX")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLINUX -w")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLINUX -w")
 
 ################################################################################
 # Use solution folders feature
