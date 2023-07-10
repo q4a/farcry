@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "DownloadManager.h"
 #include "HTTPDownloader.h"
 

@@ -187,7 +187,7 @@ struct IScriptSystem
 			
 	*/
 	//##@{
-	virtual int BeginCall(HSCRIPTFUNCTION hFunc) = 0;						 // Márcio: changed the return type 
+	virtual int BeginCall(HSCRIPTFUNCTION hFunc) = 0;						 // Mï¿½rcio: changed the return type 
 	virtual int BeginCall(const char *sFuncName) = 0;						 // from void to int for error checking
 	virtual int BeginCall(const char *sTableName, const char *sFuncName) = 0;//
 	//##@}
@@ -201,8 +201,8 @@ struct IScriptSystem
 	virtual void EndCall(float &fRet)=0;
 	virtual void EndCall(const char *&sRet)=0;
 
-	// #TODO: !!!
-	inline void EndCall(char*& sRet) { EndCall((const char*&)sRet); }
+	// This was marked TODO but the exact same code is present below, commenting to fix error.
+	//inline void EndCall(char*& sRet) { EndCall((const char*&)sRet); }
 
 #if defined(WIN64) || defined(LINUX)
 	inline void EndCall(char *&sRet) {EndCall ((const char*&)sRet);}
@@ -511,14 +511,13 @@ struct IScriptObject
 	virtual bool GetCurrentFuncData(unsigned int * &pCode, int &iSize) = 0;
 	virtual bool GetCurrentKey(const char* &sVal) = 0;
 
-	// #TODO: !!!
+
+	// This was marked TODO but the exact same code is present below, commenting to fix errors.
+	/*
 	inline bool GetCurrentKey(char*& sVal) { return GetCurrentKey((const char*&)sVal); }
-
-	// #TODO: !!!
 	inline bool GetAt(int nIdx, char*& sVal) { return GetAt(nIdx, (const char*&)sVal); }
-
-	// #TODO: !!!
 	inline bool GetCurrent(char*& sVal) { return GetCurrent((const char*&)sVal); }
+	*/
 
 #if defined(WIN64) || defined(LINUX)
 	inline bool GetCurrentKey(char* &sVal) {return GetCurrentKey((const char*&)sVal);}
@@ -612,8 +611,8 @@ struct IFunctionHandler
 	virtual bool GetParam(int nIdx, float &f) = 0;
 	virtual bool GetParam(int nIdx, const char * &s) = 0;
 
-	// #TODO: !!!
-	inline bool GetParam(int nIdx, char*& s) { return GetParam(nIdx, (const char*&)s); }
+	// This was marked TODO but the exact same code is present below, commenting to fix error.
+	//inline bool GetParam(int nIdx, char*& s) { return GetParam(nIdx, (const char*&)s); }
 
 #if defined(WIN64) || defined(LINUX)
 	inline bool GetParam(int nIdx, char * &s) {return GetParam(nIdx, (const char*&)s);}
