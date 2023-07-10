@@ -48,7 +48,7 @@
 #include "CrySizerImpl.h"
 #include "DownloadManager.h"
 
-#include "XML\Xml.h"
+#include "XML/xml.h"
 #include "DataProbe.h"
 #include "ApplicationHelper.h"			// CApplicationHelper
 

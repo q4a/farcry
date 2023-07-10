@@ -47,7 +47,7 @@
 #ifdef WIN64
 #include <CrySound64.h>
 #else
-#include <CrySound.h>
+#include <crysound.h>
 #endif
 #include <Cry_Math.h>
 //#include <vector.h>

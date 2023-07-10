@@ -6,7 +6,7 @@
 #include "XMLDOMDocumentImpl.h"
 #include "XMLDOMNodeImpl.h"
 #include "nanoxml.h"
-#include "ilog.h"
+#include "ILog.h"
 #include <ICryPak.h>
 
 //////////////////////////////////////////////////////////////////////

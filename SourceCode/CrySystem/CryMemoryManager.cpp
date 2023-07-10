@@ -5,7 +5,9 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#ifndef LINUX
 #include <new.h>
+#endif 
 
 #include <ISystem.h>
 
@@ -22,7 +24,7 @@ size_t g_TotalAllocatedMemory = 0;
 size_t g_ScriptAllocatedMemory = 0;
 int g_nPrecaution = 0; // will cause delayed crash, will make engine extremally unstable.
 
-//#if !defined(LINUX)
+#if !defined(LINUX)
 
 extern ISystem* g_System;
 extern bool g_bProfilerEnabled;
@@ -495,4 +497,4 @@ extern "C" void debug(int n)
 	::OutputDebugString(buf); 
 };
 */// CryMemoryManager.cpp : Defines the entry point for the DLL application.
-//#endif //LINUX
+#endif //LINUX

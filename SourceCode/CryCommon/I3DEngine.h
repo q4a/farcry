@@ -3,7 +3,7 @@
 //  Crytek Engine Source File.
 //  Copyright (C), Crytek Studios, 2002.
 // -------------------------------------------------------------------------
-//  File name:   i3dengine.h
+//  File name:   I3DEngine.h
 //  Version:     v1.00
 //  Created:     28/5/2001 by Vladimir Kajalin
 //  Compilers:   Visual Studio.NET
@@ -31,8 +31,10 @@
 // !!! Do not add any headers here !!!
 #include <IProcess.h>
 #include <CryEngineDecalInfo.h> 
-#include "IStatobj.h"
+#include "IStatObj.h"
 // !!! Do not add any headers here !!!
+
+#include "IRenderer.h"
 
 struct ISystem;
 struct ITexPic;
@@ -44,10 +46,11 @@ struct RenderLMData;
 struct AnimTexInfo;
 template <class T> class list2;
 
+/* Removed because this file does not exist in our copy of the source code
 #if defined(LINUX)
 	#include "Splash.h"
 #endif
-
+*/
 
 /*! SVariationValue used to specify value, which can have random variance.
 		Used by particle system parameters.
@@ -74,6 +77,7 @@ private:
 };
 
 // Specialation for vectors.
+template<> //If there is a better way of fixing this please let me know
 inline Vec3 SVariationValue<Vec3>::GetVariantValue() const
 {
 	Vec3 v;

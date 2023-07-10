@@ -21,7 +21,7 @@
 #include "ExprTrack.h"
 #include "BoolTrack.h"
 #include "isystem.h"
-#include "ilog.h"
+#include "ILog.h"
 #include "Movie.h"
 
 #include <ISound.h>

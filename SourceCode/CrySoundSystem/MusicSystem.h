@@ -97,7 +97,9 @@ typedef TMoodEventSet::iterator		TMoodEventSetIt;
 class CMusicSystem : public IMusicSystem
 {
 protected:
+	#ifndef LINUX
 	CRITICAL_SECTION m_CS;
+	#endif
 	// system pointers
 	ISystem *m_pSystem;
 	ITimer *m_pTimer;
@@ -281,6 +283,8 @@ protected:
 // SmartCriticalSection-class to make things easier
 //////////////////////////////////////////////////////////////////////////
 
+#ifndef LINUX
+
 class CSmartCriticalSection
 {
 private:
@@ -289,3 +293,5 @@ public:
 	CSmartCriticalSection(CRITICAL_SECTION &CS) { m_pCS=&CS; EnterCriticalSection(m_pCS); }
 	~CSmartCriticalSection() { LeaveCriticalSection(m_pCS); }
 };
+
+#endif // LINUX

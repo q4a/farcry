@@ -1,5 +1,5 @@
 #include "RenderPCH.h"
-#include "i3dengine.h"
+#include "I3DEngine.h"
 #include "cryheaders.h"
 
 void CLeafBuffer::AddRE(CCObject *obj, IShader *ef, int nNumSort, IShader * pStateEff)

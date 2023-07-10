@@ -8,7 +8,7 @@
 #include "MeshIdx.h"
 
 #include "float.h"
-#include "i3dengine.h"
+#include "I3DEngine.h"
 
 #include <CryCompiledFile.h>
 #include <VertexBufferSource.h>

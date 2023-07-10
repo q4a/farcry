@@ -17,7 +17,7 @@
 #include <sys/stat.h>
 #include <time.h>
 #include "CryPak.h"
-#include <ilog.h>
+#include <ILog.h>
 #include <StringUtils.h>
 
 /////////////////////////////////////////////////////

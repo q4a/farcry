@@ -129,7 +129,7 @@ typedef unsigned char BYTE;
 typedef const char*			cstr;
 
 
-#include "TArray.h"
+#include "Tarray.h"
 //! Include main interfaces.
 #include <Cry_Math.h>
 #include <CryEngineDecalInfo.h>
@@ -154,7 +154,7 @@ typedef const char*			cstr;
 // <<TO-DO>> Get rid of this
 #include <list2.h>
 
-#include <TArray.h>
+#include <Tarray.h>
 #include <smartptr.h>
 #include <CryHeaders.h>
 #include "CrySizer.h"

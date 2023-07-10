@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "scriptobjectmovie.h"
+#include "ScriptObjectMovie.h"
 #include <ISystem.h>
 #include <IMovieSystem.h>
 #include <IGame.h>

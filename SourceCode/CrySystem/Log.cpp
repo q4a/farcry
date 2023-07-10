@@ -12,7 +12,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "StdAfx.h"
-#include "log.h"
+#include "Log.h"
 
 //this should not be included here
 #include <IConsole.h>

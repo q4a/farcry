@@ -2,9 +2,11 @@
 #define _CRY_SYSTEM_MT_SAFE_ALLOCATOR_HDR_
 
 #include <stdexcept>
+/* We don't have WinBase in our copy of the source code, so hopefully we can go without it
 #if defined( LINUX )
 #	include "WinBase.h"
 #endif
+*/
 
 class CMTSafeHeap
 {
