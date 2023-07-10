@@ -16,8 +16,8 @@
 #include "StdAfx.h"
 #include "DisplayContext.h"
 
-#include "..\IconManager.h"
-#include "..\Viewport.h"
+#include "../IconManager.h"
+#include "../Viewport.h"
 
 #include <I3DEngine.h>
 //#include <gl\gl.h>

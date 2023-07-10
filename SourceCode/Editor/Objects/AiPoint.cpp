@@ -17,10 +17,10 @@
 #include "AIPoint.h"
 #include "ErrorReport.h"
 
-#include "..\AIPointPanel.h"
+#include "../AIPointPanel.h"
 #include <IAgent.h>
 
-#include "..\Viewport.h"
+#include "../Viewport.h"
 #include "Settings.h"
 
 #include <I3DEngine.h>

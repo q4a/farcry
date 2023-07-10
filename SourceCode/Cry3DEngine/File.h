@@ -67,5 +67,5 @@ private:
 
 #endif
 #else //PS2
-#include "..\CryCommon\File.h"
+#include "../CryCommon\File.h"
 #endif

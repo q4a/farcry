@@ -16,12 +16,12 @@
 #include "StdAfx.h"
 #include "BrushTool.h"
 
-#include "..\Viewport.h"
+#include "../Viewport.h"
 
 #include "Brush.h"
 
-#include "..\Objects\ObjectManager.h"
-#include "..\Objects\BrushObject.h"
+#include "../Objects\ObjectManager.h"
+#include "../Objects\BrushObject.h"
 
 //////////////////////////////////////////////////////////////////////////
 IMPLEMENT_DYNCREATE(CBrushTool,CEditTool)

@@ -18,8 +18,8 @@
 
 #include "ObjectManager.h"
 
-#include "..\Viewport.h"
-#include "..\DisplaySettings.h"
+#include "../Viewport.h"
+#include "../DisplaySettings.h"
 
 int CGroup::s_groupGeomMergeId = 0;
 

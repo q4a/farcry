@@ -11,7 +11,7 @@
 #include <vector>
 #include <string>
 
-#include "..\resource.h"
+#include "../resource.h"
 
 class CFileTree : public _TinyTreeView {
 public:

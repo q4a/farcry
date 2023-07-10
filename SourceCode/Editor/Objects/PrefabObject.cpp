@@ -21,8 +21,8 @@
 #include "Prefabs\PrefabItem.h"
 #include "PrefabPanel.h"
 
-#include "..\Viewport.h"
-#include "..\DisplaySettings.h"
+#include "../Viewport.h"
+#include "../DisplaySettings.h"
 #include "Settings.h"
 
 //////////////////////////////////////////////////////////////////////////

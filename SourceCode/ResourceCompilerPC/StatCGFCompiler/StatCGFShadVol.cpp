@@ -3,8 +3,8 @@
 
 #include "meshidx.h"
 #include "IEdgeConnectivityBuilder.h"
-#include "..\StencilShadowConnectivity.h"
-#include "..\StencilShadowConnectivityBuilder.h"
+#include "../StencilShadowConnectivity.h"
+#include "../StencilShadowConnectivityBuilder.h"
 
 CStatCGFShadVol::CStatCGFShadVol(ILog * pLog, CIndexedMesh * pIndexedMesh)
 {

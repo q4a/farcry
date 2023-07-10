@@ -16,7 +16,7 @@
 #include "StdAfx.h"
 #include "AreaSphere.h"
 #include "ObjectManager.h"
-#include "..\Viewport.h"
+#include "../Viewport.h"
 #include <IEntitySystem.h>
 #include <IGame.h>
 #include <IMarkers.h>

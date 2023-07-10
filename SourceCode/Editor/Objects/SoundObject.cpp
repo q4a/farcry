@@ -15,9 +15,9 @@
 
 #include "StdAfx.h"
 #include "SoundObject.h"
-#include "..\SoundObjectPanel.h"
+#include "../SoundObjectPanel.h"
 
-#include "..\Viewport.h"
+#include "../Viewport.h"
 
 //////////////////////////////////////////////////////////////////////////
 // CBase implementation.

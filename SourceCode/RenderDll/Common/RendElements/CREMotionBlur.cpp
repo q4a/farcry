@@ -5,7 +5,7 @@
 #include "CREMotionBlur.h"
 
 #ifdef OPENGL
-#include "..\..\XRenderOGL\GL_Renderer.h"
+#include "../..\XRenderOGL\GL_Renderer.h"
 #endif
 
 void CREMotionBlur::mfPrepare()

@@ -17,7 +17,7 @@
 
 ///////////////////////////////////////////////////////////////////
 //TODO: Move into renderer header
-#include "..\..\Cry3DEngine\ShadowVolumeEdge.h"
+#include "../..\Cry3DEngine\ShadowVolumeEdge.h"
 
 ///////////////////////////////////////////////////////////////////
 bool CRETriMeshShadow::mfDraw(SShader *ef, SShaderPass *sfm)

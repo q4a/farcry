@@ -17,10 +17,10 @@
 #include "BrushObject.h"
 
 #include "ObjectManager.h"
-#include "..\Viewport.h"
+#include "../Viewport.h"
 
-#include "..\Brush\BrushPanel.h"
-#include "..\Brush\Brush.h"
+#include "../Brush\BrushPanel.h"
+#include "../Brush\Brush.h"
 #include "PanelTreeBrowser.h"
 
 #include "Entity.h"

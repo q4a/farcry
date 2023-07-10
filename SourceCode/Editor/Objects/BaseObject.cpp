@@ -17,11 +17,11 @@
 #include "BaseObject.h"
 #include "ObjectManager.h"
 #include "Group.h"
-#include "..\Viewport.h"
-#include "..\ObjectPanel.h"
-#include "..\PropertiesPanel.h"
-#include "..\DisplaySettings.h"
-#include "..\Settings.h"
+#include "../Viewport.h"
+#include "../ObjectPanel.h"
+#include "../PropertiesPanel.h"
+#include "../DisplaySettings.h"
+#include "../Settings.h"
 
 #include "GizmoManager.h"
 

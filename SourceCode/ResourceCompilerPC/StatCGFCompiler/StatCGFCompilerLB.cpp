@@ -18,7 +18,7 @@
 #include "Dbghelp.h"
 #include "FileUtil.h"
 #include "PathUtil.h"
-#include "..\ResourceCompilerPC.h"
+#include "../ResourceCompilerPC.h"
 
 #include "StatCGFCompiler.h"
 #include "CryChunkedFile.h"

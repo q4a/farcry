@@ -15,8 +15,8 @@
 
 #include "StdAfx.h"
 #include "ShapeObject.h"
-#include "..\ShapePanel.h"
-#include "..\Viewport.h"
+#include "../ShapePanel.h"
+#include "../Viewport.h"
 #include "Util\Triangulate.h"
 
 #include <I3DEngine.h>

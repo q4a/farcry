@@ -39,7 +39,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /*
-#include "..\cry3dengine\statobj.h"
+#include "../cry3dengine\statobj.h"
 #include "file.h"
 */
 

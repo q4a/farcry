@@ -20,7 +20,7 @@
 #pragma once
 #endif
 
-#include "..\EditTool.h"
+#include "../EditTool.h"
 
 //////////////////////////////////////////////////////////////////////////
 class CBrushTool : public CEditTool

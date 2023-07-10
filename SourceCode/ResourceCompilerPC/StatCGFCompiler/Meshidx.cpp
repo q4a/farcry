@@ -1111,7 +1111,7 @@ size_t CIndexedMesh::GetMemoryUsage()
   return nSize;
 }
 
-#include "..\TangentSpaceCalculation.h"
+#include "../TangentSpaceCalculation.h"
 
 // a proxy structure that gets passed to the tangent space calculation algorithm
 struct IndexedMeshProxy

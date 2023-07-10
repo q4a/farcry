@@ -3,7 +3,11 @@
 
 #pragma once
 
-#include <io.h>
+#if defined(LINUX)
+	#include <sys/io.h>
+#else
+	#include <io.h>
+#endif
 
 class _TinyFileEnum {
 public:

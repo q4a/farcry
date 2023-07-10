@@ -17,7 +17,7 @@
 #define _RESOURCE_COMPILER_IRCLOG_HDR_
 
 #include <stdarg.h>
-#include "..\CryCommon\ILog.h"		// FIXME: won't compile otherwise?
+#include "../CryCommon\ILog.h"		// FIXME: won't compile otherwise?
 
 // This interface is used to log events inside the convertors,
 // including information and warning messages

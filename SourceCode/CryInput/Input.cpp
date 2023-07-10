@@ -20,7 +20,7 @@
 #include "Input.h"
 //#include "ActionMap.h"
 #include "XActionMapManager.h"
-//#include "..\Common\Log.h"
+//#include "../Common\Log.h"
 
 #ifdef _DEBUG
 static char THIS_FILE[] = __FILE__;

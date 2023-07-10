@@ -7,7 +7,9 @@ right now this code is not GPL or LGPL in any way
 #ifndef _TINY_WINDOW_H_
 #define _TINY_WINDOW_H_
 
+#ifndef LINUX
 #include <Richedit.h>
+#endif
 
 #ifndef __TINY_MAIN_H__
 #error "_TinyWindow require <_TinyMain.h>"

@@ -25,7 +25,7 @@ typedef double real;//typedef controlling the accuracy
 #include "LMCompStructures.h"
 #include "IEntityRenderstate.h"
 #include "LMLightCollection.h"
-#include "..\Objects\BrushObject.h"
+#include "../Objects\BrushObject.h"
 #include "I3dEngine.h"
 #include <direct.h>
 

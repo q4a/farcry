@@ -16,7 +16,7 @@
 #include "StdAfx.h"
 #include "MemoryBlock.h"
 
-#include "..\zlib\zlib.h"
+#include "../zlib\zlib.h"
 
 //////////////////////////////////////////////////////////////////////////
 CMemoryBlock::CMemoryBlock()

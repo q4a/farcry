@@ -11,7 +11,10 @@ right now this code is not GPL or LGPL in any way
 #pragma once
 #include "CryLibrary.h"
 
+#ifndef LINUX
 #include <commctrl.h>
+#endif
+
 #pragma comment (lib , "comctl32.lib")
 
 ///////////////////////////////////////////////////////////////////////////////////////////

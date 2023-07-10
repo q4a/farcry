@@ -9,7 +9,7 @@
 
 #include <IScriptSystem.h>
 
-#include "..\resource.h"
+#include "../resource.h"
 #include <stdio.h>
 #include <list>
 

@@ -10,7 +10,7 @@
 #include "RenderPCH.h"
 #include "DriverD3D9.h"
 #include <ICryAnimation.h>
-#include "..\common\shadow_renderer.h"
+#include "../common\shadow_renderer.h"
 #include "D3DCGPShader.h"
 #include "D3DCGVProgram.h"
 #include "I3dengine.h"
