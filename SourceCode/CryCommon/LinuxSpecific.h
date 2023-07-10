@@ -279,6 +279,9 @@ uint32_t GetTickCount()
         return (1000 * ts.tv_sec + ts.tv_nsec / 1000000);
 }
 
+//Simple definition of Windows HINTERNET type
+typedef LPVOID HINTERNET;
+
 #ifdef __cplusplus
 	static pthread_mutex_t mutex_t;
 	template<typename T>

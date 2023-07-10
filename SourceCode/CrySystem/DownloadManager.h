@@ -1,6 +1,6 @@
 #pragma once
 
-//#ifndef LINUX
+#ifndef LINUX
 
 class CHTTPDownloader;
 
@@ -24,4 +24,4 @@ private:
 };
 
 
-//#endif //LINUX
+#endif //LINUX

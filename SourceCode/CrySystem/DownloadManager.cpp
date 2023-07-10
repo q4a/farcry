@@ -2,7 +2,7 @@
 #include "DownloadManager.h"
 #include "HTTPDownloader.h"
 
-//#ifndef LINUX
+#ifndef LINUX
 
 //------------------------------------------------------------------------------------------------- 
 CDownloadManager::CDownloadManager()
@@ -91,4 +91,4 @@ void CDownloadManager::Release()
 	delete this;
 }
 
-//#endif //LINUX
+#endif //LINUX
