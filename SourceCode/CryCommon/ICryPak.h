@@ -8,6 +8,7 @@
 
 #ifdef LINUX
 	#include <stdint.h>
+	#include <LinuxSpecific.h>
 #else
 	#include <winbase.h>
 	#include <corecrt_io.h>

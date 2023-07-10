@@ -20,6 +20,7 @@
 #include <string.h>
 #include <errno.h>
 #include </usr/include/ctype.h>
+#include <cstdint>
 
 typedef unsigned int				DWORD;
 typedef unsigned int*				LPDWORD;
@@ -263,6 +264,20 @@ typedef struct _SECURITY_ATTRIBUTES
     LPVOID lpSecurityDescriptor;
     BOOL bInheritHandle;
 } SECURITY_ATTRIBUTES, *PSECURITY_ATTRIBUTES, *LPSECURITY_ATTRIBUTES;
+
+typedef struct _FILETIME {
+  DWORD dwLowDateTime;
+  DWORD dwHighDateTime;
+} FILETIME, *PFILETIME, *LPFILETIME;
+
+// Emulates the Win32 API call
+uint32_t GetTickCount()
+{
+        struct timespec ts;
+
+        clock_gettime(CLOCK_MONOTONIC, &ts);
+        return (1000 * ts.tv_sec + ts.tv_nsec / 1000000);
+}
 
 #ifdef __cplusplus
 	static pthread_mutex_t mutex_t;
