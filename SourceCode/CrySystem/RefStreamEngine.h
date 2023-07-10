@@ -168,11 +168,15 @@ protected:
 	typedef std::less<CRefReadStreamProxy_AutoPtr> ProxyPtrPredicate;
 	typedef std::deque<CRefReadStreamProxy_AutoPtr, ProxyPtrAllocator > CRefReadStreamProxy_AutoDeque_MT;
 	CRefReadStreamProxy_AutoDeque_MT m_queIOJobs;
+	#ifndef LINUX
 	CCritSection m_csIOJobs;
+	#endif // LINUX
 
 	typedef std::set<CRefReadStreamProxy_AutoPtr, ProxyPtrPredicate, ProxyPtrAllocator> CRefReadStreamProxy_AutoSet_MT;
 	CRefReadStreamProxy_AutoSet_MT m_setIOPending;
+	#ifndef LINUX
 	CCritSection m_csIOPending;
+	#endif // LINUX
 
 	// the event used to signal the worker thread that a new job arrived
 	// the job can be: ask to suspend, ask to read, ask to stop or basically anything that needs attention of the worker thread
@@ -187,7 +191,9 @@ protected:
 	// already finished their operations and need to be removed,
 	// or they need memory allocated from the main thread.
 	CRefReadStreamProxy_AutoDeque_MT m_queIOExecuted;
+	#ifndef LINUX
 	CCritSection m_csIOExecuted;
+	#endif // LINUX
 
 	// the handle to the worker thread, or NULL if single-threaded overlapped IO is used
 	THREAD_HANDLE m_hIOWorker;//THREAD_HANDLE is a typedef to HANDLE under windows
