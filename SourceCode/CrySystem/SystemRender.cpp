@@ -878,6 +878,7 @@ void CSystem::RenderEnd()
 	m_Time.MeasureTime("3RendFlush");
 }
 
+
 //////////////////////////////////////////////////////////////////////////
 void CSystem::UpdateLoadingScreen()
 {

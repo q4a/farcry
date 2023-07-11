@@ -31,7 +31,21 @@
 #include <ShellAPI.h>
 #endif
 
+/*********************************************************************
+ *		_findfirst64 (MSVCRT.@)
+ *
+ * 64-bit version of _findfirst.
+ * Searches a directory for a file or subdirectory with a name that matches a specific name 
+ * (or partial name if wildcards are used).
+ * https://github.com/MathieuTurcotte/findfirst
+ */
 
+/////////////////////////////////////////////////////////////////////////////////
+#ifdef LINUX
+	#include "WinBase.h"
+	//typedef GlobalMemoryStatus(LPMEMORYSTATUS lpmem)
+	#include "findfirst.h"
+#endif
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
@@ -724,9 +738,12 @@ int CScriptObjectSystem::GetEntities(IFunctionHandler *pH)
 	@return [if succeded]the id of the class specified by sClassName [if failed]return nil
 */
 
+
 #if !defined(XBOX) && !defined(PS2) && (defined(WIN32) || defined(LINUX))
 	#if !defined(LINUX)
 		#include <io.h>
+	#else
+		#include <sys/io.h>
 	#endif
 	inline bool Filter(struct __finddata64_t& fd, int nScanMode)
 	{
@@ -765,7 +782,6 @@ int CScriptObjectSystem::GetEntities(IFunctionHandler *pH)
 	}
 #endif
 
-/////////////////////////////////////////////////////////////////////////////////
 int CScriptObjectSystem::ScanDirectory(IFunctionHandler *pH)
 {
 	if (pH->GetParamCount()<1)

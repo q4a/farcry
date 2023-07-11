@@ -25,6 +25,9 @@
 #include "CritSection.h"
 #include "StlUtils.h"
 #include "PakVars.h"
+#ifdef LINUX
+	#include "WinBase.h"
+#endif
 
 extern CMTSafeHeap* g_pSmallHeap;
 extern CMTSafeHeap* g_pBigHeap;
@@ -225,14 +228,18 @@ class CCryPak : public ICryPak
 	// the array of file datas; they are relatively self-contained and can
 	// read and cache the file data on-demand. It's up to the clients
 	// to use caching or access the zips directly
+	#ifndef LINUX
 	CCritSection m_csCachedFiles;
+	#endif
 	typedef CMTSafeAllocator<CCachedFileData*> CachedFileDataAllocator;
 	typedef std::set<CCachedFileData*,CCachedFileDataOrder, CachedFileDataAllocator > CachedFileDataSet;
 	CachedFileDataSet m_setCachedFiles;
 
 	// The F* emulation functions critical sectio: protects all F* functions
 	// that don't have a chance to be called recursively (to avoid deadlocks)
+	#ifndef LINUX
 	CCritSection m_csMain;
+	#endif
 
 	// open zip cache objects that can be reused. They're self-[un]registered
 	// they're sorted by the path and 
@@ -255,7 +262,9 @@ class CCryPak : public ICryPak
 		}
 	};
 	typedef std::vector<PackDesc > ZipArray;
+	#ifndef LINUX
 	CCritSection m_csZips;
+	#endif
 	ZipArray m_arrZips;
 	friend class CCryPakFindData;
 
@@ -324,20 +333,27 @@ public:
 	// returns the path to the archive in which the file was opened
 	virtual const char* GetFileArchivePath (FILE* f);
 
+	#ifndef LINUX
 	CCritSection& GetCachedFileLock() {return m_csCachedFiles;}
+	#endif
 
 	void Register (CCachedFileData* p)
 	{
 		// actually, registration may only happen when the set is already locked, but for generality..
+		#ifndef LINUX
 		AUTO_LOCK(m_csCachedFiles);
+		#endif
 		m_setCachedFiles.insert (p);
 	}
 
 	void Unregister (CCachedFileData* p)
 	{
+		#ifndef LINUX
 		AUTO_LOCK(m_csCachedFiles);
+		#endif
 		m_setCachedFiles.erase (p);
 	}
+	
   // ICryPak interface
   virtual bool Init (const char *szBasePath);
   virtual void Release();

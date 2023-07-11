@@ -14,7 +14,7 @@
 
 
 #define XMLPARSEAPI(type) type
-#include "expat\expat.h"
+#include "Expat/expat.h"
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction

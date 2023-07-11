@@ -21,6 +21,7 @@
 #include <errno.h>
 #include </usr/include/ctype.h>
 #include <cstdint>
+#include <linux/limits.h>
 
 typedef unsigned int				DWORD;
 typedef unsigned int*				LPDWORD;
@@ -282,6 +283,8 @@ uint32_t GetTickCount()
 //Simple definition of Windows HINTERNET type
 typedef LPVOID HINTERNET;
 
+#define _A_SUBDIR 0x10
+
 #ifdef __cplusplus
 	static pthread_mutex_t mutex_t;
 	template<typename T>
@@ -374,5 +377,15 @@ typedef LPVOID HINTERNET;
 	typedef CHandle<int, (int)-1l> HANDLE;
 
 #endif //__cplusplus
+inline char* _fullpath(char* absPath, const char* relPath, size_t maxLength)
+{
+	char path[PATH_MAX];
 
+	if (realpath(relPath, path) == NULL)
+		return NULL;
+	const size_t len = std::min(strlen(path), maxLength - 1);
+	memcpy(absPath, path, len);
+	absPath[len] = 0;
+	return absPath;
+}
 #endif //_CRY_COMMON_LINUX_SPECIFIC_HDR_

@@ -136,6 +136,7 @@ source_group("MatLib" FILES ${MatLib})
 set(Platform_h
     "CryLibrary.h"
     "Linux32Specific.h"
+    "Linux64Specific.h"
     "platform.h"
     "Win32specific.h"
     "Win64specific.h"

@@ -495,7 +495,9 @@ public:
 	IGame								*m_pGame;
 
 	//! Pointer to the download manager
+	#ifndef LINUX
 	CDownloadManager		*m_pDownloadManager;
+	#endif
 
 	CLUADbg *m_pLuaDebugger;
 

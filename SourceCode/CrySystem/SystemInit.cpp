@@ -1367,8 +1367,8 @@ bool CSystem::Init( const SSystemInitParams &params )
 		}
 	}
 
-	m_pDownloadManager = new CDownloadManager;
-	m_pDownloadManager->Create(this);
+	//m_pDownloadManager = new CDownloadManager;
+	//m_pDownloadManager->Create(this);
 
 
 	//////////////////////////////////////////////////////////////////////////

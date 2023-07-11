@@ -66,4 +66,51 @@ typedef long long						LONGLONG;
 typedef	ULONG_PTR						SIZE_T;
 typedef unsigned char				byte;
 
+typedef __int64 __time64_t;
+
+const int64 INVALID_FILE_ATTRIBUTES = -1;
+const int64 FILE_ATTRIBUTE_DIRECTORY = 0x10;
+
+//error code stuff
+//not thread specific, just a coarse implementation for the main thread
+inline DWORD GetLastError() { return errno; }
+inline void SetLastError(DWORD dwErrCode) { errno = dwErrCode; }
+
+//////////////////////////////////////////////////////////////////////////
+#define GENERIC_READ                     (0x80000000L)
+#define GENERIC_WRITE                    (0x40000000L)
+#define GENERIC_EXECUTE                  (0x20000000L)
+#define GENERIC_ALL                      (0x10000000L)
+
+#define CREATE_NEW          1
+#define CREATE_ALWAYS       2
+#define OPEN_EXISTING       3
+#define OPEN_ALWAYS         4
+#define TRUNCATE_EXISTING   5
+
+#define FILE_SHARE_READ                     0x00000001
+#define FILE_SHARE_WRITE                    0x00000002
+#define OPEN_EXISTING                           3
+#define FILE_FLAG_OVERLAPPED            0x40000000
+#define INVALID_FILE_SIZE                   ((DWORD)0xFFFFFFFFl)
+#define FILE_BEGIN                              0
+#define FILE_CURRENT                            1
+#define FILE_END                                    2
+#define ERROR_NO_SYSTEM_RESOURCES 1450L
+#define ERROR_INVALID_USER_BUFFER   1784L
+#define ERROR_NOT_ENOUGH_MEMORY   8L
+#define ERROR_PATH_NOT_FOUND      3L
+#define FILE_FLAG_SEQUENTIAL_SCAN 0x08000000
+
+typedef struct _MEMORYSTATUS {
+  DWORD  dwLength;
+  DWORD  dwMemoryLoad;
+  SIZE_T dwTotalPhys;
+  SIZE_T dwAvailPhys;
+  SIZE_T dwTotalPageFile;
+  SIZE_T dwAvailPageFile;
+  SIZE_T dwTotalVirtual;
+  SIZE_T dwAvailVirtual;
+} MEMORYSTATUS, *LPMEMORYSTATUS;
+
 #endif //_CRY_COMMON_LINUX64_SPECIFIC_HDR_

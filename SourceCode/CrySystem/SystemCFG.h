@@ -2,7 +2,7 @@
 //
 //	Crytek CryENGINE Source code (c) 2002-2004
 // 
-//	File: SystemCfg.h	
+//	File: SystemCFG.h	
 // 
 //	History:
 //	-Jan 22,2004:Created 
