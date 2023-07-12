@@ -274,15 +274,6 @@ typedef struct _FILETIME {
   DWORD dwHighDateTime;
 } FILETIME, *PFILETIME, *LPFILETIME;
 
-// Emulates the Win32 API call
-uint32_t GetTickCount()
-{
-        struct timespec ts;
-
-        clock_gettime(CLOCK_MONOTONIC, &ts);
-        return (1000 * ts.tv_sec + ts.tv_nsec / 1000000);
-}
-
 //Simple definition of Windows HINTERNET type
 typedef LPVOID HINTERNET;
 

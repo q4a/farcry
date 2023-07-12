@@ -322,8 +322,10 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE "CRYSYSTEM_EXPORTS")
 ################################################################################
 # Dependencies
 ################################################################################
-set(ADDITIONAL_LIBRARY_DEPENDENCIES
-    "wininet"
-)
+
+#TODO: Make this toggle later, but for now we are disabling it since we only build for linux
+#set(ADDITIONAL_LIBRARY_DEPENDENCIES
+#    "wininet"
+#)
 target_link_libraries(${PROJECT_NAME} PUBLIC "${ADDITIONAL_LIBRARY_DEPENDENCIES}")
 

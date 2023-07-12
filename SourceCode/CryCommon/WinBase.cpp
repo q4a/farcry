@@ -3306,3 +3306,12 @@ uint64_t __rdtsc(){
     __asm__ __volatile__ ("rdtsc" : "=a" (lo), "=d" (hi));
     return ((uint64_t)hi << 32) | lo;
 }
+
+// Emulates the Win32 API call
+uint32_t GetTickCount()
+{
+        struct timespec ts;
+
+        clock_gettime(CLOCK_MONOTONIC, &ts);
+        return (1000 * ts.tv_sec + ts.tv_nsec / 1000000);
+}

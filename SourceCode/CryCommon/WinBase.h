@@ -71,4 +71,6 @@ HANDLE CreateThread(
 	LPDWORD lpThreadId
 );
 BOOL SystemTimeToFileTime( const SYSTEMTIME *syst, LPFILETIME ft );
+BOOL SetFileAttributes(LPCSTR lpFileName,DWORD dwFileAttributes );
+uint32_t GetTickCount();
 uint64_t __rdtsc();
