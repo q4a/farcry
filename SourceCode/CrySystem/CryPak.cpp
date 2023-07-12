@@ -420,7 +420,7 @@ return (false);
 //////////////////////////////////////////////////////////////////////////
 FILE *CCryPak::FOpen(const char *pName, const char *szMode,char *szFileGamePath,int nLen)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	FILE *fp = NULL;
 	char szFullPathBuf[g_nMaxPath];
 	const char* szFullPath = AdjustFileName(pName, szFullPathBuf, 0);
@@ -440,7 +440,7 @@ FILE *CCryPak::FOpen(const char *pName, const char *szMode,char *szFileGamePath,
 //////////////////////////////////////////////////////////////////////////
 FILE *CCryPak::FOpen(const char *pName, const char *szMode,unsigned nFlags2)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	FILE *fp = NULL;
 	char szFullPathBuf[g_nMaxPath];
 
@@ -624,7 +624,7 @@ CCachedFileDataPtr CCryPak::GetFileData(const char* szName)
 	replaceDoublePathFilename((char*)szName);
 #endif
 	unsigned nNameLen = (unsigned)strlen(szName);
-	//AUTO_LOCK(m_csZips);
+	AUTO_LOCK(m_csZips);
 	// scan through registered pak files and try to find this file
 	for (ZipArray::reverse_iterator itZip = m_arrZips.rbegin(); itZip != m_arrZips.rend(); ++itZip)
 	{
@@ -642,7 +642,7 @@ CCachedFileDataPtr CCryPak::GetFileData(const char* szName)
 			if (pFileEntry)
 			{
 				CCachedFileData Result(NULL, itZip->pZip, pFileEntry);
-				//AUTO_LOCK(m_csCachedFiles);
+				AUTO_LOCK(m_csCachedFiles);
 
 				CachedFileDataSet::iterator it = m_setCachedFiles.find(&Result);
 				if (it != m_setCachedFiles.end())
@@ -665,7 +665,7 @@ CCachedFileDataPtr CCryPak::GetFileData(const char* szName)
 bool CCryPak::HasFileEntry (const char* szPath)
 {
 	unsigned nNameLen = (unsigned)strlen(szPath);
-	//AUTO_LOCK(m_csZips);
+	AUTO_LOCK(m_csZips);
 	// scan through registered pak files and try to find this file
 	for (ZipArray::reverse_iterator itZip = m_arrZips.rbegin(); itZip != m_arrZips.rend(); ++itZip)
 	{
@@ -691,7 +691,7 @@ bool CCryPak::HasFileEntry (const char* szPath)
 
 long CCryPak::FTell(FILE *hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return m_arrOpenFiles[nPseudoFile].FTell();
@@ -724,7 +724,7 @@ FILETIME UnixTimeToFileTime(time_t t)
 // returns the file modification time
 FILETIME CCryPak::GetModificationTime(FILE* hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return m_arrOpenFiles[nPseudoFile].GetModificationTime();
@@ -746,7 +746,7 @@ FILETIME CCryPak::GetModificationTime(FILE* hFile)
 
 unsigned CCryPak::FGetSize(FILE* hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return m_arrOpenFiles[nPseudoFile].GetFileSize();
@@ -762,7 +762,7 @@ unsigned CCryPak::FGetSize(FILE* hFile)
 
 int CCryPak::FFlush(FILE *hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return 0;
@@ -772,7 +772,7 @@ int CCryPak::FFlush(FILE *hFile)
 
 int CCryPak::FSeek(FILE *hFile, long seek, int mode)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return m_arrOpenFiles[nPseudoFile].FSeek(seek, mode);
@@ -782,7 +782,7 @@ int CCryPak::FSeek(FILE *hFile, long seek, int mode)
 
 size_t CCryPak::FWrite(void *data, size_t length, size_t elems, FILE *hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return 0;
@@ -792,7 +792,7 @@ size_t CCryPak::FWrite(void *data, size_t length, size_t elems, FILE *hFile)
 
 size_t CCryPak::FRead(void *pData, size_t nSize, size_t nCount, FILE *hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return m_arrOpenFiles[nPseudoFile].FRead(pData, nSize, nCount, hFile);
@@ -804,7 +804,7 @@ size_t CCryPak::FRead(void *pData, size_t nSize, size_t nCount, FILE *hFile)
 
 int CCryPak::FClose(FILE *hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 	{
@@ -817,7 +817,7 @@ int CCryPak::FClose(FILE *hFile)
 
 int CCryPak::FEof(FILE *hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return m_arrOpenFiles[nPseudoFile].FEof();
@@ -827,7 +827,7 @@ int CCryPak::FEof(FILE *hFile)
 
 int CCryPak::FScanf(FILE *hFile, const char *format, ...)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	va_list arglist;
 	va_start(arglist, format);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
@@ -840,7 +840,7 @@ int CCryPak::FScanf(FILE *hFile, const char *format, ...)
 
 int CCryPak::FPrintf(FILE *hFile, const char *szFormat, ...)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return 0; // we don't support it now
@@ -853,7 +853,7 @@ int CCryPak::FPrintf(FILE *hFile, const char *szFormat, ...)
 
 char *CCryPak::FGets(char *str, int n, FILE *hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return m_arrOpenFiles[nPseudoFile].FGets(str, n);
@@ -863,7 +863,7 @@ char *CCryPak::FGets(char *str, int n, FILE *hFile)
 
 int CCryPak::Getc(FILE *hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return m_arrOpenFiles[nPseudoFile].Getc();
@@ -873,7 +873,7 @@ int CCryPak::Getc(FILE *hFile)
 
 int CCryPak::Ungetc(int c, FILE *hFile)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	INT_PTR nPseudoFile = ((INT_PTR)hFile) - g_nPseudoFileIdxOffset;
 	if ((UINT_PTR)nPseudoFile < m_arrOpenFiles.size())
 		return m_arrOpenFiles[nPseudoFile].Ungetc(c);
@@ -899,7 +899,7 @@ const char *GetExtension (const char *in);
 //////////////////////////////////////////////////////////////////////////
 intptr_t CCryPak::FindFirst(const char *pDir, struct _finddata_t *fd)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	char szFullPathBuf[g_nMaxPath];
 
 	//m_pLog->Log("Scanning %s",pDir);
@@ -934,7 +934,7 @@ intptr_t CCryPak::FindFirst(const char *pDir, struct _finddata_t *fd)
 //////////////////////////////////////////////////////////////////////////
 int CCryPak::FindNext(intptr_t handle, struct _finddata_t *fd)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	//if (m_setFindData.find ((CCryPakFindData*)handle) == m_setFindData.end())
 	//	return -1; // invalid handle
 
@@ -946,7 +946,7 @@ int CCryPak::FindNext(intptr_t handle, struct _finddata_t *fd)
 
 int CCryPak::FindClose(intptr_t handle)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	m_setFindData.erase ((CCryPakFindData*)handle);
 	return 0;
 }
@@ -985,7 +985,7 @@ bool CCryPak::OpenPack(const char *szPath, unsigned nFlags)
 
 bool CCryPak::OpenPackCommon(const char* szBindRoot, const char *szFullPath, unsigned nFlags)
 {
-	//AUTO_LOCK(m_csZips);
+	AUTO_LOCK(m_csZips);
 	{
 		// try to find this - maybe the pack has already been opened
 		for (ZipArray::iterator it = m_arrZips.begin(); it != m_arrZips.end(); ++it)
@@ -1017,7 +1017,7 @@ bool CCryPak::ClosePack(const char* pName, unsigned nFlags)
 {
 	char szZipPathBuf[g_nMaxPath];
 	const char* szZipPath = AdjustFileName(pName, szZipPathBuf, nFlags);
-	//AUTO_LOCK(m_csZips);
+	AUTO_LOCK(m_csZips);
 
 	//if (strstr(szZipPath,"huggy_tweak_scripts"))
 	//	gg=0;
@@ -1359,8 +1359,8 @@ void* CCachedFileData::GetData(bool bRefreshCache)
 
 		// Then, lock it and check whether the data is still not there.
 		// if it's not, allocate memory and unpack the file
-		//CCritSection& csCachedFileDataLock = m_pPak->GetCachedFileLock();
-		//AUTO_LOCK(csCachedFileDataLock);
+		CCritSection& csCachedFileDataLock = m_pPak->GetCachedFileLock();
+		AUTO_LOCK(csCachedFileDataLock);
 		if (!m_pFileData)
 		{
 			m_pFileData = g_pBigHeap->Alloc (m_pFileEntry->desc.lSizeUncompressed, "CCachedFileData::GetData");
@@ -1428,7 +1428,7 @@ void CCryPakFindData::ScanFS(CCryPak*pPak, const char *szDirIn)
 void CCryPakFindData::ScanZips (CCryPak* pPak, const char* szDir)
 {
 	size_t nLen = strlen(szDir);
-	//CAutoLock<CCritSection> __AL_Zips(pPak->m_csZips);
+	CAutoLock<CCritSection> __AL_Zips(pPak->m_csZips);
 	for (CCryPak::ZipArray::iterator it = pPak->m_arrZips.begin(); it != pPak->m_arrZips.end(); ++it)
 	{
 		size_t nBindRootLen = it->strBindRoot.length();
@@ -1528,7 +1528,7 @@ CCryPakFindData::FileDesc::FileDesc ()
 //! According to the specifications in interface ICrySizer
 void CCryPak::GetMemoryStatistics(ICrySizer *pSizer)
 {
-	//AUTO_LOCK(m_csZips);
+	AUTO_LOCK(m_csZips);
 	size_t nSize = sizeof(*this) /*+ m_arrZips.capacity() * sizeof(ZipArray::value_type)*/;
 	for (ZipArray::iterator itZip = m_arrZips.begin(); itZip != m_arrZips.end(); ++itZip)
 		nSize += itZip->sizeofThis();
@@ -1814,7 +1814,7 @@ void CCryPak::RecordFile( const char *szFilename )
 
 void CCryPak::OnMissingFile (const char* szPath)
 {
-	//AUTO_LOCK(m_csMain);
+	AUTO_LOCK(m_csMain);
 	if (m_pPakVars->nLogMissingFiles)
 	{
 		std::pair<MissingFileMap::iterator, bool> insertion = m_mapMissingFiles.insert (MissingFileMap::value_type(szPath,1));
@@ -1846,7 +1846,7 @@ static char* cry_strdup(const char* szSource)
 
 ICryPak::PakInfo* CCryPak::GetPakInfo()
 {
-	//AUTO_LOCK(m_csZips);
+	AUTO_LOCK(m_csZips);
 	PakInfo* pResult = (PakInfo*)malloc (sizeof(PakInfo) + sizeof(PakInfo::Pak)*m_arrZips.size());
 	pResult->numOpenPaks = m_arrZips.size();
 	for (unsigned i = 0; i < m_arrZips.size(); ++i)

@@ -71,6 +71,29 @@ typedef __int64 __time64_t;
 const int64 INVALID_FILE_ATTRIBUTES = -1;
 const int64 FILE_ATTRIBUTE_DIRECTORY = 0x10;
 
+typedef struct _SYSTEMTIME{
+	WORD wYear;
+	WORD wMonth;
+	WORD wDayOfWeek;
+	WORD wDay;
+	WORD wHour;
+	WORD wMinute;
+	WORD wSecond;
+	WORD wMilliseconds;
+} SYSTEMTIME, *PSYSTEMTIME, *LPSYSTEMTIME;
+
+typedef struct _TIME_FIELDS
+{
+	short Year;
+	short Month;
+	short Day;
+	short Hour;
+	short Minute;
+	short Second;
+	short Milliseconds;
+	short Weekday;
+} TIME_FIELDS, *PTIME_FIELDS;
+
 //error code stuff
 //not thread specific, just a coarse implementation for the main thread
 inline DWORD GetLastError() { return errno; }
@@ -112,5 +135,31 @@ typedef struct _MEMORYSTATUS {
   SIZE_T dwTotalVirtual;
   SIZE_T dwAvailVirtual;
 } MEMORYSTATUS, *LPMEMORYSTATUS;
+
+//critical section stuff
+#define pthread_attr_default NULL
+
+typedef pthread_mutex_t CRITICAL_SECTION;
+#ifdef __cplusplus
+inline void InitializeCriticalSection(CRITICAL_SECTION *lpCriticalSection)
+{
+pthread_mutexattr_t pthread_mutexattr_def;
+pthread_mutexattr_settype(&pthread_mutexattr_def, PTHREAD_MUTEX_RECURSIVE_NP);
+pthread_mutex_init(lpCriticalSection, &pthread_mutexattr_def);
+}
+inline void EnterCriticalSection(CRITICAL_SECTION *lpCriticalSection){pthread_mutex_lock(lpCriticalSection);}
+inline void LeaveCriticalSection(CRITICAL_SECTION *lpCriticalSection){pthread_mutex_unlock(lpCriticalSection);}
+inline void DeleteCriticalSection(CRITICAL_SECTION *lpCriticalSection){}
+#else
+static void InitializeCriticalSection(CRITICAL_SECTION *lpCriticalSection)
+{
+pthread_mutexattr_t pthread_mutexattr_def;
+pthread_mutexattr_settype(&pthread_mutexattr_def, PTHREAD_MUTEX_RECURSIVE_NP);
+pthread_mutex_init(lpCriticalSection, &pthread_mutexattr_def);
+}
+static void EnterCriticalSection(CRITICAL_SECTION *lpCriticalSection){pthread_mutex_lock(lpCriticalSection);}
+static void LeaveCriticalSection(CRITICAL_SECTION *lpCriticalSection){pthread_mutex_unlock(lpCriticalSection);}
+static void DeleteCriticalSection(CRITICAL_SECTION *lpCriticalSection){}
+#endif
 
 #endif //_CRY_COMMON_LINUX64_SPECIFIC_HDR_

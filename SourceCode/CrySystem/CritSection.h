@@ -48,8 +48,6 @@ public:
 			}
 };
 
-#ifndef LINUX
-
 /////////////////////////////////////////////////////////////////////////////////////
 // Abstraction of critical section synchronization object. Auto-constructs/destructs
 // the embedded critical section
@@ -91,5 +89,3 @@ private:
 #define AUTO_UNLOCK(csUnlock) CAutoUnlock<CCritSection> __AUl__##csUnlock(csUnlock)
 #define AUTO_UNLOCK_THIS() CAutoUnlock<CCritSection> __AUl__##thisUnlock(*this)
 #endif
-
-#endif //LINUX

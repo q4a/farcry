@@ -11,6 +11,10 @@
 #include "ZipDirCacheFactory.h"
 #include "ZipDirList.h"
 
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
+
 using namespace ZipFile;
 
 ZipDir::CacheFactory::CacheFactory (CMTSafeHeap* pHeap, InitMethodEnum nInitMethod, unsigned nFlags):

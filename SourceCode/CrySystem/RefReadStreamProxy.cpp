@@ -11,6 +11,10 @@
 #include "RefReadStream.h"
 #include "RefReadStreamProxy.h"
 
+#ifdef LINUX 
+	#include <climits>
+#endif
+
 extern ISystem* g_System;
 extern CMTSafeHeap* g_pSmallHeap;
 extern CMTSafeHeap* g_pBigHeap;

@@ -10,6 +10,10 @@
 #include "ZipDirCacheFactory.h"
 #include "ZipDirFindRW.h"
 
+#ifdef LINUX 
+	#include "WinBase.h"
+	#include <unistd.h>
+#endif
 
 // declaration of Z_OK for ZipRawDecompress
 #include "zlib/zlib.h"

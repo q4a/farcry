@@ -11,6 +11,10 @@
 #include <ISystem.h>
 #include <ICryPak.h>
 
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
+
 /**
  ******************************************************************************
  * CXmlNode implementation.

@@ -14,8 +14,6 @@
 ////////////////////////////////////////////////////////////////////////////
 
 
-
-
 #include <CryAssert.h>
 #if !defined(PS3)
 	#include <signal.h>
@@ -53,13 +51,22 @@
 
 #if defined(LINUX)
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <unistd.h>
 #include <utime.h>
 #include <dirent.h>
+#include <findfirst.h>
+#include <string>
 #endif
 
 #undef fopen
 #undef fclose
+
+
+void RemoveCRLF(std::string& str) {
+    str.erase(std::remove(str.begin(), str.end(), '\r'), str.end());
+    str.erase(std::remove(str.begin(), str.end(), '\n'), str.end());
+}
 
 // File I/O compatibility macros
 
@@ -1262,16 +1269,6 @@ int strcmpi( const char *str1, const char *str2 )
 }
 
 //-----------------------------------------other stuff-------------------------------------------------------------------
-typedef struct _MEMORYSTATUS {
-	DWORD dwLength;
-	DWORD dwMemoryLoad;
-	SIZE_T dwTotalPhys;
-	SIZE_T dwAvailPhys;
-	SIZE_T dwTotalPageFile;
-	SIZE_T dwAvailPageFile;
-	SIZE_T dwTotalVirtual;
-	SIZE_T dwAvailVirtual;
-} MEMORYSTATUS, *LPMEMORYSTATUS;
 void GlobalMemoryStatus(LPMEMORYSTATUS lpmem)
 {
 		//not complete implementation
@@ -2461,8 +2458,8 @@ DWORD SetFilePointer
 //////////////////////////////////////////////////////////////////////////
 DWORD GetCurrentThreadId()
 {
-//	CRY_ASSERT_MESSAGE(0, "GetCurrentThreadId not implemented yet");
-//	printf("GetCurrentThreadId not implemented yet properly\n");
+	CRY_ASSERT_MESSAGE(0, "GetCurrentThreadId not implemented yet");
+	printf("GetCurrentThreadId not implemented yet properly\n");
 	return 0;
 }
 
@@ -2587,6 +2584,16 @@ BOOL ReleaseMutex( HANDLE hMutex )
 
 //////////////////////////////////////////////////////////////////////////
 
+const BOOL compareTextFileStrings(const char* cpReadFromFile, const char* cpToCompareWith)
+{
+	const unsigned int len = strlen(cpToCompareWith);
+	const unsigned int lenText = strlen(cpReadFromFile);
+	if(lenText < len)
+		return -1;
+	if(lenText > len + 2/*compensate for line feed, carriage return */)
+		return 1;
+	return memicmp(cpReadFromFile, cpToCompareWith, len);
+}
 
 typedef DWORD (*PTHREAD_START_ROUTINE)( LPVOID lpThreadParameter );
 typedef PTHREAD_START_ROUTINE LPTHREAD_START_ROUTINE;
@@ -2602,10 +2609,29 @@ HANDLE CreateThread
 	LPDWORD lpThreadId
 )
 {
-//TODO: implement
-	CRY_ASSERT_MESSAGE(0, "CreateThread not implemented yet");
-	return 0;
+	pthread_attr_t attr;
+	pthread_attr_init(&attr);
+
+	// Set the stack size if specified
+	if (dwStackSize != 0) {
+		pthread_attr_setstacksize(&attr, dwStackSize);
+	}
+
+	pthread_t thread;
+	pthread_create(&thread, &attr, lpStartAddress, lpParameter);
+
+	// Clean up the attribute object
+	pthread_attr_destroy(&attr);
+
+	if (lpThreadId != NULL) {
+		// Get the thread ID if requested
+		*lpThreadId = thread;
+	}
+
+	return (HANDLE*)thread; //Yeah...
+	//return thread;
 }
+
 
 //////////////////////////////////////////////////////////////////////////
 #if 0
@@ -2846,6 +2872,7 @@ long CryInterlockedDecrement( int volatile *lpAddend )
 }
 
 //////////////////////////////////////////////////////////////////////////
+/* Unused
 long	 CryInterlockedExchangeAdd(long volatile * lpAddend, long Value)
 {
 	//implements atomically: 	long res = *dst; *dst += Value;	return res;
@@ -2861,7 +2888,7 @@ long	 CryInterlockedExchangeAdd(long volatile * lpAddend, long Value)
 		: "eax"
 		);
 	return r;
-}
+}*/
 
 long	CryInterlockedCompareExchange(long volatile * dst, long exchange, long comperand)
 {
@@ -2873,6 +2900,21 @@ long	CryInterlockedCompareExchange(long volatile * dst, long exchange, long comp
 		: [dst] "r" (dst), "m" (*dst), [exchange] "r" (exchange), "a" (comperand)
 		);
 	return r;
+}
+
+static struct timespec start;
+
+static unsigned long timeGetTime(void)
+{
+    struct timespec now;
+    unsigned long ticks;
+
+    clock_gettime(CLOCK_MONOTONIC, &now);
+
+    ticks = (now.tv_sec - start.tv_sec) * 1000 +
+        (now.tv_nsec - start.tv_nsec) / 1000000;
+
+    return ticks;
 }
 #endif//LINUX
 

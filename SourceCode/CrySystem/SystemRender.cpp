@@ -884,7 +884,8 @@ void CSystem::UpdateLoadingScreen()
 {
 	if (!m_bEditor)
 	{
-		if (GetIRenderer()->EF_Query(EFQ_RecurseLevel) <= 0)
+    //This is probably wrong (The int re-type), please fix later if it starts causing pain
+		if ((int)GetIRenderer()->EF_Query(EFQ_RecurseLevel) <= 0)
 		{
 			RenderBegin();
 			GetIConsole()->Draw();

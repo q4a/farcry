@@ -212,6 +212,9 @@ typedef union _LARGE_INTEGER
   long long QuadPart;
 } LARGE_INTEGER;
 
+#define DAYSPERNORMALYEAR  365
+#define DAYSPERLEAPYEAR    366
+#define MONSPERYEAR        12
 
 // stdlib.h stuff
 #define _MAX_DRIVE  3   // max. length of drive component
@@ -362,19 +365,21 @@ typedef LPVOID HINTERNET;
 		const bool operator <	(const CHandle& crHandle)		const{return m_Value < crHandle.m_Value;}
 		HandleType Handle()const{return m_Value;}
 
-	private:
+		typedef void ReferenceType;
+		ReferenceType operator*() const;
+			operator PointerType();
+
 		HandleType m_Value;	//the actual value, remember that file descriptors are ints under linux
 
-		typedef void	ReferenceType;//for compatibility reason to encapsulate a void* as an int
+		//typedef void	ReferenceType;//for compatibility reason to encapsulate a void* as an int
 		//forbid these function which would actually not work on an int
 		PointerType operator->();
-    PointerType operator->() const;
-    ReferenceType operator*();
-    ReferenceType operator*() const;
-		operator PointerType();
+		PointerType operator->() const;
+		ReferenceType operator*();
 	};
 
-	typedef CHandle<int, (int)-1l> HANDLE;
+typedef CHandle<int, (int)-1l> HANDLE;
+extern BOOL SetEvent(HANDLE hEvent);
 
 #endif //__cplusplus
 inline char* _fullpath(char* absPath, const char* relPath, size_t maxLength)

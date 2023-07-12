@@ -43,6 +43,11 @@
 #include "CrySizerStats.h"
 #include "CrySizerImpl.h"
 
+#ifdef LINUX 
+    #include <unistd.h>
+	#include <pwd.h>
+#endif
+
 // this is the list of modules that can be loaded into the game process
 // Each array element contains 2 strings: the name of the module (case-insensitive)
 // and the name of the group the module belongs to
@@ -246,16 +251,32 @@ void CSystem::CollectMemStats (CrySizerImpl* pSizer, MemStatsPurposeEnum nPurpos
 }
 
 //////////////////////////////////////////////////////////////////////////
-const char *CSystem::GetUserName()
+const char* CSystem::GetUserName()
 {
-	static char						szNameBuffer[1024];
-	memset(szNameBuffer, 0, 1024);
+#if defined(WIN32) || defined(WIN64) 
+	static const int iNameBufferSize = 1024;
+	static char szNameBuffer[iNameBufferSize];
+	memset(szNameBuffer, 0, iNameBufferSize);
 
-	DWORD dwSize = 1024;
-
-	::GetUserName(szNameBuffer, &dwSize);
-
+	DWORD dwSize = iNameBufferSize;
+	wchar_t nameW[iNameBufferSize];
+	::GetUserNameW(nameW, &dwSize);
+	cry_strcpy(szNameBuffer, CryStringUtils::WStrToUTF8(nameW));
 	return szNameBuffer;
+#elif defined(LINUX) 
+	static uid_t uid = geteuid();
+	static struct passwd* pw = getpwuid(uid);
+	if (pw)
+	{
+		return  (pw->pw_name);
+	}
+	else
+	{
+		return NULL;
+	}
+#else
+	return "";
+#endif
 }
 
 // refreshes the m_pMemStats if necessary; creates it if it's not created
@@ -882,9 +903,6 @@ void CSystem::Error( const char *format,... )
 	// Dump callstack.
 	DebugCallStack::instance()->LogCallstack();
 #endif
-#ifndef PS2
-  ::OutputDebugString(szBuffer);
-#endif	//PS2
 
 	// try to shutdown renderer (if we crash here - error message will already stay in the log)
 	if(m_pRenderer)

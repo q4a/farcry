@@ -216,6 +216,7 @@ int64 CTimer::GetPerformanceCounterTime()
 	return lNow.QuadPart;
 }
 
+
 //get time from multimedia timer
 /////////////////////////////////////////////////////
 int64 CTimer::GetMMTime()

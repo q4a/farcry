@@ -19,6 +19,7 @@
 #define FINDFIRST_H_
 
 #include <sys/types.h>
+#include <dirent.h>
 #include <stdint.h>
 #include <time.h>
 #include <Linux64Specific.h>
@@ -42,13 +43,39 @@ struct _finddata_t {
 
 typedef struct __finddata64_t
 {
-    unsigned    attrib;
-    __time64_t  time_create;    // -1 for FAT file systems
-    __time64_t  time_access;    // -1 for FAT file systems
-    __time64_t  time_write;
-    __int64     size;
-    char        name[260];
-};
+	//!< atributes set by find request
+	unsigned    int attrib;			//!< attributes, only directory and readonly flag actually set
+	__time64_t	time_create;		//!< creation time, cannot parse under linux, last modification time is used instead (game does nowhere makes decision based on this values)
+	__time64_t	time_access;		//!< last access time
+	__time64_t	time_write;			//!< last modification time
+	__time64_t	size;						//!< file size (for a directory it will be the block size)
+	char        name[256];			//!< file/directory name
+
+private:
+	int									m_LastIndex;					//!< last index for findnext
+	char								m_DirectoryName[260];			//!< directory name, needed when getting file attributes on the fly
+	char								m_ToMatch[260];						//!< pattern to match with
+	DIR*								m_Dir;									//!< directory handle
+	std::vector<string>	m_Entries;						//!< all file entries in the current directories
+public:
+
+	inline __finddata64_t():
+	  attrib(0), time_create(0), time_access(0), time_write(0),
+		size(0), m_LastIndex(-1), m_Dir(NULL)
+	{
+		memset(name, '0', 256);	
+	}
+	~__finddata64_t();
+	
+	//!< copies and retrieves the data for an actual match (to not waste any effort retrioeving data for unused files)
+	void CopyFoundData(const char * rMatchedFileName);
+
+public:
+	//!< global _findfirst64 function using struct above, can't be a member function due to required semantic match
+	friend intptr_t _findfirst64(const char *pFileName, __finddata64_t *pFindData);
+	//!< global _findnext64 function using struct above, can't be a member function due to required semantic match
+	friend int _findnext64(intptr_t last, __finddata64_t *pFindData);
+}__finddata64_t;
 
 /*
  * Returns a unique search handle identifying the file or group of

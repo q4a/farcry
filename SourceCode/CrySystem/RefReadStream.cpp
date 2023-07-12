@@ -24,9 +24,11 @@ CRefReadStream::CRefReadStream (const string& strFileName, CRefStreamEngine* pEn
 // activates: opens the file, gets its size. If failed, returns false
 bool CRefReadStream::Activate()
 {
+	#ifndef LINUX 
 	static CCritSection g_csActivate;
-
+	
 	AUTO_LOCK(g_csActivate);
+	#endif
 
 	m_bOverlapped = m_pEngine->isOverlappedIoEnabled();
 #if !defined(LINUX64)

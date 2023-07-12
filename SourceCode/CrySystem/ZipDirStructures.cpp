@@ -7,6 +7,10 @@
 #include <time.h>
 #include <ISystem.h>
 
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
+
 using namespace ZipFile;
 
 ZipDir::FileEntry::FileEntry(const CDRFileHeader& header)
