@@ -11,7 +11,7 @@
 #include "ZipDirFindRW.h"
 
 #ifdef LINUX 
-	#include "WinBase.h"
+	#include "WinBase.cpp"
 	#include <unistd.h>
 #endif
 

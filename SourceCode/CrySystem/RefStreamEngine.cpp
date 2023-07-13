@@ -13,7 +13,6 @@ extern CMTSafeHeap* g_pSmallHeap;
 extern CMTSafeHeap* g_pBigHeap;
 
 #ifdef LINUX 
-	#import "WinBase.h"
 	#define INFINITE 999999000      /* Very large number */
 #endif
 

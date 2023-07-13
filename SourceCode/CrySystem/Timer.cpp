@@ -36,6 +36,10 @@
 static int64 g_lCurrentTime = 0;
 #endif
 
+#ifdef LINUX 
+	#import "WinBase.cpp"
+#endif
+
 /////////////////////////////////////////////////////
 CTimer::CTimer() 
 {

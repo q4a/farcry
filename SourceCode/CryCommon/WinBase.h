@@ -1,8 +1,6 @@
 //Is this even needed?
 #include <Linux64Specific.h>
 
-#define INVALID_HANDLE_VALUE -1
-
 void RemoveCRLF(std::string& str);
 void GlobalMemoryStatus(LPMEMORYSTATUS lpmem);
 int comparePathNames(const char* cpFirst, const char* cpSecond, const unsigned int len);

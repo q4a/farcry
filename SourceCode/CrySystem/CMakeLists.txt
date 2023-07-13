@@ -282,6 +282,7 @@ LIBRARY_OUTPUT_DIRECTORY_RELWITHDEBINFO "${CMAKE_SOURCE_DIR}/../Bin32"
 target_include_directories(${PROJECT_NAME} PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}"
     "${CMAKE_CURRENT_SOURCE_DIR}/../CryCommon"
+    "${CMAKE_CURRENT_SOURCE_DIR}/CryCommon"
 )
 
 ################################################################################
@@ -327,5 +328,5 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE "CRYSYSTEM_EXPORTS")
 #set(ADDITIONAL_LIBRARY_DEPENDENCIES
 #    "wininet"
 #)
-target_link_libraries(${PROJECT_NAME} PUBLIC "${ADDITIONAL_LIBRARY_DEPENDENCIES}")
+#target_link_libraries(${PROJECT_NAME} PUBLIC "${ADDITIONAL_LIBRARY_DEPENDENCIES}")
 

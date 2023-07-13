@@ -34,7 +34,6 @@
 #ifdef LINUX
 	#include <sys/dir.h>
 	#include <sys/io.h>
-	#include "WinBase.h"
 	#include "findfirst.h"
 #else
 #	include <direct.h>

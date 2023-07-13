@@ -16,7 +16,7 @@
 #include <vector>
 
 #ifdef LINUX
-#include <winbase.h>
+#include <WinBase.cpp>
 #endif
 
 #define BAI_FILE_VERSION 30

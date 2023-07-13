@@ -593,7 +593,9 @@ string FormatWinError(DWORD dwError)
 }
 
 #define MAX_CMDLINE_LEN 256
-#include <crtdbg.h>
+#ifndef LINUX
+	#include <crtdbg.h>
+#endif
 ///////////////////////////////////////////////
 // Load the game DLL and run it
 

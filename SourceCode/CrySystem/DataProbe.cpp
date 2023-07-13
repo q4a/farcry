@@ -22,7 +22,7 @@
 
 #if defined(LINUX)
 	#include <CryLibrary.h>
-	#include <WinBase.h>
+	#include <WinBase.cpp>
 #endif
 
 #include "DataProbe.h"

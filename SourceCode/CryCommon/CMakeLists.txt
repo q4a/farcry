@@ -140,6 +140,7 @@ set(Platform_h
     "platform.h"
     "Win32specific.h"
     "Win64specific.h"
+    "WinBase.cpp"
 )
 source_group("Platform_h" FILES ${Platform_h})
 
@@ -152,4 +153,3 @@ set(ALL_FILES
 )
 
 add_custom_target(${PROJECT_NAME} SOURCES ${ALL_FILES})
-

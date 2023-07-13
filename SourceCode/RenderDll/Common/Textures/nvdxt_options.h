@@ -16,7 +16,7 @@
 #pragma once
 
 #if defined(LINUX)
-	#include "WinBase.h"
+	#include "WinBase.cpp"
 #else
 	#include <windows.h>
 #endif

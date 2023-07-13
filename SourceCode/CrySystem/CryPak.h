@@ -25,8 +25,9 @@
 #include "CritSection.h"
 #include "StlUtils.h"
 #include "PakVars.h"
+
 #ifdef LINUX
-	#include "WinBase.h"
+	#include "WinBase.cpp"
 #endif
 
 extern CMTSafeHeap* g_pSmallHeap;
