@@ -98,6 +98,7 @@ set(Source_Files
     "Timer.cpp"
     "XConsole.cpp"
     "XConsoleVariable.cpp"
+    "../CryCommon/WinBase.cpp"
 )
 source_group("Source Files" FILES ${Source_Files})
 
