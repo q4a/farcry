@@ -23,10 +23,6 @@
 #include <mapi.h>
 #include "mailer.h"
 
-#ifdef LINUX 
-	#include <WinBase.cpp>
-#endif
-
 bool CMailer::SendMessage(const char *subject, 
 													const char *messageBody,
 													const std::vector<const char*> &_recipients, 

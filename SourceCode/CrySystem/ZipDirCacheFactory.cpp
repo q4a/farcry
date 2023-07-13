@@ -12,7 +12,7 @@
 #include "ZipDirList.h"
 
 #ifdef LINUX 
-	#include "WinBase.cpp"
+	#include "WinBase.h"
 #endif
 
 using namespace ZipFile;

@@ -30,10 +30,6 @@
 
 #include "Resource.h"
 
-#ifdef LINUX 
-	#include <WinBase.cpp>
-#endif
-
 #pragma comment(lib, "version.lib")
 
 //! Needs one external of DLL handle.

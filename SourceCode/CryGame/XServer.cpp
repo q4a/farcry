@@ -28,7 +28,7 @@
 #include <IRenderer.h>
 
 #if defined(LINUX)
-	#include "WinBase.cpp"
+	#include "WinBase.h"
 #endif
 
 

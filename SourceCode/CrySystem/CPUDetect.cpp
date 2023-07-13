@@ -9,7 +9,7 @@
 
 #include "StdAfx.h"
 #include "System.h"
-
+#include "WinBase.h"
 
 /* features */
 #define FPU_FLAG  0x0001

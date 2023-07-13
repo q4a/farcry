@@ -15,8 +15,8 @@ include(CMake/Utils.cmake)
 # Additional Global Settings(add specific info there)
 ################################################################################
 include(CMake/GlobalSettingsInclude.cmake OPTIONAL)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -DLINUX -DLINUX64 -fpermissive -w")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -DLINUX -DLINUX64 -fpermissive -w")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLINUX -DLINUX64 -w -fpermissive")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLINUX -DLINUX64 -w -fpermissive")
 
 ################################################################################
 # Use solution folders feature
@@ -28,6 +28,3 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 ################################################################################
 add_subdirectory(CryCommon)
 add_subdirectory(CrySystem)
-
-
-#add_subdirectory(FARCRY)

@@ -42,6 +42,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////
 #ifdef LINUX
+	#include "WinBase.h"
 	//typedef GlobalMemoryStatus(LPMEMORYSTATUS lpmem)
 	#include "findfirst.h"
 #endif

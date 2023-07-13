@@ -18,6 +18,10 @@
 # pragma once
 #endif
 
+#ifdef LINUX
+	#include <WinBase.h>
+#endif
+
 
 //////////////////////////////////////////////////////////////////////
 #include <ITimer.h>						// ITimer

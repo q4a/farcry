@@ -30,7 +30,7 @@
 
 #include <sys/time.h>
 
-#define INVALID_HANDLE_VALUE -1
+
 
 
 
@@ -2634,6 +2634,7 @@ HANDLE CreateThread
 
 
 //////////////////////////////////////////////////////////////////////////
+#if 0
 BOOL SetCurrentDirectory(LPCSTR lpPathName)
 {
   char dir[fopenwrapper_basedir_maxsize + 1];
@@ -2704,8 +2705,9 @@ BOOL SetCurrentDirectory(LPCSTR lpPathName)
 	fopenwrapper_basedir[fopenwrapper_basedir_maxsize - 1] = 0;
 	return TRUE;
 }
+#endif //0
 //////////////////////////////////////////////////////////////////////////
-inline DWORD GetCurrentDirectory( DWORD nBufferLength, char* lpBuffer )
+DWORD GetCurrentDirectory( DWORD nBufferLength, char* lpBuffer )
 {
 	char *p = fopenwrapper_basedir;
 	size_t len;

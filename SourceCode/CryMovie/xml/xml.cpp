@@ -12,7 +12,7 @@
 #include <ICryPak.h>
 
 #ifdef LINUX 
-	#include "WinBase.cpp"
+	#include "WinBase.h"
 #endif
 
 /**

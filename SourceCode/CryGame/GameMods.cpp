@@ -20,7 +20,7 @@
 
 #if defined(LINUX)
 	#include <sys/io.h>
-	#include "WinBase.cpp"
+	#include "WinBase.h"
 #else
 #	include <io.h>
 #endif

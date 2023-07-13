@@ -22,10 +22,6 @@
 #ifdef WIN32
 #include <windows.h>
 
-#ifdef LINUX 
-	#include <WinBase.cpp>
-#endif
-
 // For lua debugger
 HMODULE gDLLHandle = NULL;
 

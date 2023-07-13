@@ -8,7 +8,7 @@
 #include <ISystem.h>
 
 #ifdef LINUX 
-	#include "WinBase.cpp"
+	#include "WinBase.h"
 #endif
 
 using namespace ZipFile;

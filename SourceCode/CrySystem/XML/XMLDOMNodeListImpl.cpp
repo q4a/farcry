@@ -6,7 +6,7 @@
 #include "XMLDOMNodeListImpl.h"
 
 #ifdef LINUX 
-	#include "WinBase.cpp"
+	#include "WinBase.h"
 #endif
 
 //////////////////////////////////////////////////////////////////////
