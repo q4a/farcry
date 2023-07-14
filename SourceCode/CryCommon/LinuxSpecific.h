@@ -22,6 +22,16 @@
 #include </usr/include/ctype.h>
 #include <cstdint>
 #include <linux/limits.h>
+#include <semaphore.h>
+
+struct Event {
+    pthread_mutex_t mutex;
+    pthread_cond_t cond;
+    sem_t semaphore;
+    bool manualReset;
+    bool signaled;
+    char* name;
+};
 
 typedef unsigned int				DWORD;
 typedef unsigned int*				LPDWORD;
@@ -326,51 +336,8 @@ typedef LPVOID HINTERNET;
 
 	typedef enum {INVALID_HANDLE_VALUE = -1l}INVALID_HANDLE_VALUE_ENUM;
 	//for compatibility reason we got to create a class which actually contains an int rather than a void* and make sure it does not get mistreated
-	template <class T, T U>//U is default type for invalid handle value, T the encapsulated handle type to be used instead of void* (as under windows and never linux)
-	class CHandle
-	{
-	public:
-		typedef T			HandleType;
-		typedef void* PointerType;	//for compatibility reason to encapsulate a void* as an int
-
-		static const HandleType sciInvalidHandleValue = U;
-
-		CHandle(const CHandle<T,U>& cHandle) : m_Value(cHandle.m_Value){}
-		CHandle(const HandleType cHandle = U) : m_Value(cHandle){}
-		CHandle(const PointerType cpHandle) : m_Value(reinterpret_cast<HandleType>(cpHandle)){}
-		CHandle(INVALID_HANDLE_VALUE_ENUM) : m_Value(U){}//to be able to use a common value for all InvalidHandle - types
-#if defined(LINUX64)
-		//treat __null tyope also as invalid handle type
-		CHandle(typeof(__null)) : m_Value(U){}//to be able to use a common value for all InvalidHandle - types
-#endif
-		operator HandleType(){return m_Value;}
-		bool operator!() const{return m_Value == sciInvalidHandleValue;}
-		const CHandle& operator =(const CHandle& crHandle){m_Value = crHandle.m_Value;return *this;}
-		const CHandle& operator =(const PointerType cpHandle){m_Value = reinterpret_cast<HandleType>(cpHandle);return *this;}
-		const bool operator ==(const CHandle& crHandle)		const{return m_Value == crHandle.m_Value;}
-		const bool operator ==(const HandleType cHandle)	const{return m_Value == cHandle;}
-		const bool operator ==(const PointerType cpHandle)const{return m_Value == reinterpret_cast<HandleType>(cpHandle);}
-		const bool operator !=(const HandleType cHandle)	const{return m_Value != cHandle;}
-		const bool operator !=(const CHandle& crHandle)		const{return m_Value != crHandle.m_Value;}
-		const bool operator !=(const PointerType cpHandle)const{return m_Value != reinterpret_cast<HandleType>(cpHandle);}
-		const bool operator <	(const CHandle& crHandle)		const{return m_Value < crHandle.m_Value;}
-		HandleType Handle()const{return m_Value;}
-
-		typedef void ReferenceType;
-		ReferenceType operator*() const;
-			operator PointerType();
-
-		HandleType m_Value;	//the actual value, remember that file descriptors are ints under linux
-
-		//typedef void	ReferenceType;//for compatibility reason to encapsulate a void* as an int
-		//forbid these function which would actually not work on an int
-		PointerType operator->();
-		PointerType operator->() const;
-		ReferenceType operator*();
-	};
-
-typedef CHandle<int, (int)-1l> HANDLE;
-extern BOOL SetEvent(HANDLE hEvent);
+	
+	typedef pthread_t HANDLE;
 
 #endif //__cplusplus
 inline char* _fullpath(char* absPath, const char* relPath, size_t maxLength)

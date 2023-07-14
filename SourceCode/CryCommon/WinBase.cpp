@@ -2470,6 +2470,7 @@ DWORD GetCurrentThreadId()
 }
 
 //////////////////////////////////////////////////////////////////////////
+/*
 HANDLE CreateEvent
 (
 	LPSECURITY_ATTRIBUTES lpEventAttributes,
@@ -2481,7 +2482,34 @@ HANDLE CreateEvent
 //TODO: implement
 	CRY_ASSERT_MESSAGE(0, "CreateEvent not implemented yet");
 	return 0;
+}*/
+
+Event* CreateEvent(pthread_mutexattr_t* mutexAttr, bool manualReset, bool initialState, const char* name) {
+    Event* event = new Event;
+    
+    // Initialize mutex
+    pthread_mutex_init(&event->mutex, mutexAttr);
+    
+    // Initialize condition variable
+    pthread_cond_init(&event->cond, nullptr);
+    
+    // Initialize semaphore
+    sem_init(&event->semaphore, 0, 0);
+    
+    event->manualReset = manualReset;
+    event->signaled = initialState;
+    
+    // Set event name
+    if (name != nullptr) {
+        event->name = new char[strlen(name) + 1];
+        strcpy(event->name, name);
+    } else {
+        event->name = nullptr;
+    }
+    
+    return event;
 }
+
 
 //////////////////////////////////////////////////////////////////////////
 DWORD Sleep(DWORD dwMilliseconds)
@@ -2543,21 +2571,66 @@ DWORD WaitForMultipleObjectsEx(
 }
 #endif
 
+#define INFINITE 999999000      /* Very large number */
+
 //////////////////////////////////////////////////////////////////////////
-DWORD WaitForSingleObject( HANDLE hHandle,DWORD dwMilliseconds )
-{
-//TODO: implement
-	CRY_ASSERT_MESSAGE(0, "WaitForSingleObject not implemented yet");
-	return 0;
+bool WaitForSingleObject(Event* event, unsigned long milliseconds) {
+    pthread_mutex_lock(&event->mutex);
+
+    if (milliseconds == 0 || milliseconds == INFINITE) {
+        // No timeout, wait until event is signaled
+        while (!event->signaled) {
+            if (event->manualReset) {
+                pthread_cond_wait(&event->cond, &event->mutex);
+            } else {
+                sem_wait(&event->semaphore);
+            }
+        }
+    } else {
+        // Timeout specified, wait until event is signaled or timeout expires
+        struct timespec ts;
+        clock_gettime(CLOCK_REALTIME, &ts);
+        ts.tv_sec += milliseconds / 1000;
+        ts.tv_nsec += (milliseconds % 1000) * 1000000;
+
+        while (!event->signaled) {
+            if (event->manualReset) {
+                int result = pthread_cond_timedwait(&event->cond, &event->mutex, &ts);
+                if (result == ETIMEDOUT)
+                    break;
+            } else {
+                struct timespec remaining;
+                if (sem_timedwait(&event->semaphore, &ts) == -1 && errno == ETIMEDOUT)
+                    break;
+            }
+        }
+    }
+
+    // Reset event state if manual reset
+    if (event->manualReset) {
+        event->signaled = false;
+    }
+
+    bool result = event->signaled;
+    pthread_mutex_unlock(&event->mutex);
+    return result;
 }
 
 //////////////////////////////////////////////////////////////////////////
-BOOL SetEvent( HANDLE hEvent )
-{
-//TODO: implement
-	pthread_cond_signal(hEvent);
-	CRY_ASSERT_MESSAGE(0, "SetEvent not implemented yet");
-	return TRUE;
+void SetEvent(Event* event) {
+    pthread_mutex_lock(&event->mutex);
+    
+    // Set event state
+    event->signaled = true;
+    
+    // Signal waiting threads
+    if (event->manualReset) {
+        pthread_cond_broadcast(&event->cond);
+    } else {
+        sem_post(&event->semaphore);
+    }
+    
+    pthread_mutex_unlock(&event->mutex);
 }
 
 //////////////////////////////////////////////////////////////////////////

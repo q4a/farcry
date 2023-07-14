@@ -50,18 +50,13 @@ DWORD SetFilePointer(
 	DWORD dwMoveMethod
 );
 DWORD GetCurrentThreadId();
-HANDLE CreateEvent(
-	LPSECURITY_ATTRIBUTES lpEventAttributes,
-	BOOL bManualReset,
-	BOOL bInitialState,
-	LPCSTR lpName
-);
+Event* CreateEvent(pthread_mutexattr_t* mutexAttr, bool manualReset, bool initialState, const char* name);
 typedef DWORD (*PTHREAD_START_ROUTINE)( LPVOID lpThreadParameter );
 typedef PTHREAD_START_ROUTINE LPTHREAD_START_ROUTINE;
 DWORD WaitForSingleObjectEx(HANDLE hHandle,	DWORD dwMilliseconds,	BOOL bAlertable);
-DWORD WaitForSingleObject( HANDLE hHandle,DWORD dwMilliseconds );
+bool WaitForSingleObject(Event* event, unsigned long milliseconds);
 const BOOL compareTextFileStrings(const char* cpReadFromFile, const char* cpToCompareWith);
-BOOL SetEvent( HANDLE hEvent );
+void SetEvent(Event* event);
 HANDLE CreateThread(
 	LPSECURITY_ATTRIBUTES lpThreadAttributes,
 	SIZE_T dwStackSize,

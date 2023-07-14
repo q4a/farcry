@@ -55,12 +55,10 @@ CRefStreamEngine::CRefStreamEngine (CCryPak* pPak, IMiniLog* pLog, unsigned useW
 	m_dwMask=0;
 
 	//TODO: Re-implement this later if possible
-	#ifndef LINUX
 	m_hIOJob = CreateEvent (NULL, FALSE, FALSE, NULL);
 	m_hIOExecuted = CreateEvent (NULL, TRUE, FALSE, NULL);
 	m_hDummyEvent = CreateEvent (NULL, FALSE, FALSE, NULL);
 	memset (m_nSectorSizes, 0, sizeof(m_nSectorSizes));
-	#endif
 
 	if (useWorkerThreads)
 		StartWorkerThread();
