@@ -39,7 +39,8 @@ CRefStreamEngine::CRefStreamEngine (CCryPak* pPak, IMiniLog* pLog, unsigned useW
 	m_bEnableOverlapped (bOverlappedIO),
 	m_nSuspendCallbackTimeQuota(0)
 {
-	m_dwMainThreadId = GetCurrentThreadId();
+	//TODO: Implement this code properly
+	//m_dwMainThreadId = GetCurrentThreadId();
 	CheckOSCaps();
 
 	if (!QueryPerformanceFrequency((LARGE_INTEGER*)&m_nPerfFreq))

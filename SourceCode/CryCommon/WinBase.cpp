@@ -269,6 +269,12 @@ void RemoveCRLF(std::string& str) {
 
 
 #if defined LINUX
+	//Shamelessly taken from https://github.com/MergHQ/CRYENGINE/blob/8b63f61c6bb186fbee254b793775856468df47c5/Code/Launcher/LinuxLauncher/Main.cpp#L106
+	#include <sys/param.h>
+	size_t fopenwrapper_basedir_maxsize = MAXPATHLEN;
+	namespace { char fopenwrapper_basedir_buffer[MAXPATHLEN] = ""; }
+	char * fopenwrapper_basedir = fopenwrapper_basedir_buffer;
+	bool fopenwrapper_trace_fopen = false;
 	extern size_t __attribute__((visibility("default"))) fopenwrapper_basedir_maxsize;
 	extern char * fopenwrapper_basedir __attribute__((visibility("default")));
 	extern bool __attribute__((visibility("default"))) fopenwrapper_trace_fopen;
@@ -2549,6 +2555,7 @@ DWORD WaitForSingleObject( HANDLE hHandle,DWORD dwMilliseconds )
 BOOL SetEvent( HANDLE hEvent )
 {
 //TODO: implement
+	pthread_cond_signal(hEvent);
 	CRY_ASSERT_MESSAGE(0, "SetEvent not implemented yet");
 	return TRUE;
 }
