@@ -1,7 +1,8 @@
-Log Started at Fri Jul 14 23:09:13 2023
+Log Started at Sat Jul 15 00:56:53 2023
 FileVersion: 1.1.1.1
 ProductVersion: 1.1.1.1
 OS User name: 'paul'
 File System Initialization
 ERROR: Cannot transform file name *.cpk to absolute path, resorting to desparate measures!
 Stream Engine Initialization
+Script System Initialization

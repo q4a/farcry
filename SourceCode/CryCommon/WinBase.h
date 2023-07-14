@@ -53,7 +53,7 @@ DWORD GetCurrentThreadId();
 Event* CreateEvent(pthread_mutexattr_t* mutexAttr, bool manualReset, bool initialState, const char* name);
 typedef DWORD (*PTHREAD_START_ROUTINE)( LPVOID lpThreadParameter );
 typedef PTHREAD_START_ROUTINE LPTHREAD_START_ROUTINE;
-DWORD WaitForSingleObjectEx(HANDLE hHandle,	DWORD dwMilliseconds,	BOOL bAlertable);
+int WaitForSingleObjectEx(Event* event, unsigned long milliseconds, bool alertable);
 bool WaitForSingleObject(Event* event, unsigned long milliseconds);
 const BOOL compareTextFileStrings(const char* cpReadFromFile, const char* cpToCompareWith);
 void SetEvent(Event* event);

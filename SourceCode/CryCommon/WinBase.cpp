@@ -2550,11 +2550,61 @@ DWORD SleepEx( DWORD dwMilliseconds,BOOL bAlertable )
 }
 
 //////////////////////////////////////////////////////////////////////////
-DWORD WaitForSingleObjectEx(HANDLE hHandle,	DWORD dwMilliseconds,	BOOL bAlertable)
+/*DWORD WaitForSingleObjectEx(HANDLE hHandle,	DWORD dwMilliseconds,	BOOL bAlertable)
 {
 //TODO: implement
 	CRY_ASSERT_MESSAGE(0, "WaitForSingleObjectEx not implemented yet");
 	return 0;
+}*/
+
+int WaitForSingleObjectEx(Event* event, unsigned long milliseconds, bool alertable) {
+    pthread_mutex_lock(&event->mutex);
+
+    if (milliseconds == 0) {
+        // No timeout, wait until event is signaled
+        while (!event->signaled) {
+            if (event->manualReset) {
+                pthread_cond_wait(&event->cond, &event->mutex);
+            } else {
+                sem_wait(&event->semaphore);
+            }
+        }
+    } else {
+        // Timeout specified, wait until event is signaled or timeout expires
+        struct timespec ts;
+        struct timeval now;
+        gettimeofday(&now, nullptr);
+        ts.tv_sec = now.tv_sec + milliseconds / 1000;
+        ts.tv_nsec = (now.tv_usec + (milliseconds % 1000) * 1000) * 1000;
+        if (ts.tv_nsec >= 1000000000) {
+            ts.tv_sec++;
+            ts.tv_nsec -= 1000000000;
+        }
+
+        while (!event->signaled) {
+            if (event->manualReset) {
+                if (alertable) {
+                    // TODO: Implement alertable waits using signal handling or other mechanisms
+                    // This example assumes non-alertable waits for simplicity
+                    pthread_cond_timedwait(&event->cond, &event->mutex, &ts);
+                } else {
+                    pthread_cond_timedwait(&event->cond, &event->mutex, &ts);
+                }
+            } else {
+                struct timespec remaining;
+                if (sem_timedwait(&event->semaphore, &ts) == -1 && errno == ETIMEDOUT)
+                    break;
+            }
+        }
+    }
+
+    // Reset event state if manual reset
+    if (event->manualReset) {
+        event->signaled = false;
+    }
+
+    pthread_mutex_unlock(&event->mutex);
+    return event->signaled ? 0 : 0x102;  // 0x102 represents WAIT_TIMEOUT
 }
 
 #if 0
@@ -2708,8 +2758,7 @@ HANDLE CreateThread
 		*lpThreadId = thread;
 	}
 
-	return (HANDLE*)thread; //Yeah...
-	//return thread;
+	return thread;
 }
 
 

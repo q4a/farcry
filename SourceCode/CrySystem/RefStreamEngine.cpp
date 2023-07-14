@@ -61,6 +61,7 @@ CRefStreamEngine::CRefStreamEngine (CCryPak* pPak, IMiniLog* pLog, unsigned useW
 	memset (m_nSectorSizes, 0, sizeof(m_nSectorSizes));
 
 	if (useWorkerThreads)
+		bool m_bStopIOWorker = true;
 		StartWorkerThread();
 }
 
@@ -596,7 +597,7 @@ unsigned CRefStreamEngine::GetDriveSectorSize (char cDrive)
 
 void CRefStreamEngine::StopWorkerThread()
 {
-	if (m_hIOWorker)
+	if (m_hIOWorker != (unsigned char *)-1)
 	{
 		m_bStopIOWorker = true;
 		SetEvent(m_hIOJob);
