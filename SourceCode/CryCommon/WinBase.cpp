@@ -62,6 +62,8 @@
 #undef fopen
 #undef fclose
 
+const int64 INVALID_FILE_ATTRIBUTES = -1;
+const int64 FILE_ATTRIBUTE_DIRECTORY = 0x10;
 
 void RemoveCRLF(std::string& str) {
     str.erase(std::remove(str.begin(), str.end(), '\r'), str.end());
@@ -95,11 +97,10 @@ void RemoveCRLF(std::string& str) {
 
 
 
-
-
-
-
-
+void OutputDebugString(const char* message)
+{
+    fprintf(stderr, "%s", message);
+}
 
 
 

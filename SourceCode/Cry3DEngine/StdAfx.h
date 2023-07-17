@@ -183,7 +183,7 @@ struct IEntityRender;
 #include "list2.h"
 #include "terrain.h"
 #include "cvars.h"
-#include "crysizer.h"
+#include "CrySizer.h"
 #include "StlUtils.h"
 
 inline float L1Distance2D(const Vec3 &v0, const Vec3 &v1)	{	return max(Ffabs(v0.x-v1.x),Ffabs(v0.y-v1.y));	}	

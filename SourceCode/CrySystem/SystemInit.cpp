@@ -784,7 +784,7 @@ bool CSystem::InitScriptSystem()
 {
 #ifndef _XBOX
 #if defined(LINUX)
-	m_dll.hScript = LoadDLL("cryscriptsystem.so");
+	m_dll.hScript = dlopen("libCryScriptSystem.so", RTLD_LAZY);
 #else
 	m_dll.hScript = LoadDLL("CryScriptSystem.dll");
 #endif

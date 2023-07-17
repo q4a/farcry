@@ -68,9 +68,6 @@ typedef unsigned char				byte;
 
 typedef __int64 __time64_t;
 
-const int64 INVALID_FILE_ATTRIBUTES = -1;
-const int64 FILE_ATTRIBUTE_DIRECTORY = 0x10;
-
 typedef struct _SYSTEMTIME{
 	WORD wYear;
 	WORD wMonth;

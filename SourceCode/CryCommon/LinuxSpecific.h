@@ -20,7 +20,10 @@
 #include <string.h>
 #include <errno.h>
 #include </usr/include/ctype.h>
-#include <cstdint>
+//#include <cstdint>
+//#include <stdlib.h>
+#include <stdbool.h>
+//#include <algorithm>
 #include <linux/limits.h>
 #include <semaphore.h>
 
@@ -340,15 +343,4 @@ typedef LPVOID HINTERNET;
 	typedef pthread_t HANDLE;
 
 #endif //__cplusplus
-inline char* _fullpath(char* absPath, const char* relPath, size_t maxLength)
-{
-	char path[PATH_MAX];
-
-	if (realpath(relPath, path) == NULL)
-		return NULL;
-	const size_t len = std::min(strlen(path), maxLength - 1);
-	memcpy(absPath, path, len);
-	absPath[len] = 0;
-	return absPath;
-}
 #endif //_CRY_COMMON_LINUX_SPECIFIC_HDR_

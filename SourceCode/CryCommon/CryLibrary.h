@@ -53,6 +53,7 @@
 	// for compatibility with code written for windows
 	#define CrySharedLibraySupported true
 	#define CrySharedLibrayExtension ".so"
+	#define CryLoadLibrary dlopen
 	#define CryGetProcAddress(libHandle, procName) ::dlsym(libHandle, procName)
 	#define CryFreeLibrary(libHandle) ::dlclose(libHandle)
 

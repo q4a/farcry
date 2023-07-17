@@ -1,8 +1,12 @@
 //Is this even needed?
 #include <Linux64Specific.h>
 
-#define INVALID_HANDLE_VALUE -1
+#ifndef INVALID_HANDLE_VALUE
+	#define INVALID_HANDLE_VALUE -1
+#endif
 
+#define DebugBreak __builtin_trap
+void OutputDebugString(const char* message);
 void RemoveCRLF(std::string& str);
 void GlobalMemoryStatus(LPMEMORYSTATUS lpmem);
 int comparePathNames(const char* cpFirst, const char* cpSecond, const unsigned int len);
@@ -55,6 +59,7 @@ typedef DWORD (*PTHREAD_START_ROUTINE)( LPVOID lpThreadParameter );
 typedef PTHREAD_START_ROUTINE LPTHREAD_START_ROUTINE;
 int WaitForSingleObjectEx(Event* event, unsigned long milliseconds, bool alertable);
 bool WaitForSingleObject(Event* event, unsigned long milliseconds);
+//inline char* _fullpath(char* absPath, const char* relPath, size_t maxLength);
 const BOOL compareTextFileStrings(const char* cpReadFromFile, const char* cpToCompareWith);
 void SetEvent(Event* event);
 HANDLE CreateThread(

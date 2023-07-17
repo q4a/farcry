@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include <crysizer.h>
+#include <CrySizer.h>
 #include "CAISystem.h"
 #include "Puppet.h"
 #include "AIVehicle.h"

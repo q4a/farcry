@@ -18,6 +18,7 @@
 #include <StringUtils.h>
 
 #include <stdio.h>
+#include "WinBase.h"
 
 //! Section in rc.ini file for common settings.
 #define COMMON_SECTION "Common"

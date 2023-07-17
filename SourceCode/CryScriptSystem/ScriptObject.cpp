@@ -40,6 +40,10 @@
 #define GET_FUNCTION lua_rawget
 #define SET_FUNCTION lua_rawset
 
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
+
 inline int CScriptObject::GetThisRef()
 {
 	if (m_bDeleted)

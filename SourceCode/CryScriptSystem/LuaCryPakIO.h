@@ -2,6 +2,8 @@
 #ifndef LUACRYPAK_H
 #define LUACRYPAK_H
 
+#include <stdio.h>
+
 //////////////////////////////////////////////////////////////////////////
 // really annoying since the LUA library can't link any C++ code...
 

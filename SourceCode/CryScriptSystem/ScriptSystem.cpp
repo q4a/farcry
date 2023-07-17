@@ -31,7 +31,7 @@ extern "C"
 #define new DEBUG_CLIENTBLOCK
 #endif
 
-#include "LuaCryPakIo.h"
+#include "LuaCryPakIO.h"
 
 //#ifndef WIN64 // experimental
 #define USE_RAW_CALL
@@ -66,6 +66,11 @@ sprintf(sTemp, "STACK=%d\n", __nStack); \
 #define BEGIN_CHECK_STACK
 #define END_CHECK_STACK
 
+#endif
+
+#ifdef LINUX 
+	#import "WinBase.h"
+	#define _strlwr strlwr
 #endif
 
 

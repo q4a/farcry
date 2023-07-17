@@ -7,7 +7,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "StdAfx.h"
-#include <crysizer.h>
+#include <CrySizer.h>
 #include "Game.h" 
 #include "TagPoint.h"
 #include "XSurfaceMgr.h"

@@ -1,4 +1,4 @@
-Log Started at Sat Jul 15 00:56:53 2023
+Log Started at Mon Jul 17 21:01:12 2023
 FileVersion: 1.1.1.1
 ProductVersion: 1.1.1.1
 OS User name: 'paul'
@@ -6,3 +6,6 @@ File System Initialization
 ERROR: Cannot transform file name *.cpk to absolute path, resorting to desparate measures!
 Stream Engine Initialization
 Script System Initialization
+Loading system configuration
+Loading system configuration
+ERROR: Cannot transform file name fcdata\localized\english.pak to absolute path, resorting to desparate measures!

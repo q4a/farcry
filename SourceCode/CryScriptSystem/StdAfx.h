@@ -39,14 +39,16 @@
 #include <xtl.h>
 #endif
 
-#ifdef PS2
-#include "iostream.h"
+#if defined(PS2) || defined(LINUX)
 //wrapper for VC specific function
 inline void itoa(int n, char *str, int basen)
 {
  	sprintf(str,"%d", n);
 }
-  
+#endif
+
+#ifdef PS2
+#include "iostream.h"
 inline char *_strlwr(const char *str)
 {
     return PS2strlwr(str);

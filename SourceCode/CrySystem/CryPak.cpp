@@ -32,6 +32,8 @@
 #endif
 
 #ifdef LINUX
+	const int64 INVALID_FILE_ATTRIBUTES = -1;
+	const int64 FILE_ATTRIBUTE_DIRECTORY = 0x10;
 	#include <sys/dir.h>
 	#include <sys/io.h>
 	#include "WinBase.h"
@@ -202,6 +204,19 @@ char* CCryPak::BeautifyPath(char* dst)
 	}
 	*q = '\0';
 	return q;
+}
+
+#import <algorithm>
+inline char* _fullpath(char* absPath, const char* relPath, size_t maxLength)
+{
+	char path[PATH_MAX];
+
+	if (realpath(relPath, path) == NULL)
+		return NULL;
+	const size_t len = std::min(strlen(path), maxLength - 1);
+	memcpy(absPath, path, len);
+	absPath[len] = 0;
+	return absPath;
 }
 
 //////////////////////////////////////////////////////////////////////////
