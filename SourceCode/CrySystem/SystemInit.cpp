@@ -57,16 +57,16 @@ extern HMODULE gDLLHandle;
 //////////////////////////////////////////////////////////////////////////
 
 #if defined(LINUX)
-#		define DLL_SOUND				"crysoundsystem.so"
-#		define DLL_NETWORK			"crynetwork.so"
-#		define DLL_ENTITYSYSTEM	"cryentitysystem.so"
-#		define DLL_INPUT				"cryinput.so"
-#		define DLL_PHYSICS			"cryphysics.so"
-#		define DLL_MOVIE				"crymovie.so"
-#		define DLL_AI						"cryaisystem.so"
-#		define DLL_FONT					"cryfont.so"
-#		define DLL_3DENGINE			"cry3dengine.so"
-#		define DLL_NULLRENDERER	"xrendernull.so"
+#		define DLL_SOUND				"libCrySoundSystem.so"
+#		define DLL_NETWORK			"libCryNetwork.so"
+#		define DLL_ENTITYSYSTEM	"libCryEntitySystem.so"
+#		define DLL_INPUT				"libCryInput.so"
+#		define DLL_PHYSICS			"libCryPhysics.so"
+#		define DLL_MOVIE				"libCryMovie.so"
+#		define DLL_AI						"libCryAISystem.so"
+#		define DLL_FONT					"libCryFont.so"
+#		define DLL_3DENGINE			"libCry3DEngine.so"
+#		define DLL_NULLRENDERER	"libxrendernull.so"
 #else
 #	define DLL_SOUND				"CrySoundSystem.dll"
 #	define DLL_NETWORK			"CryNetwork.dll"

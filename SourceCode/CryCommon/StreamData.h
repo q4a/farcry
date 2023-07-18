@@ -5,7 +5,7 @@
 #include "IStreamEngine.h"			// IStreamEngine
 
 #if defined(LINUX)
-//	#include "stream.h"
+//	#include "Stream.h"
 #endif
 
 // usable:

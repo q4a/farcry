@@ -1,6 +1,8 @@
 #ifndef CRYLIBRARY_H__
 #define CRYLIBRARY_H__
 
+#include "ISystem.h"
+
 /*!
 	CryLibrary
 	
@@ -79,10 +81,10 @@
 		if(cAppend)
 			t.replace(t.size()-3, c.size(), c.c_str());
 		newLibName += t;
-		printf("loading library  %s...\n",newLibName.c_str());
 #else
 		newLibName += libName;
 #endif
+		CryLogAlways("loading library  %s...\n",newLibName.c_str());
 		return ::dlopen(newLibName.c_str(), cLoadLazy?(RTLD_LAZY | RTLD_GLOBAL):(RTLD_NOW | RTLD_GLOBAL));
 	}
 

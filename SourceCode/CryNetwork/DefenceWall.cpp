@@ -23,6 +23,11 @@
 
 #include "ICryPak.h"
 
+#ifdef LINUX 
+	#include <algorithm>
+	#include "WinBase.h"
+#endif
+
 //#define LOGEVENTS							// don't use in public release
 
 enum CHEAT_PROTECTION_LEVEL {

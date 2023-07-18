@@ -60,6 +60,8 @@ typedef PTHREAD_START_ROUTINE LPTHREAD_START_ROUTINE;
 int WaitForSingleObjectEx(Event* event, unsigned long milliseconds, bool alertable);
 bool WaitForSingleObject(Event* event, unsigned long milliseconds);
 //inline char* _fullpath(char* absPath, const char* relPath, size_t maxLength);
+void _splitpath(const char* inpath, char * drv, char * dir, char* fname, char * ext );
+void _makepath(char * path, const char * drive, const char *dir, const char * filename, const char * ext);
 const BOOL compareTextFileStrings(const char* cpReadFromFile, const char* cpToCompareWith);
 void SetEvent(Event* event);
 HANDLE CreateThread(

@@ -1,4 +1,4 @@
-Log Started at Tue Jul 18 16:25:10 2023
+Log Started at Tue Jul 18 16:57:15 2023
 FileVersion: 1.1.1.1
 ProductVersion: 1.1.1.1
 
@@ -8,7 +8,7 @@ Number of system processors: 12
 
 CPU      : GenuineIntel Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
 FPU      : present
-CPU speed: 1000 MHz
+CPU speed: 1600 MHz
 MMX      : present
 SSE      : present
 3DNow!   : absent

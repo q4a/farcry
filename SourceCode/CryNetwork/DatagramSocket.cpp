@@ -23,6 +23,13 @@ static char THIS_FILE[] = __FILE__;
 #define new DEBUG_CLIENTBLOCK
 #endif
 
+#ifdef LINUX 
+	#include <fcntl.h>
+	#include <unistd.h>
+	#include "WinBase.h"
+	int WSAGetLastError() {return -1;}
+#endif
+
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
@@ -31,7 +38,7 @@ static char THIS_FILE[] = __FILE__;
 NRESULT CDatagramSocket::Create(SocketType st)
 {
 	int nErr = 0;
-	m_nStartTick=::GetTickCount();
+	m_nStartTick=GetTickCount();
 #if defined(LINUX)
 	if ((m_hSocket = socket(AF_INET, SOCK_DGRAM, 0)) < 0) 
 #else
@@ -69,7 +76,11 @@ void CDatagramSocket::Close()
 #endif
 	shutdown(m_hSocket, 0x00);
 	// should be chnaged for BSD socket close() instead closesocket()
-	closesocket(m_hSocket);
+	#ifdef LINUX 
+		close(m_hSocket);
+	#else 
+		closesocket(m_hSocket);
+	#endif
 	m_hSocket = INVALID_SOCKET;
 }
 
@@ -266,7 +277,7 @@ NRESULT CDatagramSocket::Send(BYTE *pBuffer, int nLenBytes, CIPAddress *saAddres
 		return MAKE_NRESULT(NET_FAIL, NET_FACILITY_SOCKET, nErr);
 	}
 	/// compute the bandwitdh///////////////////////
-	if ((::GetTickCount() - m_nStartTick)>1000)
+	if ((GetTickCount() - m_nStartTick)>1000)
 		ComputeBandwidth();
 
 	m_nSentBytesInThisSec += nLenBytes;
@@ -324,7 +335,7 @@ NRESULT CDatagramSocket::Receive(unsigned char *pBuf/*[MAX_UDP_PACKET_SIZE]*/, i
 	}
 	nRecvBytes = nRetValue;
 	/// compute the bandwith///////////////////////
-	if ((::GetTickCount() - m_nStartTick)>1000)
+	if ((GetTickCount() - m_nStartTick)>1000)
 	{
 		ComputeBandwidth();
 	}
@@ -375,7 +386,7 @@ void CDatagramSocket::ComputeBandwidth()
 	m_nOutgoingPacketsPerSec = m_nSentPacketsInThisSec;
 	m_nIncomingPacketsPerSec = m_nReceivedPacketsInThisSec;
 
-	m_nStartTick=::GetTickCount();
+	m_nStartTick=GetTickCount();
 
 	m_nSentBytesInThisSec = 0;
 	m_nReceivedBytesInThisSec = 0;
