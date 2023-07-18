@@ -2,7 +2,7 @@
 #define _CRY_MEMORY_MANAGER_H_
 
 #include <malloc.h>
-#include <platform.h>
+#include "platform.h"
 #include <stdlib.h>
 
 #ifdef WIN32

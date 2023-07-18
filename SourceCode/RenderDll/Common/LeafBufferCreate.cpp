@@ -1110,7 +1110,7 @@ bool CLeafBuffer::CreateBuffer( struct VertexBufferSource* pSource )
 	return false;
 }
 
-#include "NvTriStrip/NVTriStrip.h"
+#include "NvTriStrip/NvTriStrip.h"
 
 void CLeafBuffer::StripifyMesh(int StripType)
 {

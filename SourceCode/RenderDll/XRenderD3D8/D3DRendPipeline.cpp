@@ -12,7 +12,7 @@
 #include "../common\shadow_renderer.h"
 #include "D3DPShaders.h"
 #include "D3DCGVProgram.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 #include "CryHeaders.h"
 
 //============================================================================================
@@ -2423,7 +2423,7 @@ void CD3D8Renderer::EF_ApplyMatrixOps(TArray<SMatrixTransform>* MatrixOps, bool 
   }
 }
 
-#include "../Common/NvTriStrip/NVTriStrip.h"
+#include "../Common/NvTriStrip/NvTriStrip.h"
 
 void CD3D8Renderer::EF_DrawIndexedMesh (int nPrimType)
 {

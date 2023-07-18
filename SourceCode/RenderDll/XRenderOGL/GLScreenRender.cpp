@@ -15,7 +15,7 @@ Todo:
 
 #include "RenderPCH.h"
 #include "GL_Renderer.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 
 // tiago: added
 #include "GLCGPShader.h"

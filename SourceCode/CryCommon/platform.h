@@ -106,7 +106,7 @@ typedef pthread_t EVENT_HANDLE;
 //////////////////////////////////////////////////////////////////////////
 #ifndef NOT_USE_CRY_MEMORY_MANAGER
 #define USE_NEWPOOL
-#include <CryMemoryManager.h>
+#include "CryMemoryManager.h"
 #endif // NOT_USE_CRY_MEMORY_MANAGER
 
 #ifdef __cplusplus

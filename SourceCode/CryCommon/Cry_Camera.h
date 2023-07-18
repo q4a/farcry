@@ -68,11 +68,10 @@ enum cull {
 #define ROLL	(2)   
 
 
-//inline Matrix44	ViewMatrix(const Ang3 &angle);
+inline Matrix44	ViewMatrix(const Ang3 &angle);
 inline Matrix33	CryViewMatrixYPR(const Ang3 &angle);
 inline Matrix33	CryViewMatrix(const Ang3 &angle);
 inline Ang3 ConvertToRad( const Ang3& v );
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // * CCamera *
@@ -985,13 +984,12 @@ inline Vec3 ConvertToRadAngles( const Ang3& v )	{
 }	
 
 // No Clue is this is needed elsewhere but ive patched it out temporarily until I can figure out the root cause
-/*
 inline Matrix44	ViewMatrix(const Ang3 &angle)	{
 	Matrix33 ViewMatZ=Matrix33::CreateRotationZ(-angle.x);
 	Matrix33 ViewMatX=Matrix33::CreateRotationX(-angle.y);
 	Matrix33 ViewMatY=Matrix33::CreateRotationY(+angle.z);
 	return GetTransposed44( ViewMatX*ViewMatY*ViewMatZ);
-}*/
+}
 
 
 //ZXY

@@ -25,8 +25,8 @@
 
 
 #if defined(LINUX)
-#undef assert
-#define assert(exp) (void)( (exp) || (printf("Assert: ' %s ' has failed\n", #exp), 0) )
+	#undef assert
+	#define assert(exp) (void)( (exp) || (printf("Assert: ' %s ' has failed\n", #exp), 0) )
 #endif
 
 
@@ -1525,14 +1525,14 @@ template<class F,int SI,int SJ> struct Matrix44_tpl {
 			M20=m.M20;		M21=m.M21;		M22=m.M22;	M23=m.M23;
 			M30=m.M30;		M31=m.M31;		M32=m.M32;	M33=m.M33;
 		}
-		ILINE friend Matrix44_tpl<F,SI,SJ> GetTransposed44( const Matrix44_tpl<F,SI,SJ>& m ) {
-			Matrix44_tpl<F,SI,SJ> dst;
-			dst.M00=m.M00;	dst.M01=m.M10;	dst.M02=m.M20;	dst.M03=m.M30;
-			dst.M10=m.M01;	dst.M11=m.M11;	dst.M12=m.M21;	dst.M13=m.M31;
-			dst.M20=m.M02;	dst.M21=m.M12;	dst.M22=m.M22;	dst.M23=m.M32;
-			dst.M30=m.M03;	dst.M31=m.M13;	dst.M32=m.M23;	dst.M33=m.M33;
-			return dst;
-		}
+	ILINE friend Matrix44_tpl<F,SI,SJ> GetTransposed44( const Matrix44_tpl<F,SI,SJ>& m ) {
+		Matrix44_tpl<F,SI,SJ> dst;
+		dst.M00=m.M00;	dst.M01=m.M10;	dst.M02=m.M20;	dst.M03=m.M30;
+		dst.M10=m.M01;	dst.M11=m.M11;	dst.M12=m.M21;	dst.M13=m.M31;
+		dst.M20=m.M02;	dst.M21=m.M12;	dst.M22=m.M22;	dst.M23=m.M32;
+		dst.M30=m.M03;	dst.M31=m.M13;	dst.M32=m.M23;	dst.M33=m.M33;
+		return dst;
+	}
 
 
 

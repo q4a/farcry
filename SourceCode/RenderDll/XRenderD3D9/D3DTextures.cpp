@@ -9,7 +9,7 @@
 
 #include "RenderPCH.h"
 #include "DriverD3D9.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 #include "CryHeaders.h"
 #include "../Common/RendElements/CREScreenCommon.h"
 

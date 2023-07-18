@@ -37,7 +37,7 @@
 
 #include <IAgent.h>
 #include <IAISystem.h>
-#include <I3dengine.h>
+#include <I3DEngine.h>
 #include <IGame.h>
 #include <ICryPak.h>
 #include <I3DEngine.h>

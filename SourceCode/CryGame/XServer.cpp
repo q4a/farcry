@@ -12,7 +12,7 @@
 
 #include "StdAfx.h"
 #include "XSystemServer.h"
-#include <I3dengine.h>
+#include <I3DEngine.h>
 
 #include <IEntitySystem.h>
 

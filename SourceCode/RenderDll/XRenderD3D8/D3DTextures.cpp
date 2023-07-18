@@ -9,7 +9,7 @@
 
 #include "StdAfx.h"
 #include "DriverD3D8.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 
 
 int CD3D8TexMan::m_Format = D3DFMT_A8R8G8B8;

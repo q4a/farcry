@@ -69,7 +69,8 @@ typedef unsigned char BYTE;
 #include <platform.h>
 
 #ifdef LINUX
-#include <asm/msr.h>
+  #include <asm/msr.h>
+  #include "WinBase.h"
 #endif
 
 #if defined(_AMD64_) && !defined(LINUX)
@@ -791,7 +792,7 @@ L = __rdtsc();
 #endif
 
 #elif defined(LINUX)
-	rdtscl( L );
+	return __rdtsc;
 #endif
   return L;
 }
