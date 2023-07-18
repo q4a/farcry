@@ -2,14 +2,18 @@ SourceCode/.vs
 SourceCode/.vscode
 SourceCode/build
 
+Log.txt
+libCrySystem.so
+libCryScriptSystem.so
+
 CMakeFiles/
 cmake_install.cmake
 CMakeCache.txt
 Makefile 
 
-libCrySystem.so
-Log.txt
 pthreads_test
 pthreads_test.cpp
 
 build
+
+FCData/

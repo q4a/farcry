@@ -15,8 +15,8 @@ include(CMake/Utils.cmake)
 # Additional Global Settings(add specific info there)
 ################################################################################
 include(CMake/GlobalSettingsInclude.cmake OPTIONAL)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -DLINUX -DLINUX64 -w -fpermissive")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -DLINUX -DLINUX64 -w -fpermissive")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -DLINUX -DLINUX64 -w -fpermissive -lcpuid")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -DLINUX -DLINUX64 -w -fpermissive -lcpuid")
 
 ################################################################################
 # Use solution folders feature

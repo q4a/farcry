@@ -10,6 +10,8 @@
 #include "StdAfx.h"
 #include "System.h"
 #include "WinBase.h"
+#include <libcpuid/libcpuid.h>
+
 
 /* features */
 #define FPU_FLAG  0x0001
@@ -948,131 +950,46 @@ end_fpu_type:
   return 1;
 }
 
+#define INFINITE 999999000      /* Very large number */
+#include <unistd.h>
+
 /* ------------------------------------------------------------------------------ */
 void CCpuFeatures::Detect(void)
 {
-#if !defined(PS2) && !defined (GC) && !defined (LINUX)
+  CryLogAlways("\n--- CPU detection - libcpuid(%s)---\n", cpuid_lib_version());
 
-#if !defined(_XBOX) && !defined(LINUX)
-  SYSTEM_INFO   sys_info;
-  DWORD_PTR system_affinity_mask;
-#endif
-  HANDLE      thread;
-  unsigned long thread_id;
-  int current_processor;
-  uint  current_processor_element;
-  DWORD_PTR process_affinity_mask;
-  uint  thread_processor_mask;
-  unsigned char c;
-
-  /* get the system info to derive the number of processors within the system. */
-#if !defined(_XBOX) && !defined(LINUX)
-  GetSystemInfo( &sys_info );
-  m_NumSystemProcessors = sys_info.dwNumberOfProcessors;
-  m_NumAvailProcessors = 0;
-  GetProcessAffinityMask( GetCurrentProcess(), &process_affinity_mask, &system_affinity_mask );
-#else
-  m_NumSystemProcessors = 1;
-  m_NumAvailProcessors = 0;
-  process_affinity_mask = 1;
-#endif
-
-
-  for( c = 0; c < m_NumSystemProcessors; c++ )
-  {
-    if( process_affinity_mask & (1 << c) )
-    {
-      m_NumAvailProcessors++;
-    }
+  if (!cpuid_present()) {
+      CryLogAlways("Sorry, your CPU doesn't support CPUID!\n");
+      return -1;
   }
 
-  OSSupport = OSExceptions = 0;
+  struct cpu_raw_data_t raw; 
+  struct cpu_id_t data;     
 
-  current_processor_element = 0;
-
-  for( current_processor = 0; current_processor < m_NumSystemProcessors; current_processor++ )
-  {
-    thread_processor_mask = 1 << current_processor;
-
-    /* Is the processor we are about to set for the detect thread part of the
-     * process affinity mask. If it is not then it cannot be set.
-     */
-    if( (process_affinity_mask & thread_processor_mask) )
-    {
-      /* create a thread that is suspended */
-      thread = CreateThread( NULL, 0, DetectProcessor, &m_Cpu[current_processor_element], CREATE_SUSPENDED, &thread_id );
-
-      if( thread )
-      {
-        /*
-         * set the affinity of the thread so to force it to run
-         * on the required processor
-         */
-#if !defined(_XBOX) && !defined(LINUX)
-        if( SetThreadAffinityMask( thread, thread_processor_mask ) )
-#endif
-        {
-          /*
-           * Now we have set the processor resume the thread and it
-           * will run only on the specified processor.
-           */
-          ResumeThread( thread );
-
-          /* wait for the current detection thread to finish */
-          WaitForSingleObject( thread, INFINITE );
-
-          /* close the handle to the now finished thread */
-          CloseHandle( thread );
-
-          /* use the next element of the array */
-          current_processor_element++;
-
-          if( current_processor_element == MAX_CPU )
-            break;
-          if( current_processor_element == m_NumAvailProcessors )
-            break;
-        }
-      }
-    }
+  if (cpuid_get_raw_data(&raw) < 0) { 
+      CryLogAlways("Sorry, cannot get the CPUID raw data.\n");
+      CryLogAlways("Error: %s\n", cpuid_error());
+      return -2;
   }
 
-  m_bOS_ISSE = OSSupport != 0;
-  m_bOS_ISSE_EXCEPTIONS = OSExceptions != 0;
-
-  CryLogAlways("\n--- CPU detection ---\n" );
-  CryLogAlways("Number of system processors: %d\n", m_NumSystemProcessors );
-  CryLogAlways("Number of available processors: %d\n", m_NumAvailProcessors );
-  int num = m_NumAvailProcessors;
-  if( num > MAX_CPU )
-    num = MAX_CPU;
-  for(int i=0; i<num; i++)
-  {
-    SCpu *p = &m_Cpu[i];
-
-    CryLogAlways("Processor %d:\n", i );
-    CryLogAlways("CPU: %s %s\n", p->mVendor, p->mCpuType );
-    CryLogAlways("Family: %d, Model: %d, Stepping: %d\n", p->mFamily, p->mModel, p->mStepping );
-    CryLogAlways("FPU: %s\n", p->mFpuType );
-    CryLogAlways("CPU Speed (estimated): %f MHz\n", 1.0e-6/p->m_SecondsPerCycle );
-    if (p->mFeatures & CFI_MMX)
-      CryLogAlways("MMX: present\n");
-    else
-      CryLogAlways("MMX: not present\n");
-    if (p->mFeatures & CFI_SSE)
-      CryLogAlways("SSE: present\n");
-    else
-      CryLogAlways("SSE: not present\n");
-    if (p->mFeatures & CFI_3DNOW)
-      CryLogAlways("3DNow!: present\n");
-    else
-      CryLogAlways("3DNow!: not present\n");
-    if( p->mbSerialPresent )
-      CryLogAlways("Serial number: %s\n\n", p->mSerialNumber );
-    else
-      CryLogAlways("Serial number not present or disabled\n\n" );
+  if (cpu_identify(&raw, &data) < 0) {    
+      CryLogAlways("Sorrry, CPU identification failed.\n");
+      CryLogAlways("Error: %s\n", cpuid_error());
+      return -3;
   }
-  CryLogAlways("---------------------" );
 
-#endif
+  CryLogAlways("Number of physical cores: %d\n", data.num_cores); // print out CPU cores information
+  CryLogAlways("Number of system processors: %d\n\n", data.num_logical_cpus ); // print out CPU thread information
+
+  CryLogAlways("CPU      : %s %s\n", data.vendor_str, data.brand_str);             // print out the CPU brand string
+  //CryLogAlways("Family: %d, Model: %d, Stepping: %d\n", p->mFamily, p->mModel, p->mStepping );
+
+	CryLogAlways("FPU      : %s\n", data.flags[CPU_FEATURE_FPU] ? "present" : "absent");
+  CryLogAlways("CPU speed: %d MHz\n", cpu_clock_by_os());                     // print out the CPU clock, according to the OS
+	CryLogAlways("MMX      : %s\n", data.flags[CPU_FEATURE_MMX] ? "present" : "absent");
+	CryLogAlways("SSE      : %s\n", data.flags[CPU_FEATURE_SSE] ? "present" : "absent");
+	CryLogAlways("3DNow!   : %s\n\n", data.flags[CPU_FEATURE_3DNOW] ? "present" : "absent");
+
+  CryLogAlways("---------------------\n" );
 }
 

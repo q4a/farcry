@@ -32,7 +32,7 @@
 
 
 
-
+#define USE_FILE_MAP
 
 
 
@@ -471,6 +471,10 @@ int FileNode::FindExact(const char *name)
 // not NULL, then a flag value will be written to *dirty indicating if the
 // search failed on a dirty node. If the failing node is dirty, then the
 // requested file might have been created at runtime.
+
+#include "IMiniLog.h"
+#include <iostream>
+
 FileNode *FileNode::FindExact(
 		const char *name,
 		int &index,
@@ -481,7 +485,7 @@ FileNode *FileNode::FindExact(
 	const char *sep;
 	FileNode *node = m_FileTree;
 
-	assert(name[0] == '/');
+	//assert(name[0] == '/');
 	index = -1;
 	if (node == NULL)
 	{
@@ -691,6 +695,65 @@ FileNode *FileNode::ReadFileList(FILE *in, int index)
 	return node;
 }
 
+inline void WrappedF_InitCWD()
+{
+#if defined(LINUX)
+	if (getcwd(fopenwrapper_basedir, fopenwrapper_basedir_maxsize) == NULL)
+	{
+		fprintf(stderr, "getcwd(): %s\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	}
+	fopenwrapper_basedir[fopenwrapper_basedir_maxsize - 1] = 0;
+#endif
+}
+
+//////////////////////////////////////////////////////////////////////////
+DWORD GetCurrentDirectory( DWORD nBufferLength, char* lpBuffer )
+{
+	char *p = fopenwrapper_basedir;
+	size_t len;
+
+	if (*p != '/')
+		WrappedF_InitCWD();
+	assert(*p == '/');
+
+
+
+
+
+	if (!*p)
+	{
+		// Yes, we'll return 2 if the buffer is too small and 1 otherwise.
+		// Yes, this is stupid, but that's what Microsoft says...
+		if (nBufferLength < 2) return 2;
+		lpBuffer[0] = '\\';
+		lpBuffer[1] = 0;
+		return 1;
+	}
+	len = strlen(p) + 1;
+	if (nBufferLength < len) 
+		return len;
+	strcpy(lpBuffer, p);
+#if !defined(USE_HDD0)
+	for(int i=0; i<len; ++i)
+	{
+		if (*p == '/') *p = '\\';
+		++p;
+	}
+#endif
+	return len - 1;
+#if 0
+	if (getcwd(lpBuffer, nBufferLength) == NULL)
+	{
+		fprintf(stderr, "getcwd(): %s\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	}
+	if (nBufferLength > 0)
+		lpBuffer[nBufferLength - 1] = 0;
+	return strlen(lpBuffer);
+#endif
+}
+
 FileNode *FileNode::BuildFileList(const char *prefix)
 {
 	FileNode *node = NULL;
@@ -824,18 +887,6 @@ void InitFileList(void)
 #else
 void InitFileList(void) { }
 #endif
-
-inline void WrappedF_InitCWD()
-{
-#if defined(LINUX)
-	if (getcwd(fopenwrapper_basedir, fopenwrapper_basedir_maxsize) == NULL)
-	{
-		fprintf(stderr, "getcwd(): %s\n", strerror(errno));
-		exit(EXIT_FAILURE);
-	}
-	fopenwrapper_basedir[fopenwrapper_basedir_maxsize - 1] = 0;
-#endif
-}
 
 bool IsBadReadPtr(void* ptr, unsigned int size )
 {
@@ -2068,6 +2119,8 @@ const bool GetFilenameNoCase
 
 	const bool skipInitial = false;
 
+	
+
 #if defined(USE_FILE_MAP)
 	bool dirty = false;
 	int dirIndex = -1;
@@ -2836,53 +2889,6 @@ BOOL SetCurrentDirectory(LPCSTR lpPathName)
 	return TRUE;
 }
 #endif //0
-//////////////////////////////////////////////////////////////////////////
-DWORD GetCurrentDirectory( DWORD nBufferLength, char* lpBuffer )
-{
-	char *p = fopenwrapper_basedir;
-	size_t len;
-
-	if (*p != '/')
-		WrappedF_InitCWD();
-	assert(*p == '/');
-
-
-
-
-
-	if (!*p)
-	{
-		// Yes, we'll return 2 if the buffer is too small and 1 otherwise.
-		// Yes, this is stupid, but that's what Microsoft says...
-		if (nBufferLength < 2) return 2;
-		lpBuffer[0] = '\\';
-		lpBuffer[1] = 0;
-		return 1;
-	}
-	len = strlen(p) + 1;
-	if (nBufferLength < len) 
-		return len;
-	strcpy(lpBuffer, p);
-#if !defined(USE_HDD0)
-	for(int i=0; i<len; ++i)
-	{
-		if (*p == '/') *p = '\\';
-		++p;
-	}
-#endif
-	return len - 1;
-#if 0
-	if (getcwd(lpBuffer, nBufferLength) == NULL)
-	{
-		fprintf(stderr, "getcwd(): %s\n", strerror(errno));
-		exit(EXIT_FAILURE);
-	}
-	if (nBufferLength > 0)
-		lpBuffer[nBufferLength - 1] = 0;
-	return strlen(lpBuffer);
-#endif
-}
-
 //////////////////////////////////////////////////////////////////////////
 BOOL DeleteFile(LPCSTR lpFileName)
 {
