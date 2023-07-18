@@ -34,12 +34,17 @@ set(SRC_FILES
     "StaticCharCompressor.cpp"
     "StdAfx.cpp"
     "UbisoftMemory.cpp"
+    "../CryCommon/WinBase.cpp"
 )
 
 add_library(${PROJECT_NAME} SHARED ${SRC_FILES})
 
-target_include_directories(${PROJECT_NAME} PRIVATE
-    ${CMAKE_SOURCE_DIR}/CryCommon
+################################################################################
+# Include directories
+################################################################################
+target_include_directories(${PROJECT_NAME} PUBLIC
+    "${CMAKE_CURRENT_SOURCE_DIR}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../CryCommon"
 )
 
 target_link_directories(${PROJECT_NAME} PRIVATE

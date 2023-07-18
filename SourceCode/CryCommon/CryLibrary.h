@@ -74,6 +74,7 @@
 
 	static HMODULE CryLoadLibrary(const char* libName, const bool cAppend = true, const bool cLoadLazy = false)
 	{
+		/*
 		string newLibName(GetModulePath());
 #if !defined(NDEBUG)
 		string t(libName);
@@ -83,9 +84,9 @@
 		newLibName += t;
 #else
 		newLibName += libName;
-#endif
-		CryLogAlways("loading library  %s...\n",newLibName.c_str());
-		return ::dlopen(newLibName.c_str(), cLoadLazy?(RTLD_LAZY | RTLD_GLOBAL):(RTLD_NOW | RTLD_GLOBAL));
+#endif*/
+		CryLogAlways("loading library  %s...\n",libName);
+		return ::dlopen(libName, cLoadLazy?(RTLD_LAZY | RTLD_GLOBAL):(RTLD_NOW | RTLD_GLOBAL));
 	}
 
 

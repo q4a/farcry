@@ -22,7 +22,9 @@
 #include <dirent.h>
 #include <stdint.h>
 #include <time.h>
-#include <Linux64Specific.h>
+#include "Linux64Specific.h"
+#include <vector>
+#include <string>
 
 /* http://en.wikipedia.org/wiki/Attrib */
 #define _A_NORMAL   0x00    /* Normal file.     */
@@ -56,7 +58,7 @@ private:
 	char								m_DirectoryName[260];			//!< directory name, needed when getting file attributes on the fly
 	char								m_ToMatch[260];						//!< pattern to match with
 	DIR*								m_Dir;									//!< directory handle
-	std::vector<string>	m_Entries;						//!< all file entries in the current directories
+	std::vector<std::string>	m_Entries;						//!< all file entries in the current directories
 public:
 
 	inline __finddata64_t():

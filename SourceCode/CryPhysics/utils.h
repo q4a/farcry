@@ -306,6 +306,7 @@ extern float g_costab[SINCOSTABSZ],g_sintab[SINCOSTABSZ];
 	#define VALIDATOR_RANGE2(member,minval,maxval)
 	#define VALIDATORS_END
 	#define ENTITY_VALIDATE(strSource,pStructure)
+	#define ENTITY_VALIDATE_ERRCODE(strSource,pStructure,iErrCode)
 	//Uncommented the above because validation is for pussies (Duke Nukem voice)
 #else
 	#define VALIDATOR_LOG(pLog,str) pLog->Log(str) //OutputDebugString(str)
