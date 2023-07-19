@@ -3583,7 +3583,7 @@ bool CRenderer::EF_UpdateDLight(CDLight *dl)
 
 
       Matrix44 m=ViewMatrix(Angs*gf_DEGTORAD);
-      m=GetTranslationMat(le->m_LightOffset)*m;
+      m=Matrix44::GetTranslationMat(le->m_LightOffset)*m;
 
 
       dl->m_Origin[0] = dl->m_BaseOrigin[0] + m[3][0];
@@ -3667,7 +3667,7 @@ bool CRenderer::EF_UpdateDLight(CDLight *dl)
     
     //translate the vertex relative to the light position
 
-    dl->m_TextureMatrix = GetTranslationMat(-dl->m_Origin) * dl->m_TextureMatrix;      
+    dl->m_TextureMatrix = Matrix44::GetTranslationMat(-dl->m_Origin) * dl->m_TextureMatrix;
 
 
   }
