@@ -73,9 +73,10 @@ set(SRC_FILES
     "NULL_Textures.cpp"
     "NULL_TexturesStreaming.cpp"
     "NULL_VertBuffer.cpp"
+    "../../CryCommon/WinBase.cpp"
 )
 
-set(ARCH_LIBS ijl15.lib)
+#set(ARCH_LIBS ijl15.lib)
 
 #if (${ARCH_TYPE} STREQUAL "x86")
 #    set(ARCH_LIBS ijl15.lib)
@@ -117,10 +118,8 @@ target_link_directories(${PROJECT_NAME} PRIVATE
     Libraries
 )
 
-set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /NODEFAULTLIB:libcp.lib /NODEFAULTLIB:LIBC.lib")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS}")
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     ${ARCH_LIBS}
-    nvDXTlib.lib
-    legacy_stdio_definitions.lib
 )

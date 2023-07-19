@@ -9,7 +9,7 @@
 
 #include "StdAfx.h"
 #include "DriverD3D8.h"
-#include "../common\shadow_renderer.h"
+#include "../common\Shadow_Renderer.h"
 #include "D3DPShaders.h"
 #include "D3DCGVProgram.h"
 #include "I3DEngine.h"

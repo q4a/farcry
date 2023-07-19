@@ -72,7 +72,7 @@ inline bool IsPower2(unsigned int x)
 extern "C" {
 #endif
 
-
+#ifndef LINUX 
 HRESULT nvDXTcompress(unsigned char * raw_data, // pointer to data (24 or 32 bit)
                 unsigned long w, // width in texels
                 unsigned long h, // height in texels
@@ -85,6 +85,7 @@ HRESULT nvDXTcompress(unsigned char * raw_data, // pointer to data (24 or 32 bit
 #ifdef  NVDXTC
 }
 #endif
+#endif //LINUX
 
 // if callback is == 0 (or not specified), then WriteDTXnFile is called with all file info
 //

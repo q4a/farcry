@@ -60,7 +60,7 @@ void CREFlareGeom::mfCheckVis(CFColor &col, CCObject *obj)
   col.ClampAlpha();
 }
 
-//#include "../common\shadow_renderer.h"
+//#include "../common\Shadow_Renderer.h"
 
 ///////////////////////////////////////////////////////////////////
 

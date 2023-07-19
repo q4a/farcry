@@ -76,3 +76,6 @@ BOOL SystemTimeToFileTime( const SYSTEMTIME *syst, LPFILETIME ft );
 BOOL SetFileAttributes(LPCSTR lpFileName,DWORD dwFileAttributes );
 uint32_t GetTickCount();
 uint64_t __rdtsc();
+bool IsBadReadPtr(const void* address, size_t size);
+BOOL GetFileTime(HANDLE hFile, LPFILETIME lpCreationTime, LPFILETIME lpLastAccessTime, LPFILETIME lpLastWriteTime);
+LONG CompareFileTime(const FILETIME *lpFileTime1, const FILETIME *lpFileTime2);

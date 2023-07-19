@@ -66,7 +66,7 @@ extern HMODULE gDLLHandle;
 #		define DLL_AI						"libCryAISystem.so"
 #		define DLL_FONT					"libCryFont.so"
 #		define DLL_3DENGINE			"libCry3DEngine.so"
-#		define DLL_NULLRENDERER	"libxrendernull.so"
+#		define DLL_NULLRENDERER	"libXRenderNULL.so"
 #else
 #	define DLL_SOUND				"CrySoundSystem.dll"
 #	define DLL_NETWORK			"CryNetwork.dll"

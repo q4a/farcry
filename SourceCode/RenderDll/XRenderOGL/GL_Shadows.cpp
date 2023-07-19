@@ -14,7 +14,7 @@
 #include "RenderPCH.h"
 #include "GL_Renderer.h"
 #include <IEntityRenderState.h>
-#include "../Common/shadow_renderer.h"
+#include "../Common/Shadow_Renderer.h"
 #include "../Common/RendElements/CREScreenCommon.h"
 #include "GLCGVProgram.h"
 #include "GLCGPShader.h"

@@ -17,7 +17,7 @@
 
 #include "StatObj.h"
 #include "MeshIdx.h"
-#include "../RenderDll/Common/shadow_renderer.h"
+#include "../RenderDll/Common/Shadow_Renderer.h"
 #include <irenderer.h>
 #include <I3dIndoorEngine.h>
 #include <CrySizer.h>

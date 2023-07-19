@@ -10,7 +10,7 @@
 #include "RenderPCH.h"
 #include "GL_Renderer.h"
 #include <ICryAnimation.h>
-#include "../common\shadow_renderer.h"
+#include "../common\Shadow_Renderer.h"
 #include "GLCGPShader.h"
 #include "GLCGVProgram.h"
 #include "I3DEngine.h"

@@ -13,7 +13,7 @@
 
 #include "RenderPCH.h"
 #include "NULL_Renderer.h"
-#include "../Common/shadow_renderer.h"
+#include "../Common/Shadow_Renderer.h"
 
 #include "I3DEngine.h"
 

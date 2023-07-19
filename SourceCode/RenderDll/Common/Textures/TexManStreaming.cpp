@@ -13,6 +13,10 @@
 #include "Image/DDSImage.h"
 #include "Image/dds.h"
 
+#ifdef LINUX 
+  #include "WinBase.h"
+#endif
+
 // DXT compressed block for black image (DXT1, DXT3, DXT5)
 static byte sDXTData[3][16] = 
 {
@@ -68,7 +72,7 @@ void STexPic::RemoveMips(int nFromEnd)
   }
 }
 
-void STexPic::Unload()
+/*void STexPic::Unload()
 {
   if (m_Flags2 & FT2_WASUNLOADED)
     return;
@@ -86,7 +90,7 @@ void STexPic::Unload()
     gRenDev->SetTexture(0, eTT_Base);
     return;
   }
-}
+}*/
 
 void STexPic::Restore()
 {
@@ -214,7 +218,7 @@ void STexPic::GetCacheName(char *name)
   sprintf(name, "%s[%s]", nam, sETT); 
 }
 
-void STexPic::SaveToCache()
+/*void STexPic::SaveToCache()
 {
   int i, j;
 
@@ -404,7 +408,7 @@ void STexPic::SaveToCache()
     rf->mfFlush();
   }
   RemoveMips(4);
-}
+}*/
 
 bool STexPic::ValidateMipsData(int nStartMip, int nEndMip)
 {

@@ -1,4 +1,4 @@
-Log Started at Tue Jul 18 21:10:15 2023
+Log Started at Thu Jul 20 09:28:58 2023
 FileVersion: 1.1.1.1
 ProductVersion: 1.1.1.1
 
@@ -8,7 +8,7 @@ Number of system processors: 12
 
 CPU      : GenuineIntel Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
 FPU      : present
-CPU speed: 1600 MHz
+CPU speed: 1599 MHz
 MMX      : present
 SSE      : present
 3DNow!   : absent
@@ -62,5 +62,15 @@ Physics initialization
 loading library  libCryPhysics.so...
 MovieSystem initialization skipped for Linux dedicated server
 Renderer initialization
-loading library  libxrendernull.so...
+loading library  libXRenderNULL.so...
+Init Shaders
+ERROR: Cannot transform file name textures\red.dds to absolute path, resorting to desparate measures!
+ERROR: Cannot transform file name textures\red.tga to absolute path, resorting to desparate measures!
+ERROR: Cannot transform file name textures\red.jpg to absolute path, resorting to desparate measures!
+Construct Shader '<Default>'...
+Console initialization
+Time initialization
+Input initialization
+loading library  libCryInput.so...
 System Shutdown
+*** Clearing render resources ***

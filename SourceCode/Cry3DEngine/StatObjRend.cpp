@@ -16,7 +16,7 @@
 #include "StdAfx.h"
 
 #include "StatObj.h"
-#include "../RenderDll/Common/shadow_renderer.h"
+#include "../RenderDll/Common/Shadow_Renderer.h"
 #include "LMCompStructures.h"
 
 #include "MeshIdx.h"

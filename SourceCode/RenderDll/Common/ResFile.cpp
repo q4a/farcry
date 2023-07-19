@@ -4,7 +4,7 @@
 #include "RenderPCH.h"
 #include "ResFile.h"
 
-#include "lzss.h"
+#include "LZSS.H"
 
 #include <sys/stat.h>
 
@@ -12,7 +12,10 @@
 #include <direct.h>
 #include <io.h>
 #elif defined(LINUX)
-
+  #include <sys/types.h>
+  #include <unistd.h>
+  #define FILE_ATTRIBUTE_READONLY 1
+  #define _fstat64 fstat64
 #endif
 
 CResFile CResFile::m_Root;

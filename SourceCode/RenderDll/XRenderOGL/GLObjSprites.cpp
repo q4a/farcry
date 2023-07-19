@@ -17,7 +17,7 @@
 #include <I3DEngine.h>
 #include <IEntityRenderState.h>
 
-#include "../common/shadow_renderer.h"
+#include "../common/Shadow_Renderer.h"
 #include "limits.h"
 
 #include "I3DEngine.h"

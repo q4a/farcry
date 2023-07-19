@@ -11,7 +11,7 @@
 #include "NULL_Renderer.h"
 #include "I3DEngine.h"
 
-#include "Platform.h"
+#include "platform.h"
 
 //============================================================================================
 // Shaders rendering
