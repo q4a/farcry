@@ -1,18 +1,22 @@
 #pragma once
 
 #include <vector>
-#include <isound.h>
-#include <itimer.h>
-#include <SmartPtr.h>
+#include <ISound.h>
+#include <ITimer.h>
+#include <smartptr.h>
 #include "MusicPattern.h"
 #include "RandGen.h"
 
 //#define TRACE_MUSIC
 
 #ifdef TRACE_MUSIC
-#define MTRACE TRACE
+	#define MTRACE TRACE
 #else
-#define MTRACE __noop
+	#ifndef LINUX 
+		#define MTRACE __noop
+	#else
+		#define MTRACE do {} while (0);
+	#endif
 #endif
 
 #define PATTERNSET_CHANGE_FADETIME	2.0
@@ -97,9 +101,8 @@ typedef TMoodEventSet::iterator		TMoodEventSetIt;
 class CMusicSystem : public IMusicSystem
 {
 protected:
-	#ifndef LINUX
 	CRITICAL_SECTION m_CS;
-	#endif
+
 	// system pointers
 	ISystem *m_pSystem;
 	ITimer *m_pTimer;
@@ -283,7 +286,9 @@ protected:
 // SmartCriticalSection-class to make things easier
 //////////////////////////////////////////////////////////////////////////
 
-#ifndef LINUX
+#ifdef LINUX
+	#include "WinBase.h"
+#endif // LINUX
 
 class CSmartCriticalSection
 {
@@ -293,5 +298,3 @@ public:
 	CSmartCriticalSection(CRITICAL_SECTION &CS) { m_pCS=&CS; EnterCriticalSection(m_pCS); }
 	~CSmartCriticalSection() { LeaveCriticalSection(m_pCS); }
 };
-
-#endif // LINUX

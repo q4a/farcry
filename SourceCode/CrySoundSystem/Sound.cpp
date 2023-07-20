@@ -18,10 +18,10 @@
 #include <CrySizer.h>
 #include <Cry_Camera.h>
 #include "SoundSystem.h"
-#include <ICOnsole.h>
+#include <IConsole.h>
 #include <ISystem.h>
 #include <ITimer.h>
-#include <I3dEngine.h> //needed to check if the listener is in indoor or outdoor
+#include <I3DEngine.h> //needed to check if the listener is in indoor or outdoor
 
 #pragma warning(disable:4003)	// warning C4003: not enough actual parameters for macro 'CHECK_LOADED'
  
@@ -29,7 +29,7 @@
 
 //////////////////////////////////////////////////////////////////////////
 
-#define CHECK_LOADED(_func, _retval)	if (!m_pSound->Loaded()) { TRACE("%s(%d) Warning: %s called without a sound (%s) being fully loaded !", __FILE__, __LINE__, #_func, GetName()); return _retval; }
+#define CHECK_LOADED(_func)	if (!m_pSound->Loaded()) { TRACE("%s(%d) Warning: %s called without a sound (%s) being fully loaded !", __FILE__, __LINE__, #_func, GetName());}
 
 int CSound::m_PlayingChannels = 0;
 
@@ -614,8 +614,8 @@ void CSound::SetName(const char *szName)
 const char *CSound::GetName()
 {
 	//return (m_strName.c_str());
-	if (m_pSound!=NULL)
-		return (m_pSound->GetName());
+	//if (m_pSound!=NULL)
+	return (m_pSound->GetName());
 	return (m_pSSys->m_szEmptyName);
 }
 
@@ -991,7 +991,7 @@ int CSound::GetLength()
 		if (!Preload())
 			return (0); //the sound buffer cannot be loaded
 	}
-	CHECK_LOADED(GetLengt, 0);
+	CHECK_LOADED(GetLengt);
 	if (m_pSound->GetStream())
 		return CS_Stream_GetLength(m_pSound->GetStream());
 	return 0;

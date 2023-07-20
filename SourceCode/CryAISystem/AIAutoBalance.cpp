@@ -3,7 +3,7 @@
 #include "caisystem.h"
 #include <irenderer.h>
 #include <isystem.h>
-#include <itimer.h>
+#include <ITimer.h>
 #include <iconsole.h>
 
 CAIAutoBalance::CAIAutoBalance(void)

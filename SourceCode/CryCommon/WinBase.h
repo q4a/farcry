@@ -26,7 +26,7 @@ BOOL RemoveDirectory(LPCSTR lpPathName);
 BOOL DeleteFile(LPCSTR lpFileName);
 bool QueryPerformanceFrequency(LARGE_INTEGER *frequency);
 bool QueryPerformanceCounter(LARGE_INTEGER *counter);
-static unsigned long timeGetTime(void);
+unsigned long timeGetTime(void);
 int memicmp( LPCSTR s1, LPCSTR s2, DWORD len );
 HANDLE CreateFile(const char* lpFileName,DWORD dwDesiredAccess,DWORD dwShareMode,void* lpSecurityAttributes,DWORD dwCreationDisposition,DWORD dwFlagsAndAttributes,HANDLE hTemplateFile);
 BOOL CloseHandle( HANDLE hObject );

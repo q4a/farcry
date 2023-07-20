@@ -26,7 +26,7 @@ typedef double real;//typedef controlling the accuracy
 #include "IEntityRenderstate.h"
 #include "LMLightCollection.h"
 #include "../Objects\BrushObject.h"
-#include "I3dEngine.h"
+#include "I3DEngine.h"
 #include <direct.h>
 
 static const float scfMaxGridSize = 2.f;

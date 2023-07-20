@@ -32,4 +32,5 @@ add_subdirectory(CryScriptSystem)
 add_subdirectory(CryNetwork)
 add_subdirectory(CryPhysics)
 add_subdirectory(RenderDll/XRenderNULL)
-add_subdirectory(CryInput)
+#add_subdirectory(CryInput) Denis Koveshnikov is working on this
+add_subdirectory(CrySoundSystem)

@@ -1,4 +1,4 @@
-Log Started at Thu Jul 20 09:28:58 2023
+Log Started at Fri Jul 21 11:04:32 2023
 FileVersion: 1.1.1.1
 ProductVersion: 1.1.1.1
 
@@ -37,22 +37,6 @@ ERROR: can't create the archive "fcdata/localized/english2.pak"=="fcdata/localiz
 ERROR: Cannot transform file name *.pak to absolute path, resorting to desparate measures!
 ERROR: Cannot transform file name fcdata\*.pak to absolute path, resorting to desparate measures!
 ERROR: Cannot transform file name  to absolute path, resorting to desparate measures!
-ERROR: Cannot transform file name fcdata\ccgf_cache.pak to absolute path, resorting to desparate measures!
-ERROR: can't create the archive "fcdata/ccgf_cache.pak"=="fcdata/ccgf_cache.pak": error IO_FAILED (code 1) in New at /home/paul/Documents/programs/FarCry/SourceCode/CrySystem/ZipDirCacheFactory.cpp:42. Cannot open file in binary mode for reading, probably missing file.
-ERROR: Cannot transform file name fcdata\effects.pak to absolute path, resorting to desparate measures!
-ERROR: can't create the archive "fcdata/effects.pak"=="fcdata/effects.pak": error IO_FAILED (code 1) in New at /home/paul/Documents/programs/FarCry/SourceCode/CrySystem/ZipDirCacheFactory.cpp:42. Cannot open file in binary mode for reading, probably missing file.
-ERROR: Cannot transform file name fcdata\music.pak to absolute path, resorting to desparate measures!
-ERROR: can't create the archive "fcdata/music.pak"=="fcdata/music.pak": error IO_FAILED (code 1) in New at /home/paul/Documents/programs/FarCry/SourceCode/CrySystem/ZipDirCacheFactory.cpp:42. Cannot open file in binary mode for reading, probably missing file.
-ERROR: Cannot transform file name fcdata\objects.pak to absolute path, resorting to desparate measures!
-ERROR: can't create the archive "fcdata/objects.pak"=="fcdata/objects.pak": error IO_FAILED (code 1) in New at /home/paul/Documents/programs/FarCry/SourceCode/CrySystem/ZipDirCacheFactory.cpp:42. Cannot open file in binary mode for reading, probably missing file.
-ERROR: Cannot transform file name fcdata\scripts.pak to absolute path, resorting to desparate measures!
-ERROR: can't create the archive "fcdata/scripts.pak"=="fcdata/scripts.pak": error IO_FAILED (code 1) in New at /home/paul/Documents/programs/FarCry/SourceCode/CrySystem/ZipDirCacheFactory.cpp:42. Cannot open file in binary mode for reading, probably missing file.
-ERROR: Cannot transform file name fcdata\shaders.pak to absolute path, resorting to desparate measures!
-ERROR: can't create the archive "fcdata/shaders.pak"=="fcdata/shaders.pak": error IO_FAILED (code 1) in New at /home/paul/Documents/programs/FarCry/SourceCode/CrySystem/ZipDirCacheFactory.cpp:42. Cannot open file in binary mode for reading, probably missing file.
-ERROR: Cannot transform file name fcdata\sounds.pak to absolute path, resorting to desparate measures!
-ERROR: can't create the archive "fcdata/sounds.pak"=="fcdata/sounds.pak": error IO_FAILED (code 1) in New at /home/paul/Documents/programs/FarCry/SourceCode/CrySystem/ZipDirCacheFactory.cpp:42. Cannot open file in binary mode for reading, probably missing file.
-ERROR: Cannot transform file name fcdata\textures.pak to absolute path, resorting to desparate measures!
-ERROR: can't create the archive "fcdata/textures.pak"=="fcdata/textures.pak": error IO_FAILED (code 1) in New at /home/paul/Documents/programs/FarCry/SourceCode/CrySystem/ZipDirCacheFactory.cpp:42. Cannot open file in binary mode for reading, probably missing file.
 Network initialization
 loading library  libCryNetwork.so...
 network hostname: BruhBookPro.localdomain
@@ -70,7 +54,8 @@ ERROR: Cannot transform file name textures\red.jpg to absolute path, resorting 
 Construct Shader '<Default>'...
 Console initialization
 Time initialization
-Input initialization
-loading library  libCryInput.so...
+Sound initialization
+Font initialization
+loading library  libCryFont.so...
 System Shutdown
 *** Clearing render resources ***

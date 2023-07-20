@@ -19,7 +19,7 @@
 #include <I3DEngine.h>
 #include <ILog.h>
 #include <IRenderer.h>
-#include "itimer.h"
+#include "ITimer.h"
 //#include "list2.h"
 
 #if defined(_DEBUG) && !defined(LINUX)

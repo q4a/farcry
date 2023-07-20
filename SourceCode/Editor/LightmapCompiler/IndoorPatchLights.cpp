@@ -10,7 +10,7 @@
 #include <ILMSerializationManager.h>
 #include <float.h>
 #include <direct.h>
-#include "I3dEngine.h"
+#include "I3DEngine.h"
 #include <list2.h>
 #include "IndoorLightPatches.h"
 #include "IEntityRenderstate.h"

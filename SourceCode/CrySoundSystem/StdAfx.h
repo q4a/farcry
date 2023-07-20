@@ -54,6 +54,10 @@
 #include <set>
 #include <algorithm>
 
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
+
 #ifdef PS2
 inline void __CRYTEKDLL_TRACE(const char *sFormat, ... )
 #else
@@ -69,7 +73,7 @@ _inline void __cdecl __CRYTEKDLL_TRACE(const char *sFormat, ... )
 
 	strcat(sTraceString, "\n");
 
-	::OutputDebugString(sTraceString);	
+	OutputDebugString(sTraceString);	
 }
 
 #define TRACE __CRYTEKDLL_TRACE

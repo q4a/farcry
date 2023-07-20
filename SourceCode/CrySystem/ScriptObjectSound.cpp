@@ -381,7 +381,7 @@ int CScriptObjectSound::Load3DSoundLocalized(IFunctionHandler *pH)
 */
 
 /*!	set the Environment model(EAX)
-sets one of the eax presets specified in isound.h
+sets one of the eax presets specified in ISound.h
 @param nPreset one of the presets
 */
 /////////////////////////////////////////////////////////////////////////////////
