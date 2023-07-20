@@ -51,7 +51,7 @@ public:
 	virtual Config *GetInternalRepresentation( void );
 
 private:
-	typedef std::hash_map<CString,CString,stl::hash_stricmp<CString> > Map;
+	typedef std::unordered_map<CString,CString,stl::hash_stricmp<CString> > Map;
 	Map m_map;
 };
 

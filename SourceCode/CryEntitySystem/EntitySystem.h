@@ -51,7 +51,7 @@ class CEntityClonesMgr;
 	typedef __gnu_cxx::hash_map<EntityId,CEntity*> EntityMap;
 	typedef __gnu_cxx::hash_map<EntityId,CEntity*>::iterator EntityMapItor;
 #else
-	typedef std::hash_map<EntityId,CEntity*> EntityMap;
+	typedef std::unordered_map<EntityId,CEntity*> EntityMap;
 	typedef EntityMap::iterator EntityMapItor;
 #endif
 

@@ -35,9 +35,11 @@ extern "C" ICryFont* CreateCryFontInterface(ISystem *pSystem)
 ///////////////////////////////////////////////
 #ifndef _XBOX
 #ifndef PS2
+#ifndef LINUX
 BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
     return TRUE;
 }
+#endif
 #endif
 #endif

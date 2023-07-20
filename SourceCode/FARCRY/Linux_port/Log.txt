@@ -1,4 +1,4 @@
-Log Started at Fri Jul 21 11:04:32 2023
+Log Started at Fri Jul 21 11:19:42 2023
 FileVersion: 1.1.1.1
 ProductVersion: 1.1.1.1
 
@@ -8,7 +8,7 @@ Number of system processors: 12
 
 CPU      : GenuineIntel Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
 FPU      : present
-CPU speed: 1599 MHz
+CPU speed: 1600 MHz
 MMX      : present
 SSE      : present
 3DNow!   : absent
@@ -57,5 +57,6 @@ Time initialization
 Sound initialization
 Font initialization
 loading library  libCryFont.so...
-System Shutdown
+ERROR: Cannot transform file name languages\fonts\default.xml to absolute path, resorting to desparate measures!
+CRITICAL ERROR: Error loading the default font from languages/fonts/default.xml. You're probably running the executable from the wrong working folder.
 *** Clearing render resources ***
