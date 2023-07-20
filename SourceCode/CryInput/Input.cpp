@@ -227,6 +227,7 @@ bool CInput::Init(ISystem *pSystem,HINSTANCE hinst,HWND hwnd,bool dinput)
 	{
 		m_pLog->Log("Initializing Direct Input\n");
 
+		//m_g_pdi <-- THIS IS THE HANDLE THAT IS USED FOR KEYBOARD ACTIONS, TRACK IT DOWN.
 		HRESULT hr = DirectInput8Create(m_hinst,
 			DIRECTINPUT_VERSION, 
 			IID_IDirectInput8, 
