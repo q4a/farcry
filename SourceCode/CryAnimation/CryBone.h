@@ -16,9 +16,9 @@
 #include "Controller.h"
 #include "AnimationLayerInfo.h"
 #include "CryBoneInfo.h"
-//#include "CryModelState.h"
 
-class CryModel; 
+class CryModel;
+class CryModelState; // Forward declaration 
 
 //////////////////////////////////////////////////////////////////////////
 // The bone class contains bone matrices and pointers to it parent and child�s.

@@ -12,6 +12,10 @@
 
 #define ANIMATION_EXT "anm"
 
+#ifdef LINUX
+	#include "findfirst.h"
+#endif
+
 using namespace CryStringUtils;
 
 //////////////////////////////////////////////////////////////////////////

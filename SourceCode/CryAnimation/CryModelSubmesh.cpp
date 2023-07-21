@@ -20,6 +20,10 @@
 #include "DebugUtils.h"
 #include "Cry_Camera.h"
 
+#ifdef LINUX
+	#include "WinBase.h"
+#endif
+
 // initializes and binds the submesh to the given model
 // there's no way to change the model at runtime
 CryModelSubmesh::CryModelSubmesh (CryModelState* pParent, CryModel* pMesh):

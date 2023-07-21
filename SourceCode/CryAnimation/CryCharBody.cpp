@@ -19,6 +19,10 @@
 #include "CryModelState.h"
 #include "CryModelLoader.h"
 
+#ifdef LINUX
+	#include "findfirst.h"
+#endif
+
 using namespace CryStringUtils;
 
 
