@@ -15,9 +15,9 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "StdAfx.h"
-#include "scriptobjectserverslot.h"
+#include "ScriptObjectServerSlot.h"
 #include "XSystemBase.h"
-#include "XServerslot.h"
+#include "XServerSlot.h"
 
 _DECLARE_SCRIPTABLEEX(CScriptObjectServerSlot);
 

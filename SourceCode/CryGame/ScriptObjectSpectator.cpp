@@ -15,7 +15,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "StdAfx.h"
-#include "scriptobjectspectator.h"
+#include "ScriptObjectSpectator.h"
 #include "Spectator.h"
 
 _DECLARE_SCRIPTABLEEX(CScriptObjectSpectator)

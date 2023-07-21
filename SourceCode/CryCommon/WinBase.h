@@ -5,9 +5,10 @@
 	#define INVALID_HANDLE_VALUE -1
 #endif
 
+#define _strlwr strlwr
 #define DebugBreak __builtin_trap
 void OutputDebugString(const char* message);
-void RemoveCRLF(std::string& str);
+void RemoveCRLF(const std::string& str);
 void GlobalMemoryStatus(LPMEMORYSTATUS lpmem);
 int comparePathNames(const char* cpFirst, const char* cpSecond, const unsigned int len);
 bool QueryPerformanceCounter(LARGE_INTEGER *counter);
@@ -79,3 +80,6 @@ uint64_t __rdtsc();
 bool IsBadReadPtr(const void* address, size_t size);
 BOOL GetFileTime(HANDLE hFile, LPFILETIME lpCreationTime, LPFILETIME lpLastAccessTime, LPFILETIME lpLastWriteTime);
 LONG CompareFileTime(const FILETIME *lpFileTime1, const FILETIME *lpFileTime2);
+bool MakeSureDirectoryPathExists(const char* path);
+char* strupr (char * str);
+unsigned int GetCurrentTime();

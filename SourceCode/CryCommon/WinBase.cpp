@@ -28,8 +28,6 @@
 	#define PATH_MAX MAX_PATH
 #endif
 
-#include <sys/time.h>
-
 
 
 #define USE_FILE_MAP
@@ -58,6 +56,9 @@
 #include <findfirst.h>
 #include <string>
 #include <algorithm>
+#include <iostream>
+#include <libgen.h>
+#include <sys/time.h>
 #endif
 
 #undef fopen
@@ -71,6 +72,13 @@ typedef std::string string;
 void RemoveCRLF(std::string& str) {
     str.erase(std::remove(str.begin(), str.end(), '\r'), str.end());
     str.erase(std::remove(str.begin(), str.end(), '\n'), str.end());
+}
+
+unsigned int GetCurrentTime()
+{
+    struct timeval tv;
+    gettimeofday(&tv, nullptr);
+    return static_cast<unsigned int>(tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }
 
 // File I/O compatibility macros
@@ -97,7 +105,41 @@ void RemoveCRLF(std::string& str) {
 
 
 
+bool MakeSureDirectoryPathExists(const char* path)
+{
+    struct stat st;
+    if (stat(path, &st) == 0) // Check if the path exists
+    {
+        if (S_ISDIR(st.st_mode)) // If it exists and is a directory, return true
+            return true;
+        else
+        {
+            std::cerr << "Error: Path is not a directory.\n";
+            return false;
+        }
+    }
 
+    // If the path doesn't exist, try to create it recursively
+    char* pathCopy = strdup(path);
+    char* dirPart = dirname(pathCopy);
+
+    if (MakeSureDirectoryPathExists(dirPart))
+    {
+        // Create the current directory if the parent directory exists
+        if (mkdir(path, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) == 0)
+        {
+            free(pathCopy);
+            return true;
+        }
+        else
+        {
+            std::cerr << "Error: Failed to create directory '" << path << "'.\n";
+        }
+    }
+
+    free(pathCopy);
+    return false;
+}
 
 
 void OutputDebugString(const char* message)
@@ -476,7 +518,6 @@ int FileNode::FindExact(const char *name)
 // requested file might have been created at runtime.
 
 #include "IMiniLog.h"
-#include <iostream>
 
 FileNode *FileNode::FindExact(
 		const char *name,

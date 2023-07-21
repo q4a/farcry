@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------------------------------------
-// Author: Márcio Martins
+// Author: Mï¿½rcio Martins
 //
 // Purpose:
 //  - UI System Window and Input Manager
@@ -29,6 +29,14 @@
 
 #define UI_DEFAULTS							(UI_MOUSE_VISIBLE | UI_BACKGROUND_VISIBLE | UI_ENABLED)
 
+#if defined(PS2) || defined(LINUX)
+//wrapper for VC specific function
+inline char * itoa(int n, char *str, int basen)
+{
+ 	sprintf(str,"%d", n);
+	return *str;
+}
+#endif
 
 //------------------------------------------------------------------------------------------------- 
 //------------------------------------------------------------------------------------------------- 

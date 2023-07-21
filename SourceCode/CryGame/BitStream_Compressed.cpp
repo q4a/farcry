@@ -7,7 +7,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "StdAfx.h"
-#include "bitstream_compressed.h"
+#include "BitStream_Compressed.h"
 
 static const DWORD g_dwBits=16;				// higher quality angles
 

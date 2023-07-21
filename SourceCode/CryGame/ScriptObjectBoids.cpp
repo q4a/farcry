@@ -14,7 +14,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #include "StdAfx.h"
-#include "scriptobjectboids.h"
+#include "ScriptObjectBoids.h"
 
 #include "ScriptObjectVector.h"
 

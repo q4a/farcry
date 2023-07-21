@@ -9,7 +9,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "StdAfx.h"
-#include "synchedrandomseed.h"
+#include "SynchedRandomSeed.h"
 #include "XPlayer.h"								// CPlayer
 
 

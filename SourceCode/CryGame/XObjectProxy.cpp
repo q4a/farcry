@@ -7,8 +7,8 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "StdAfx.h"
-#include "xobjectproxy.h"
-#include "xplayer.h"
+#include "XObjectProxy.h"
+#include "XPlayer.h"
 
 CXObjectProxy::CXObjectProxy(IEntity *pEntity, IScriptSystem *pSystem)
 {

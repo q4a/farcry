@@ -24,7 +24,7 @@
 #include "ScriptObjectPlayer.h"
 #include "ScriptObjectSpectator.h"
 #include "ScriptObjectVehicle.h"
-#include "ScriptObjectstream.h"
+#include "ScriptObjectStream.h"
 #include "ScriptObjectAI.h"
 #include "ScriptObjectBoids.h"
 

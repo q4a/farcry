@@ -15,7 +15,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "StdAfx.h"
-#include "scriptobjectrenderer.h"
+#include "ScriptObjectRenderer.h"
 #include "IRenderer.h"
 
 #define REG_FUNC(_class,_func) _class::RegisterFunction(pSS,#_func,&_class::_func);

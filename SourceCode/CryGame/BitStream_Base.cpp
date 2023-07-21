@@ -7,7 +7,11 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "StdAfx.h"
-#include "bitstream_base.h"
+#include "BitStream_Base.h"
+
+#ifdef LINUX
+	#include "WinBase.h"
+#endif
 
 CBitStream_Base::CBitStream_Base()
 {

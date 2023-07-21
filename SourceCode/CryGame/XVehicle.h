@@ -13,7 +13,7 @@
 #define _XVEHICLE_H_
 
 #include "XPlayer.h"	//<<FIXME>> put CGameObject in a separate file and do not include this header
-#include "ScriptObjectstream.h"
+#include "ScriptObjectStream.h"
 //#include "xsmthbuffer.h"
 
 class CXGame;

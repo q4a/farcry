@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "xvehicleproxy.h"
+#include "XVehicleProxy.h"
 #include "XVehicle.h"
 //#include <IAgent.h>
 #include <IAISystem.h>

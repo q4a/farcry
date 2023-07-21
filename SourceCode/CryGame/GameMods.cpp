@@ -21,6 +21,7 @@
 #if defined(LINUX)
 	#include <sys/io.h>
 	#include "WinBase.h"
+	#include "findfirst.h"
 #else
 #	include <io.h>
 #endif
@@ -111,9 +112,10 @@ void CGameMods::CloseMod(SGameModDescription *pMod)
 bool CGameMods::SetCurrentMod(const char *sModName,bool bNeedsRestart)
 {
 	ASSERT(sModName);
+/*Commented because failsafes are for pussies (Duke Nukem voice)
 #if defined(LINUX)
 	RemoveCRLF(sModName);
-#endif
+#endif*/
 	if (stricmp(m_sCurrentMod.c_str(),sModName)==0)
 	{
 		m_pILog->Log("MOD %s already loaded",sModName);

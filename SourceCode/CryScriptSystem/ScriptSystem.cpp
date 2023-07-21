@@ -70,7 +70,6 @@ OutputDebugString(sTemp);	\
 
 #ifdef LINUX 
 	#import "WinBase.h"
-	#define _strlwr strlwr
 #endif
 
 

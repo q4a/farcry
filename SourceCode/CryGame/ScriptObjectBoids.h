@@ -3,7 +3,7 @@
 //  Crytek Engine Source File.
 //  Copyright (C), Crytek Studios, 2002.
 // -------------------------------------------------------------------------
-//  File name:   scriptobjectboids.h
+//  File name:   ScriptObjectBoids.h
 //  Version:     v1.00
 //  Created:     17/5/2002 by Timur.
 //  Compilers:   Visual Studio.NET

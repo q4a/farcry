@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------------------------------------
-// Author: Márcio Martins
+// Author: Mï¿½rcio Martins
 //
 // Purpose:
 //  - Base Widget
@@ -10,6 +10,10 @@
 //-------------------------------------------------------------------------------------------------
 #ifndef UIWIDGET_H
 #define UIWIDGET_H
+
+//TODO: This feels terrible to do, please fix
+//#include "UIScreen.h"
+class CUIScreen; // Forward declaration
 
 #define REGISTER_COMMON_MEMBERS(scriptsystem, classname) \
 	REGISTER_SCRIPTOBJECT_MEMBER(scriptsystem, classname, GetName);\
@@ -42,6 +46,7 @@
 	REGISTER_SCRIPTOBJECT_MEMBER(pScriptSystem, classname, GetGreyedColor);\
 	REGISTER_SCRIPTOBJECT_MEMBER(pScriptSystem, classname, SetGreyedBlend);\
 	REGISTER_SCRIPTOBJECT_MEMBER(pScriptSystem, classname, GetGreyedBlend);\
+
 
 
 #define UI_WIDGET(classname)\
@@ -190,7 +195,6 @@ class CUISystem;
 
 typedef std::vector<CUIWidget *> CUIWidgetList;
 typedef std::vector<CUIWidget *>::iterator CUIWidgetItor;
-
 
 //! UI Widget interface
 class CUIWidget

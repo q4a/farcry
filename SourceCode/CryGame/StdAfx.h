@@ -50,6 +50,7 @@
 #	include "platform.h"
 #	include "IGame.h"
 #	include "string.h"
+	#include "WinBase.h"
 #endif
 
 #if defined(_AMD64_) && !defined(LINUX)

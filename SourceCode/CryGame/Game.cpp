@@ -43,7 +43,7 @@
 #include "ScriptObjectSynched2DTable.h"			// CScriptObjectSynched2DTable
 #include "ScriptObjectVehicle.h"
 #include "ScriptObjectRenderer.h"
-#include "ScriptObjectstream.h"
+#include "ScriptObjectStream.h"
 #include "ScriptObjectWeaponClass.h"
 #include "ScriptObjectAI.h"
 
@@ -768,7 +768,7 @@ bool CXGame::Run(bool &bRelaunch)
 #include ".\game.h"
 #pragma comment (lib , "Winmm.lib")
 #else
-#define GetCurrentTime() ((unsigned int)(GetSystem()->GetITimer()->GetCurrTime() * 1000.f))
+	#define GetCurrentTime() ((unsigned int)(GetSystem()->GetITimer()->GetCurrTime() * 1000.f))
 #endif
 
 //////////////////////////////////////////////////////////////////////////
