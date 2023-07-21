@@ -223,151 +223,155 @@ inline char* _fullpath(char* absPath, const char* relPath, size_t maxLength)
 // given the source relative path, constructs the full path to the file according to the flags
 const char* CCryPak::AdjustFileName(const char *src, char *dst, unsigned nFlags,bool *bFoundInPak)
 {
-	// in many cases, the path will not be long, so there's no need to allocate so much..
-	// I'd use _alloca, but I don't like non-portable solutions. besides, it tends to confuse new developers. So I'm just using a big enough array
-	char szNewSrc[g_nMaxPath];
-	strcpy(szNewSrc, src);
-	BeautifyPath(szNewSrc);
-	if (!_fullpath (dst, szNewSrc, g_nMaxPath))
-	{
-		src = szNewSrc;
-		m_pLog->LogError("\002Cannot transform file name %s to absolute path, resorting to desparate measures!", src);
-		if (src[0] == '.' && (src[1] == g_cNativeSlash || src[1] == g_cNonNativeSlash))
-			src+=2;
-#ifdef _XBOX
-		if (src[0] && src[1] != ':')
-			strcpy (dst, "d:\\");
-		dst += 3;
-#endif
-		strcpy(dst, src);
-		size_t len = strlen(dst);
-		for (size_t n=0; dst[n]; n++)
+	#ifndef LINUX
+		// in many cases, the path will not be long, so there's no need to allocate so much..
+		// I'd use _alloca, but I don't like non-portable solutions. besides, it tends to confuse new developers. So I'm just using a big enough array
+		char szNewSrc[g_nMaxPath];
+		strcpy(szNewSrc, src);
+		BeautifyPath(szNewSrc);
+		if (!_fullpath (dst, szNewSrc, g_nMaxPath))
 		{
-			if ( dst[n] == '\\' )
-				dst[n] = '/';
-
-			if (n > 8 && n+3 < len && dst[n] == '/' && dst[n+1] == '.' && dst[n+2] == '.')
+			src = szNewSrc;
+			m_pLog->LogError("\002Cannot transform file name %s to absolute path, resorting to desparate measures!", src);
+			if (src[0] == '.' && (src[1] == g_cNativeSlash || src[1] == g_cNonNativeSlash))
+				src+=2;
+	#ifdef _XBOX
+			if (src[0] && src[1] != ':')
+				strcpy (dst, "d:\\");
+			dst += 3;
+	#endif
+			strcpy(dst, src);
+			size_t len = strlen(dst);
+			for (size_t n=0; dst[n]; n++)
 			{
-				size_t m = n+3;
-				n--;
-				while (dst[n] != '/')
+				if ( dst[n] == '\\' )
+					dst[n] = '/';
+
+				if (n > 8 && n+3 < len && dst[n] == '/' && dst[n+1] == '.' && dst[n+2] == '.')
 				{
+					size_t m = n+3;
 					n--;
-					if (!n)
-						break;
-				}
-				if (n)
-				{
-					memmove(&dst[n], &dst[m], len-m+1);
-					len -= m-n;
-					n--;
+					while (dst[n] != '/')
+					{
+						n--;
+						if (!n)
+							break;
+					}
+					if (n)
+					{
+						memmove(&dst[n], &dst[m], len-m+1);
+						len -= m-n;
+						n--;
+					}
 				}
 			}
 		}
-	}
 
-	char* pEnd = BeautifyPath(dst);
+		char* pEnd = BeautifyPath(dst);
 
-#if defined(LINUX)
-	//we got to adjust the filename and fetch the case sensitive one
-	string adjustedFilename(dst);
-	adaptFilenameToLinux(adjustedFilename);
-	string fileName(adjustedFilename);
-	if(GetFilenameNoCase(dst, fileName.c_str())) //If somebody finds a better way of doing this, please lmk
-	{
-		//file does exist, copy the real filename
-		strcpy(dst, fileName.c_str());
-	}
-	else
-		strcpy(dst, adjustedFilename.c_str());
-	if ((nFlags & FLAGS_ADD_TRAILING_SLASH) && pEnd > dst && (pEnd[-1]!=g_cNativeSlash && pEnd[-1]!=g_cNonNativeSlash))
-#else
-	// p now points to the end of string
-	if ((nFlags & FLAGS_ADD_TRAILING_SLASH) && pEnd > dst && pEnd[-1]!=g_cNativeSlash)
-#endif
-	{
-		*pEnd = g_cNativeSlash;
-		*++pEnd = '\0';
-	}
-
-	unsigned nLength = pEnd - dst;
-
-	if (bFoundInPak)
-		*bFoundInPak=false;
-
-	if (nFlags & FLAGS_PATH_REAL)
-		return dst;
-
-	if (m_arrMods.empty())
-		return dst; // no mods - no need to search or modify the path
-
-	// now replace the root directory name (C:\Mastercd\)
-	// with the filesystem prefix ("" by default).
-	// try to search through the MOD directories, if it makes sense
-#if defined(LINUX)
-	if (!(nFlags&FLAGS_IGNORE_MOD_DIRS) && nLength > m_strMasterCDRoot.length() && !comparePathNames(dst, m_strMasterCDRoot.c_str(), m_strMasterCDRoot.length()))
-#else
-	if (!(nFlags&FLAGS_IGNORE_MOD_DIRS) && nLength > m_strMasterCDRoot.length() && !memcmp(dst, m_strMasterCDRoot.c_str(), m_strMasterCDRoot.length()))
-#endif
-	{
-		// the previous mod prepend string length: as we move the string from through the loop,
-		// we keep the track of the actual path substring here.
-		size_t nPrevModLength = 0;
-
-		std::vector<string>::reverse_iterator it;
-		for (it = m_arrMods.rbegin(); it != m_arrMods.rend(); ++it)
+	#if defined(LINUX)
+		//we got to adjust the filename and fetch the case sensitive one
+		string adjustedFilename(dst);
+		adaptFilenameToLinux(adjustedFilename);
+		string fileName(adjustedFilename);
+		if(GetFilenameNoCase(dst, fileName.c_str())) //If somebody finds a better way of doing this, please lmk
 		{
-			string &strPrepend = *it;
-			memmove (dst+strPrepend.length()+m_strMasterCDRoot.length(), dst+m_strMasterCDRoot.length()+nPrevModLength, nLength-m_strMasterCDRoot.length()+1);
-			memcpy (dst+m_strMasterCDRoot.length(), strPrepend.c_str(), strPrepend.length());
-
-			// if there's only one MOD, there's actually no need to determine whether this file exists or not
-			//if (m_arrMods.size() == 1)
-			//	return dst;
-
-			//m_pLog->Log("searching for %s",dst);
-
-			nPrevModLength = strPrepend.length();
-			if (GetFileAttributes (dst) != INVALID_FILE_ATTRIBUTES) // there's such file in FS
-			{
-				if (bFoundInPak)
-					*bFoundInPak=false;
-				break;
-			}
-
-			// [marco] NOTE: looks like there is a flow in the implementation of this in crypak -
-			// this function never finds the file in the pak even though the file is there,
-			// because of the prepended mod subdirs; however since the file is "not found"
-			// in the "mod paks", it is opened correctly afterwards regardless of this, because
-			// then it searches through zip files in reverse order and the mod paks are the latest
-			// paks opened, so the file is found, unless replaced by other files, which is kinda what
-			// we want to achieve with the pak system.
-			if (HasFileEntry(dst)) // there's such file in the pak
-			{
-				if (bFoundInPak)
-					*bFoundInPak=true;
-				break;
-			}
+			//file does exist, copy the real filename
+			strcpy(dst, fileName.c_str());
+		}
+		else
+			strcpy(dst, adjustedFilename.c_str());
+		if ((nFlags & FLAGS_ADD_TRAILING_SLASH) && pEnd > dst && (pEnd[-1]!=g_cNativeSlash && pEnd[-1]!=g_cNonNativeSlash))
+	#else
+		// p now points to the end of string
+		if ((nFlags & FLAGS_ADD_TRAILING_SLASH) && pEnd > dst && pEnd[-1]!=g_cNativeSlash)
+	#endif
+		{
+			*pEnd = g_cNativeSlash;
+			*++pEnd = '\0';
 		}
 
-		if (it == m_arrMods.rend())
+		unsigned nLength = pEnd - dst;
+
+		if (bFoundInPak)
+			*bFoundInPak=false;
+
+		if (nFlags & FLAGS_PATH_REAL)
+			return dst;
+
+		if (m_arrMods.empty())
+			return dst; // no mods - no need to search or modify the path
+
+		// now replace the root directory name (C:\Mastercd\)
+		// with the filesystem prefix ("" by default).
+		// try to search through the MOD directories, if it makes sense
+	#if defined(LINUX)
+		if (!(nFlags&FLAGS_IGNORE_MOD_DIRS) && nLength > m_strMasterCDRoot.length() && !comparePathNames(dst, m_strMasterCDRoot.c_str(), m_strMasterCDRoot.length()))
+	#else
+		if (!(nFlags&FLAGS_IGNORE_MOD_DIRS) && nLength > m_strMasterCDRoot.length() && !memcmp(dst, m_strMasterCDRoot.c_str(), m_strMasterCDRoot.length()))
+	#endif
 		{
-			if (nFlags & FLAGS_ONLY_MOD_DIRS)
-				return NULL; // we didn't find the corresponding file
-			else
+			// the previous mod prepend string length: as we move the string from through the loop,
+			// we keep the track of the actual path substring here.
+			size_t nPrevModLength = 0;
+
+			std::vector<string>::reverse_iterator it;
+			for (it = m_arrMods.rbegin(); it != m_arrMods.rend(); ++it)
 			{
-				string strPrepend; // = "";
-				// there's no mod where there is such a file - fallback to the "" mod
+				string &strPrepend = *it;
 				memmove (dst+strPrepend.length()+m_strMasterCDRoot.length(), dst+m_strMasterCDRoot.length()+nPrevModLength, nLength-m_strMasterCDRoot.length()+1);
 				memcpy (dst+m_strMasterCDRoot.length(), strPrepend.c_str(), strPrepend.length());
+
+				// if there's only one MOD, there's actually no need to determine whether this file exists or not
+				//if (m_arrMods.size() == 1)
+				//	return dst;
+
+				//m_pLog->Log("searching for %s",dst);
+
+				nPrevModLength = strPrepend.length();
+				if (GetFileAttributes (dst) != INVALID_FILE_ATTRIBUTES) // there's such file in FS
+				{
+					if (bFoundInPak)
+						*bFoundInPak=false;
+					break;
+				}
+
+				// [marco] NOTE: looks like there is a flow in the implementation of this in crypak -
+				// this function never finds the file in the pak even though the file is there,
+				// because of the prepended mod subdirs; however since the file is "not found"
+				// in the "mod paks", it is opened correctly afterwards regardless of this, because
+				// then it searches through zip files in reverse order and the mod paks are the latest
+				// paks opened, so the file is found, unless replaced by other files, which is kinda what
+				// we want to achieve with the pak system.
+				if (HasFileEntry(dst)) // there's such file in the pak
+				{
+					if (bFoundInPak)
+						*bFoundInPak=true;
+					break;
+				}
+			}
+
+			if (it == m_arrMods.rend())
+			{
+				if (nFlags & FLAGS_ONLY_MOD_DIRS)
+					return NULL; // we didn't find the corresponding file
+				else
+				{
+					string strPrepend; // = "";
+					// there's no mod where there is such a file - fallback to the "" mod
+					memmove (dst+strPrepend.length()+m_strMasterCDRoot.length(), dst+m_strMasterCDRoot.length()+nPrevModLength, nLength-m_strMasterCDRoot.length()+1);
+					memcpy (dst+m_strMasterCDRoot.length(), strPrepend.c_str(), strPrepend.length());
+				}
 			}
 		}
-	}
-	else
-		if (nFlags & FLAGS_ONLY_MOD_DIRS) // only in MOD dirs, but no MODs found
-			return NULL;
+		else
+			if (nFlags & FLAGS_ONLY_MOD_DIRS) // only in MOD dirs, but no MODs found
+				return NULL;
 
-	return dst; // the last MOD scanned, or the absolute path outside MasterCD
+		return dst; // the last MOD scanned, or the absolute path outside MasterCD
+	#else
+		return src;
+	#endif
 }
 /*
 FILETIME CCryPak::GetFileTime(const char * szFileName)
@@ -972,17 +976,22 @@ bool CCryPak::OpenPack(const char* szBindRootIn, const char *szPath, unsigned nF
 {
 	char szFullPathBuf[g_nMaxPath];
 
+	m_pLog->LogError("%s", "OpenPack (1) called");
+
 	const char *szFullPath = AdjustFileName(szPath, szFullPathBuf, nFlags|FLAGS_IGNORE_MOD_DIRS);
 
 	char szBindRootBuf[g_nMaxPath];
 	const char* szBindRoot = AdjustFileName(szBindRootIn, szBindRootBuf, FLAGS_ADD_TRAILING_SLASH|FLAGS_IGNORE_MOD_DIRS);
 
+	m_pLog->LogError("Opening Pack '%s' at root path of '%s'", szFullPath, szBindRoot);
 	return OpenPackCommon(szBindRoot, szFullPath, nFlags);
 }
 
 bool CCryPak::OpenPack(const char *szPath, unsigned nFlags)
 {
 	char szFullPathBuf[g_nMaxPath];
+
+	m_pLog->LogError("%s", "OpenPack (2) called");
 
 	const char *szFullPath = AdjustFileName(szPath, szFullPathBuf, nFlags|FLAGS_IGNORE_MOD_DIRS);
 	string strBindRoot;

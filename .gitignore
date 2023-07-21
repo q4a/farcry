@@ -17,3 +17,5 @@ pthreads_test.cpp
 build
 
 FCData/
+Linux_port/FCData
+FCData.7z
