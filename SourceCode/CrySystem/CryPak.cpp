@@ -976,22 +976,17 @@ bool CCryPak::OpenPack(const char* szBindRootIn, const char *szPath, unsigned nF
 {
 	char szFullPathBuf[g_nMaxPath];
 
-	m_pLog->LogError("%s", "OpenPack (1) called");
-
 	const char *szFullPath = AdjustFileName(szPath, szFullPathBuf, nFlags|FLAGS_IGNORE_MOD_DIRS);
 
 	char szBindRootBuf[g_nMaxPath];
 	const char* szBindRoot = AdjustFileName(szBindRootIn, szBindRootBuf, FLAGS_ADD_TRAILING_SLASH|FLAGS_IGNORE_MOD_DIRS);
 
-	m_pLog->LogError("Opening Pack '%s' at root path of '%s'", szFullPath, szBindRoot);
 	return OpenPackCommon(szBindRoot, szFullPath, nFlags);
 }
 
 bool CCryPak::OpenPack(const char *szPath, unsigned nFlags)
 {
 	char szFullPathBuf[g_nMaxPath];
-
-	m_pLog->LogError("%s", "OpenPack (2) called");
 
 	const char *szFullPath = AdjustFileName(szPath, szFullPathBuf, nFlags|FLAGS_IGNORE_MOD_DIRS);
 	string strBindRoot;
