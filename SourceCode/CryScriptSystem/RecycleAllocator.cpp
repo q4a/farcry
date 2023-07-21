@@ -22,7 +22,7 @@ void *RecyclePool::alloc(int size)
 	{
 	    //char buf[256];
 	    //sprintf(buf, "recyclealloc %d\n", size);
-		//::OutputDebugString(buf);
+		//OutputDebugString(buf);
 		return malloc(size);
 	}
 	else
@@ -103,12 +103,12 @@ void RecyclePool::stats()
             int waste = i*4*n/1024;
             totalwaste += waste;
             sprintf(buf, "bucket %d -> %d (%d k)\n", i*4, n, waste);
-            ::OutputDebugString(buf); 
+            OutputDebugString(buf); 
         };
     };
     char buf[100];
     sprintf(buf, "totalwaste %d k\n", totalwaste);
-    ::OutputDebugString(buf); 
+    OutputDebugString(buf); 
 };
 
 RecyclePool *g_pLuaRecyclePool = new RecyclePool();		// TODO: add to CScriptSystem ?

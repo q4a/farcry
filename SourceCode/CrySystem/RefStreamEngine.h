@@ -132,7 +132,7 @@ protected:
 
 protected:
 
-	DWORD				m_dwMask;			//!< default: 0, bitmask that affects the stram compression (look into Stream.h)
+	DWORD				m_dwMask;			//!< default: 0, bitmask that affects the stram compression (look into stream.h)
 
 	int64			m_nPerfFreq;
 	int64			m_nCallbackTimeQuota;

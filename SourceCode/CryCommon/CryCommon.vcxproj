@@ -173,7 +173,7 @@
     <ClInclude Include="smartptr.h" />
     <ClInclude Include="StlDbgAlloc.h" />
     <ClInclude Include="StlUtils.h" />
-    <ClInclude Include="Stream.h" />
+    <ClInclude Include="stream.h" />
     <ClInclude Include="StreamData.h" />
     <ClInclude Include="StringUtils.h" />
     <ClInclude Include="TAlloc.h" />

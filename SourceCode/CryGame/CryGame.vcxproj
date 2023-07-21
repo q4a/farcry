@@ -467,7 +467,7 @@
     <ClInclude Include="ScriptObjectServer.h" />
     <ClInclude Include="ScriptObjectServerSlot.h" />
     <ClInclude Include="ScriptObjectSpectator.h" />
-    <ClInclude Include="ScriptObjectStream.h" />
+    <ClInclude Include="ScriptObjectstream.h" />
     <ClInclude Include="ScriptObjectSynched2DTable.h" />
     <ClInclude Include="ScriptObjectUI.h" />
     <ClInclude Include="ScriptObjectVehicle.h" />

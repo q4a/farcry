@@ -2,8 +2,8 @@
 //
 
 #include "StdAfx.h"
-#include "cryaisystem.h"
-#include "caisystem.h"
+#include "CryAISystem.h"
+#include "CAISystem.h"
 #include <ISystem.h>
 
 #if defined(WIN32) && defined(_DEBUG) 

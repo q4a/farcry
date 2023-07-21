@@ -91,7 +91,7 @@ _inline void __cdecl __CRYTEKDLL_TRACE(const char *sFormat, ... )
 
 	strcat(sTraceString, "\n");
 
-	::OutputDebugString(sTraceString);	
+	OutputDebugString(sTraceString);	
 }
 
 #if 1

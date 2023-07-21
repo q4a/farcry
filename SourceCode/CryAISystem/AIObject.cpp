@@ -4,7 +4,7 @@
 
 #include "StdAfx.h"
 #include "AIObject.h"
-#include "CAIsystem.h"
+#include "CAISystem.h"
 #include "Graph.h"
 #include <float.h>
 #include <ISystem.h>

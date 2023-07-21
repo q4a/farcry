@@ -50,7 +50,7 @@ struct XActionBind
 			{
 //				char sTemp[1000];
 //				sprintf(sTemp,"Bind removed %03d\n",keys[n].nKey);
-//				::OutputDebugString(sTemp);
+//				OutputDebugString(sTemp);
 				keys[n].Bind.nKey=0;
 				keys[n].Bind.nModifier=0;
 				keys[n].aam=aamOnPress;
@@ -86,7 +86,7 @@ struct XActionBind
 				keys[n].nLastPess=0;
 //				char sTemp[1000];
 //				sprintf(sTemp,"Bind added %03d\n",keys[n].nKey);
-//				::OutputDebugString(sTemp);
+//				OutputDebugString(sTemp);
 
 				break;
 			}
@@ -106,7 +106,7 @@ struct XActionBind
 			keys[0].nLastPess=0;
 //			char sTemp[1000];
 //				sprintf(sTemp,"Bind added %03d\n",keys[n].nKey);
-//				::OutputDebugString(sTemp);
+//				OutputDebugString(sTemp);
 		}
 	}
 

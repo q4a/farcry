@@ -19,7 +19,7 @@
 
 #include "XPlayer.h"
 #include "XVehicle.h"
-#include "ScriptObjectStream.h"
+#include "ScriptObjectstream.h"
 #include "WeaponSystemEx.h"
 #include "WeaponClass.h"
 #include <IEntitySystem.h>

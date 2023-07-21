@@ -24,7 +24,7 @@
 #define TIMER_BASE	0x0000FFFF
 
 #ifndef PS2
-#define DEBUG_STRING(sss) ::OutputDebugString(sss);
+#define DEBUG_STRING(sss) OutputDebugString(sss);
 #else
 #define DEBUG_STRING(sss) cout << sss;
 #endif
@@ -44,7 +44,7 @@
 		break;
 
 #define END_STATUS_MAP()	default : \
-		::OutputDebugString("singal not handled\n"); \
+		OutputDebugString("singal not handled\n"); \
 	break; \
 	};	\
 	} \

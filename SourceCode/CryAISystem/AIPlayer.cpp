@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "aiplayer.h"
+#include "AIPlayer.h"
 
 CAIPlayer::CAIPlayer(void)
 {

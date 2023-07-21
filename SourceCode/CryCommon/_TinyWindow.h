@@ -142,12 +142,12 @@ inline LPCTSTR _Tiny_GetCommandLine()
 #define _DEFAULT_DLG_COMMAND_HANDLERS()	\
 		case IDOK:	\
 			m_nModalRet=IDOK;\
-			::OutputDebugString("IDOK\n"); \
+			OutputDebugString("IDOK\n"); \
 			DestroyWindow(m_hWnd); \
 		break;	\
 		case IDCANCEL:	\
 			m_nModalRet=IDCANCEL;\
-			::OutputDebugString("IDCANCEL\n"); \
+			OutputDebugString("IDCANCEL\n"); \
 			DestroyWindow(m_hWnd); \
 		break;	
 

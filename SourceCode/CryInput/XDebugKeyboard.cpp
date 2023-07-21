@@ -630,7 +630,7 @@ void CXDebugKeyboard::SetupKeyNames()
 			m_AsciiTable[k].lc[0] =(char) ascii[1] ? ascii[1] : ( ascii[0] >> 8 );
     else if ( nResult == 1 )
 			m_AsciiTable[k].lc[0] =(char) ascii[0];
-    //::OutputDebugString(m_AsciiTable[k].lc); ::OutputDebugString("\n");
+    //OutputDebugString(m_AsciiTable[k].lc); OutputDebugString("\n");
 		
 		ascii[0] = ascii[1] = 0;
     sKState[VK_SHIFT] = 0x80;
@@ -641,7 +641,7 @@ void CXDebugKeyboard::SetupKeyNames()
 			m_AsciiTable[k].uc[0] =(char) ascii[1] ? ascii[1] : ( ascii[0] >> 8 );
     else if ( nResult == 1 )
 			m_AsciiTable[k].uc[0] =(char) ascii[0];
-    //::OutputDebugString(m_AsciiTable[k].uc); ::OutputDebugString("\n");
+    //OutputDebugString(m_AsciiTable[k].uc); OutputDebugString("\n");
 	}	
 }
 

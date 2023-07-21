@@ -21,7 +21,7 @@
 #include "GameObject.h"
 #include <IEntitySystem.h>
 #include <ISound.h>
-#include "ScriptObjectStream.h"
+#include "ScriptObjectstream.h"
 #include "ScriptObjectVector.h"
 #include "FireType.h"
 #include "SynchedRandomSeed.h"			// CSynchedRandomSeed

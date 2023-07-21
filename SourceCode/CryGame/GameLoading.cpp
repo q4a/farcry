@@ -32,7 +32,7 @@
 #include "ScriptObjectGame.h"
 #include "ScriptObjectInput.h"
 #include "ScriptObjectLanguage.h"
-#include "ScriptObjectStream.h"
+#include "ScriptObjectstream.h"
 #include "ScriptObjectRenderer.h"
 #include "ScriptObjectAI.h"
 #include <IEntitySystem.h>

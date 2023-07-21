@@ -180,8 +180,8 @@ void CScriptSink::OnCollectUserData(INT_PTR nValue,int nCookie)
 			ISound *m_pISound;
 			m_pISound=(ISound *)nValue;
 			//m_pSystem->GetILog()->Log("collecting %s",m_pISound->GetName());
-			//::OutputDebugString(m_pISound->GetName());
-			//::OutputDebugString(" OnCollect USER_DATA_SOUND\n");
+			//OutputDebugString(m_pISound->GetName());
+			//OutputDebugString(" OnCollect USER_DATA_SOUND\n");
 			if(m_pISound)
 				m_pISound->Release();
 			
@@ -189,7 +189,7 @@ void CScriptSink::OnCollectUserData(INT_PTR nValue,int nCookie)
 		break;
 	case USER_DATA_TEXTURE:
 		{
-			//::OutputDebugString("OnCollect USER_DATA_TEXTURE\n");
+			//OutputDebugString("OnCollect USER_DATA_TEXTURE\n");
 			INT_PTR nTid=nValue;
 			IRenderer *pRenderer = m_pSystem->GetIRenderer();
 			if (pRenderer)
@@ -198,7 +198,7 @@ void CScriptSink::OnCollectUserData(INT_PTR nValue,int nCookie)
 		break;
 	case USER_DATA_OBJECT:
 		{
-			//::OutputDebugString("OnCollect USER_DATA_OBJECT\n");
+			//OutputDebugString("OnCollect USER_DATA_OBJECT\n");
 			I3DEngine *p3DEngine = m_pSystem->GetI3DEngine();
 			IStatObj *pObj=(IStatObj *)nValue;
 
@@ -212,7 +212,7 @@ void CScriptSink::OnCollectUserData(INT_PTR nValue,int nCookie)
 		break;
 	case USER_DATA_LIGHT:
 		{
-			//::OutputDebugString("OnCollect USER_DATA_LIGHT\n");
+			//OutputDebugString("OnCollect USER_DATA_LIGHT\n");
 			INT_PTR nLightId=nValue;
 			I3DEngine *p3DEngine = m_pSystem->GetI3DEngine();			
 			if (p3DEngine)

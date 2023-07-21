@@ -246,7 +246,7 @@ protected:
 		{
 			m_pSS->RaiseError("Null Self");
 			#ifndef LINUX
-			::OutputDebugString("Null Self\n");
+			OutputDebugString("Null Self\n");
 			#endif
 			return 0;
 		}

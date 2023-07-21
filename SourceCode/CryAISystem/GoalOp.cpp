@@ -6,7 +6,7 @@
 #include "StdAfx.h"
 #include "GoalOp.h"
 #include "Puppet.h"
-#include "aivehicle.h"
+#include "AIVehicle.h"
 #include <ISystem.h>
 #include <ITimer.h>
 #include <IPhysics.h>

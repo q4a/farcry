@@ -966,7 +966,7 @@ bool CSystem::Init3DEngine()
 bool CSystem::InitAnimationSystem()
 {
 #if defined(LINUX)
-	m_dll.hAnimation = LoadDLL("cryanimation.so");
+	m_dll.hAnimation = LoadDLL("libCryAnimation.so");
 #else
 	m_dll.hAnimation = LoadDLL("CryAnimation.dll");
 #endif

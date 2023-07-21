@@ -16,7 +16,7 @@
 #include "StdAfx.h"
 
 #include "3dEngine.h"
-#include "irenderer.h"
+#include "IRenderer.h"
 
 // can not be changed by user
 #define INIT_CVAR_CHEAT(_var,_def_val,_comment)\

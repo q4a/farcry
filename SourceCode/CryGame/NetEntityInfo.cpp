@@ -122,7 +122,7 @@ void CNetEntityInfo::Update(Vec3d v3dViewer)
 	if(!m_pEntity)
 	{
 		assert(m_pEntity);
-//		::OutputDebugString("Warning invalid CNetEntityInfo!!\n");
+//		OutputDebugString("Warning invalid CNetEntityInfo!!\n");
 //		m_bNeedUpdate=false;
 		m_nPriority=0;							// no update at all
 		return;

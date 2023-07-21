@@ -4,7 +4,7 @@
 //	Crytek Source code 
 //	Copyright (c) Crytek 2001-2004
 //
-// ScriptObjectStream.h: interface for the CScriptObjectStream class.
+// ScriptObjectstream.h: interface for the CScriptObjectStream class.
 //
 //////////////////////////////////////////////////////////////////////
 

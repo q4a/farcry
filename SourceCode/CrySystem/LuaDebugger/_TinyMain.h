@@ -59,7 +59,7 @@ __inline void __cdecl _TinyTrace(const char *sFormat, ...)
 
 	strcat(sTraceString, "\n");
 
-	::OutputDebugString(sTraceString);	
+	OutputDebugString(sTraceString);	
 }
 
 #define _TINY_CHECK_LAST_ERROR _TinyCheckLastError(__FILE__, __LINE__);

@@ -157,7 +157,7 @@ ICVar *CXConsole::CreateVariable(const char *sName,const char *sValue,int nFlags
 	/*
 	char sTemp[200];
 	sprintf(sTemp,"%s=%s\n",sName,sValue);
-	::OutputDebugString(sTemp);
+	OutputDebugString(sTemp);
 	*/
 	//the script ovveride the .ini file
 	if(!pCVar->m_bLoadedFromScript){

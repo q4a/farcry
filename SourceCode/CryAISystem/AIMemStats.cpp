@@ -6,7 +6,7 @@
 #include "AIPlayer.h"
 #include "GoalPipe.h"
 #include "GoalOp.h"
-#include "aiautobalance.h"
+#include "AIAutoBalance.h"
 
 
 

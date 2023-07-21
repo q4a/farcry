@@ -299,7 +299,7 @@
 				RelativePath="StlUtils.h">
 			</File>
 			<File
-				RelativePath=".\Stream.h">
+				RelativePath=".\stream.h">
 			</File>
 			<File
 				RelativePath="StreamData.h">

@@ -1,11 +1,11 @@
 #include "StdAfx.h"
-#include "formation.h"
+#include "Formation.h"
 #include "AIObject.h"
 #include "CAISystem.h"
 #include <Cry_Math.h>
 
 #if !defined(LINUX)
-#include <assert.h>
+	#include <assert.h>
 #endif
 
 //#include <malloc.h>
@@ -56,7 +56,8 @@ void CFormation::Create(FormationDescriptor & desc)
 
 		m_vPoints.push_back(pos);
 		m_vWorldPoints.push_back(pFormationDummy);
-		m_vReservations.push_back(false);
+		//TODO: Check if we can fix this properly
+		//m_vReservations.push_back(false);
 	}
 
 }

@@ -202,7 +202,7 @@ _inline void __cdecl __CRYTEKDLL_TRACE(const char *sFormat, ... )
   strcat(sTraceString, "\n");
 
 #ifdef WIN32
-  ::OutputDebugString(sTraceString);	
+  OutputDebugString(sTraceString);	
 #endif
 
 #ifdef GAMECUBE

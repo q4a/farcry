@@ -162,7 +162,7 @@ inline void __cdecl __NET_TRACE(const char *sFormat, ... )
 	vsprintf(sTraceString, sFormat, vl);
 	va_end(vl);
 	NET_ASSERT(strlen(sTraceString) < 500) 
-	::OutputDebugString(sTraceString);*/
+	OutputDebugString(sTraceString);*/
 	
 }
 #else

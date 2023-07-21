@@ -18,7 +18,7 @@
 #include "Cry_Math.h"
 #include <Cry_Camera.h>
 #include "VertexList.h"
-#include <stream.h>
+#include <Stream.h>
 
 #ifdef LINUX
 #	include <platform.h>

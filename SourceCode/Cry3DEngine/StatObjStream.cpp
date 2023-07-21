@@ -18,7 +18,7 @@
 #include "StatObj.h"
 #include "MeshIdx.h"
 #include "../RenderDll/Common/Shadow_Renderer.h"
-#include <irenderer.h>
+#include <IRenderer.h>
 #include <CrySizer.h>
 
 

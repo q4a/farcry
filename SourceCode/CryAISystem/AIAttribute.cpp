@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "aiattribute.h"
+#include "AIAttribute.h"
 
 CAIAttribute::CAIAttribute(void)
 {

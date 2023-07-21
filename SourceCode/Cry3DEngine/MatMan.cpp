@@ -17,7 +17,7 @@
 
 #include "3dEngine.h"
 #include "objman.h"
-#include "irenderer.h"
+#include "IRenderer.h"
 
 CMatMan::CMatMan( )
 {

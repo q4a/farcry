@@ -16,7 +16,7 @@
 #include "WeaponClass.h"
 #include "XVehicle.h"
 #include "WeaponSystemEx.h"
-#include "ScriptObjectStream.h"
+#include "ScriptObjectstream.h"
 
 #include <IEntitySystem.h>
 #include <IAISystem.h>
@@ -4671,7 +4671,7 @@ bool CPlayer::Read( CStream &stream )
 			break;
 		default:
 			//DEBUG_BREAK;
-			::OutputDebugString("INVALID STANCE\n");
+			OutputDebugString("INVALID STANCE\n");
 			m_CurStance=(eStance)stance;
 			break;
 		}
@@ -7550,7 +7550,7 @@ bool CPlayer::Read_PATCH_1( CStream &stream )
 			break;
 		default:
 			//DEBUG_BREAK;
-			::OutputDebugString("INVALID STANCE\n");
+			OutputDebugString("INVALID STANCE\n");
 			m_CurStance=(eStance)stance;
 			break;
 		}

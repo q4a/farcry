@@ -88,7 +88,7 @@ ScriptObjectSound.h
 ScriptObjectSpectator.cpp
 ScriptObjectSpectator.h
 ScriptObjectStream.cpp
-ScriptObjectStream.h
+ScriptObjectstream.h
 ScriptObjectVector.h
 ScriptObjectVehicle.cpp
 ScriptObjectVehicle.h

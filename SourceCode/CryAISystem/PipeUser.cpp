@@ -4,8 +4,8 @@
 #include <IConsole.h>
 #include <ITimer.h>
 #include "GoalOp.h"
-#include "pipeuser.h"
-#include <stream.h>
+#include "PipeUser.h"
+#include <Stream.h>
 
 
 CPipeUser::CPipeUser(void)

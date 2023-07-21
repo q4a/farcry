@@ -154,7 +154,7 @@ The following changes were made in 4.5.1 beta 1 since 4.5 release:
 
 	* dll_main.cpp : forced link of Bs_G static data members (thanks  Sandy Martel). Function wrapped in STLport namespace.
 
-	* _alloc.c : fixed _STLP_CHUNK_MALLOC for debug malloc configuration (thanks  Markus Schöpflin)
+	* _alloc.c : fixed _STLP_CHUNK_MALLOC for debug malloc configuration (thanks  Markus Schï¿½pflin)
 
 	* _config_compat.h : fixed compatibility section for _STLP_NO_OWN_IOSTREAMS
 

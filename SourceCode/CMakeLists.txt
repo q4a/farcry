@@ -35,3 +35,5 @@ add_subdirectory(RenderDll/XRenderNULL)
 #add_subdirectory(CryInput) Denis Koveshnikov is working on this
 add_subdirectory(CrySoundSystem)
 add_subdirectory(CryFont)
+add_subdirectory(CryAISystem)
+add_subdirectory(CryEntitySystem)

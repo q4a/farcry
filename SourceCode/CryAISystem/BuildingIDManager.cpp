@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "buildingidmanager.h"
+#include "BuildingIDManager.h"
 
 CBuildingIDManager::CBuildingIDManager(void)
 {

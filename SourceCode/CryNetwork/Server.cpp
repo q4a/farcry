@@ -511,17 +511,17 @@ void TraceUnrecognizedPacket( const char *inszTxt, CStream &stmPacket, CIPAddres
 	static char sTemp[1024];
 	static BYTE cBuf[1024];
 	DWORD nCount;
-	::OutputDebugString("-------------------------------\n");
+	OutputDebugString("-------------------------------\n");
 	sprintf(sTemp,"INVALID PACKET FROM [%s]\n",ip.GetAsString(true));
-	::OutputDebugString(sTemp);
+	OutputDebugString(sTemp);
 	stmPacket.GetBuffer(cBuf,1024);
 	nCount=BYTES2BITS(stmPacket.GetSize());
 	for(DWORD n=0;n<nCount;n++)
 	{
 		sprintf(sTemp,"%02X ",cBuf[n]);
-		::OutputDebugString(sTemp);
+		OutputDebugString(sTemp);
 		if(n && (n%16)==0)
-			::OutputDebugString("\n");
+			OutputDebugString("\n");
 	}
 #endif
 }

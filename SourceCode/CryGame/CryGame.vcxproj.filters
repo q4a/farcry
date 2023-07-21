@@ -584,7 +584,7 @@
     <ClInclude Include="ScriptObjectSpectator.h">
       <Filter>Header Files\ScriptObjects</Filter>
     </ClInclude>
-    <ClInclude Include="ScriptObjectStream.h">
+    <ClInclude Include="ScriptObjectstream.h">
       <Filter>Header Files\ScriptObjects</Filter>
     </ClInclude>
     <ClInclude Include="ScriptObjectSynched2DTable.h">

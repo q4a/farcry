@@ -43,7 +43,7 @@
 #include "ScriptObjectSynched2DTable.h"			// CScriptObjectSynched2DTable
 #include "ScriptObjectVehicle.h"
 #include "ScriptObjectRenderer.h"
-#include "ScriptObjectStream.h"
+#include "ScriptObjectstream.h"
 #include "ScriptObjectWeaponClass.h"
 #include "ScriptObjectAI.h"
 
@@ -1202,7 +1202,7 @@ void CXGame::ProcessPMessages(const char *szMsg)
 	if (stricmp(szMsg,"Switch")==0)	// switch process (menu <> game)
 	{
 		//clear the current message
-//		::OutputDebugString("###############switch#############\n");
+//		OutputDebugString("###############switch#############\n");
 		//m_pSystem->GetIProcess()->SetPMessage("");				
 
     if(m_bEditor) return; // we are probably in the editor?
@@ -1231,7 +1231,7 @@ void CXGame::ProcessPMessages(const char *szMsg)
 		}	
 		else if (m_pUISystem->GetScriptObjectUI()->CanSwitch(1))
 		{
-//			::OutputDebugString("->menu\n");
+//			OutputDebugString("->menu\n");
       // quit if menu disabled (usefull during development)
 			ICVar * pCvarNoMenu = m_pSystem->GetIConsole()->CreateVariable("g_NoMenu","0",0);
 
