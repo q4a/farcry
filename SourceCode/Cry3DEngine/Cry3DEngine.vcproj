@@ -627,10 +627,10 @@
 			Name="3DEngine"
 			Filter="">
 			<File
-				RelativePath="3dEngine.cpp">
+				RelativePath="3DEngine.cpp">
 			</File>
 			<File
-				RelativePath="3dEngine.h">
+				RelativePath="3DEngine.h">
 			</File>
 			<File
 				RelativePath="3dEngineLight.cpp">
@@ -674,7 +674,7 @@
 				RelativePath="cvars.cpp">
 			</File>
 			<File
-				RelativePath="cvars.h">
+				RelativePath="CVars.h">
 			</File>
 		</Filter>
 		<Filter

@@ -16,8 +16,8 @@
 #include "StdAfx.h"
 
 #include "StatObj.h"
-#include "objman.h"
-#include "3dengine.h"
+#include "ObjMan.h"
+#include "3DEngine.h"
 
 void CObjManager::RenderFarObjects()
 {

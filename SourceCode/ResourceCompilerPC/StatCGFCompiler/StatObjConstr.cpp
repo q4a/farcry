@@ -717,8 +717,8 @@ bool CStatObj::IsSameObject(const char * szFileName, const char * szGeomName)
 }
 /*
 // SetHideability and SetBending will be removed from here
-#include "objman.h"
-#include "3dengine.h"
+#include "ObjMan.h"
+#include "3DEngine.h"
 
 void CStatObj::SetHideability(int nHideability) 
 { 

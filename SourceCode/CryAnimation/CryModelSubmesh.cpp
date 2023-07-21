@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "cvars.h"
+#include "CVars.h"
 #include <MakMatInfoFromMAT_ENTITY.h>
 #include <MeshIdx.h>
 #include <CryCompiledFile.h>

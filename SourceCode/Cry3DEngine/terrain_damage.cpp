@@ -17,7 +17,7 @@
 
 #include "terrain_sector.h"
 #include "detail_grass.h"
-#include "objman.h"
+#include "ObjMan.h"
 
 void CTerrain::ExplodeTerrain(Vec3d vExploPos, float fExploRadius, CObjManager * pObjManager, bool bDeformTerrain)
 {

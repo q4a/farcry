@@ -246,7 +246,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="3dEngine.h" />
+    <ClInclude Include="3DEngine.h" />
     <ClInclude Include="Array2d.h" />
     <ClInclude Include="BaseObj.h" />
     <ClInclude Include="BasicArea.h" />
@@ -254,7 +254,7 @@
     <ClInclude Include="cbuffer.h" />
     <ClInclude Include="Cry3DEngineBase.h" />
     <ClInclude Include="CryStaticModel.h" />
-    <ClInclude Include="cvars.h" />
+    <ClInclude Include="CVars.h" />
     <ClInclude Include="dds.h" />
     <ClInclude Include="DecalManager.h" />
     <ClInclude Include="detail_grass.h" />
@@ -285,7 +285,7 @@
     <ClInclude Include="WaterVolumes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="3dEngine.cpp" />
+    <ClCompile Include="3DEngine.cpp" />
     <ClCompile Include="3dEngineLight.cpp" />
     <ClCompile Include="3dEngineLoad.cpp" />
     <ClCompile Include="3dEngineRender.cpp" />

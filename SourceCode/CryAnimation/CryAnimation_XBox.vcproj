@@ -460,7 +460,7 @@
 				RelativePath="cvars.cpp">
 			</File>
 			<File
-				RelativePath="cvars.h">
+				RelativePath="CVars.h">
 			</File>
 		</Filter>
 		<Filter

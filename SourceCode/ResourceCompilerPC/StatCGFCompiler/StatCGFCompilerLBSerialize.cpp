@@ -24,7 +24,7 @@
 #include "CryChunkedFile.h"
 #include "CryHeaders.h"
 
-#include "meshidx.h"
+#include "MeshIdx.h"
 #include "IShader.h"
 #include "NvTriStrip\NvTriStrip.h"
 

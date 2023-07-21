@@ -25,7 +25,7 @@ _ACCESS_POOL;
 #endif
 
 
-#include "3dengine.h"
+#include "3DEngine.h"
 
 #define MAX_ERROR_STRING 4096
 

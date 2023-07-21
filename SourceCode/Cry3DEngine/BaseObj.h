@@ -3,7 +3,7 @@
 //  Crytek Engine Source File.
 //  Copyright (C), Crytek Studios, 2002.
 // -------------------------------------------------------------------------
-//  File name:   baseobj.h
+//  File name:   BaseObj.h
 //  Version:     v1.00
 //  Created:     28/5/2001 by Vladimir Kajalin
 //  Compilers:   Visual Studio.NET

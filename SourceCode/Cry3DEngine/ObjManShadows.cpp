@@ -15,9 +15,9 @@
 
 #include "StdAfx.h"
 
-#include "objman.h"
-#include "visareas.h"
-#include "3dengine.h"
+#include "ObjMan.h"
+#include "VisAreas.h"
+#include "3DEngine.h"
 #include <AABBSV.h>
 
 #define MIN_SHADOW_CASTER_VIEW_DIST 16

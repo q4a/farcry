@@ -15,7 +15,7 @@
 
 #include "StdAfx.h"
 #include "Light.h"
-#include "file.h"
+#include "File.h"
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction

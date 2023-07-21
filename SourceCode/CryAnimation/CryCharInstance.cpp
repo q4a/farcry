@@ -20,7 +20,7 @@
 #include "CryCharInstance.h"
 #include "CryCharManager.h"
 #include "ControllerManager.h"
-#include "cvars.h"
+#include "CVars.h"
 #include "CryCharBody.h"
 #include "StringUtils.h"
 #include "DebugUtils.h"

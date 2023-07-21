@@ -16,8 +16,8 @@
 #include "StdAfx.h"
 
 #include "DecalManager.h"
-#include "3dengine.h"
-#include "objman.h"
+#include "3DEngine.h"
+#include "ObjMan.h"
 
 void CDecal::Process(bool & active, IRenderer * pIRenderer, const float fCurTime, C3DEngine * p3DEngine, IShader * pShader, CCamera* pCamera, float fSortOffset)
 {

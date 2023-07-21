@@ -16,8 +16,8 @@
 #include "StdAfx.h"
 
 #include "partman.h"
-#include "objman.h"
-#include "3dengine.h"
+#include "ObjMan.h"
+#include "3DEngine.h"
 
 #define OT_RIGID_PARTICLE 10
 

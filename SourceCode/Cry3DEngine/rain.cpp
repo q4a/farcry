@@ -17,7 +17,7 @@
 
 #include "rain.h"
 #include "partman.h"
-#include "objman.h"
+#include "ObjMan.h"
 
 #define rn() ((((float)rand())/RAND_MAX)-0.5f)
 

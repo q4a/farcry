@@ -15,7 +15,7 @@
 
 #include "StdAfx.h"
 #include "terrain_sector.h"
-#include "3dengine.h"
+#include "3DEngine.h"
 
 void CTerrain::MakeSplatVertex(const int & x,
 															 const int & y,

@@ -15,8 +15,8 @@
 
 #include "StdAfx.h"
 #include "terrain_sector.h"
-#include "objman.h"
-#include "visareas.h"
+#include "ObjMan.h"
+#include "VisAreas.h"
 #include "cbuffer.h"
 
 bool CTerrain::IsSectorNonMergable(CSectorInfo * info)

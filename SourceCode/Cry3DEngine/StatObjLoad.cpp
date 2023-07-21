@@ -18,6 +18,28 @@
 #include "StatObj.h"
 #include "MeshIdx.h"
 
+#ifdef LINUX
+	char *ltoa ( long i , char *a , int radix )
+	{
+		if ( a == NULL ) return NULL ;
+		strcpy ( a , "0" ) ;
+		if ( i && radix > 1 && radix < 37 ) {
+			char buf[35] ;
+			unsigned long u = i , p = 34 ;
+			buf[p] = 0 ;
+			if ( i < 0 && radix == 10 ) u = -i ;
+			while ( u ) {
+				unsigned int d = u % radix ;
+				buf[--p] = d < 10 ? '0' + d : 'a' + d - 10 ;
+				u /= radix ;
+			}
+			if ( i < 0 && radix == 10 ) buf[--p] = '-' ;
+			strcpy ( a , buf + p ) ;
+		}
+		return a ;
+	}
+#endif
+
 void CStatObj::Refresh(int nFlags)
 {
 	if(nFlags & FRO_GEOMETRY)

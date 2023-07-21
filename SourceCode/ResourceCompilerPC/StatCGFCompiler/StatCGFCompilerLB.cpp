@@ -26,7 +26,7 @@
 
 #include "NvTriStrip\NvTriStrip.h"
 
-#include "meshidx.h"
+#include "MeshIdx.h"
 #include <IShader.h>
 #include "Cry_Geo.h"
 

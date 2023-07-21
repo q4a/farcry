@@ -40,7 +40,7 @@ static char THIS_FILE[] = __FILE__;
 
 /*
 #include "../cry3dengine\statobj.h"
-#include "file.h"
+#include "File.h"
 */
 
 //////////////////////////////////////////////////////////////////////////

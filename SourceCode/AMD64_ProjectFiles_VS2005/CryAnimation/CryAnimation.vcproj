@@ -984,7 +984,7 @@
 				>
 			</File>
 			<File
-				RelativePath="cvars.h"
+				RelativePath="CVars.h"
 				>
 			</File>
 		</Filter>

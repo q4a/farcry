@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "cvars.h"
+#include "CVars.h"
 #include "DebugUtils.h"
 #include "MathUtils.h"
 #include "BoneLightDynamicBind.h"

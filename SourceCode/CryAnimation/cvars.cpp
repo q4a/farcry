@@ -13,7 +13,7 @@
 
 #include "StdAfx.h"
 #include "CryAnimationBase.h"
-#include "cvars.h"
+#include "CVars.h"
 
 CryAnimVars::CryAnimVars ()
 {

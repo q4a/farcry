@@ -468,7 +468,7 @@
     <ClInclude Include="CrySkinTypes.h" />
     <ClInclude Include="CryVertexBinding.h" />
     <ClInclude Include="cvars-list.h" />
-    <ClInclude Include="cvars.h" />
+    <ClInclude Include="CVars.h" />
     <ClInclude Include="DebugUtils.h" />
     <ClInclude Include="drand.h" />
     <ClInclude Include="FileMapping.h" />

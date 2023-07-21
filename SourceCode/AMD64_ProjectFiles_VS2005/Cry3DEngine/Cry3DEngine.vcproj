@@ -899,11 +899,11 @@
 			Name="3DEngine"
 			>
 			<File
-				RelativePath="3dEngine.cpp"
+				RelativePath="3DEngine.cpp"
 				>
 			</File>
 			<File
-				RelativePath="3dEngine.h"
+				RelativePath="3DEngine.h"
 				>
 			</File>
 			<File
@@ -959,7 +959,7 @@
 				>
 			</File>
 			<File
-				RelativePath="cvars.h"
+				RelativePath="CVars.h"
 				>
 			</File>
 		</Filter>

@@ -17,7 +17,7 @@
 #include "CryCharManager.h"
 #include "CryModelState.h"
 #include "ControllerManager.h"
-#include "cvars.h"
+#include "CVars.h"
 #include "CryCharBody.h"
 #include "StringUtils.h"
 #include "CryModEffAnimation.h"

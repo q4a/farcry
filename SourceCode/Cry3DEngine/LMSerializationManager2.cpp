@@ -1,7 +1,7 @@
 #define NO_GDI
 	#include "StdAfx.h"
 #undef NO_GDI
-#include "Cry3dEngineBase.h"
+#include "Cry3DEngineBase.h"
 //#include <d3d8types.h>
 #include "dds.h"
 #include "LMSerializationManager2.h"
@@ -14,6 +14,10 @@
 
 #include "ObjMan.h"
 #include "Brush.h"
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 #define LEVELLM_PAK_NAME "LevelLM.pak"
 

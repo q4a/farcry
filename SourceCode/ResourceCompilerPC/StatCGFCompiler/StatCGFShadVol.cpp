@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "statcgfshadvol.h"
 
-#include "meshidx.h"
+#include "MeshIdx.h"
 #include "IEdgeConnectivityBuilder.h"
 #include "../StencilShadowConnectivity.h"
 #include "../StencilShadowConnectivityBuilder.h"

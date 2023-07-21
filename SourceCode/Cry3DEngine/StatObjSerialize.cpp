@@ -18,7 +18,7 @@
 #include "StatObj.h"
 #include "MeshIdx.h"
 #include "SerializeBuffer.h"
-#include "objman.h"
+#include "ObjMan.h"
 
 bool CStatObj::Serialize(int & nPos, uchar * pSerBuf, bool bSave, char * szFolderName)
 {

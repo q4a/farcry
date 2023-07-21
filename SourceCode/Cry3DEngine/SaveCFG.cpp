@@ -15,9 +15,9 @@
 
 #include "StdAfx.h"
 
-#include "3dEngine.h"
+#include "3DEngine.h"
 #include "CryStaticModel.h" 
-#include "statobj.h"
+#include "StatObj.h"
 #include "MeshIdx.h"
 
 bool C3DEngine::WriteMaterials(TArray<CHUNK_HEADER>& Chunks, TArray<IShader *>& Shaders, FILE *out, int &MatChunk)

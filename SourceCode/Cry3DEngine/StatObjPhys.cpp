@@ -17,7 +17,7 @@
 
 #include "StatObj.h"
 #include "MeshIdx.h"
-#include "3dengine.h"
+#include "3DEngine.h"
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Buffer optimizer

@@ -20,7 +20,11 @@
 #include "LMCompStructures.h"
 
 #include "MeshIdx.h"
-#include "visareas.h"
+#include "VisAreas.h"
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 //////////////////////////////////////////////////////////////////////
 bool CStatObj::SetShaderTemplate(int nTemplate, const char *TemplName, const char *ShaderName, bool bOnlyRegister, int * pnNewTemplateId)

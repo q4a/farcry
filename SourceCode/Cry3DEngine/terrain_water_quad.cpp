@@ -17,9 +17,9 @@
 
 #include "terrain_water.h"
 #include "cbuffer.h"
-#include "3dengine.h"
-#include "objman.h"
-#include "visareas.h"
+#include "3DEngine.h"
+#include "ObjMan.h"
+#include "VisAreas.h"
 
 // Shader params ids.
 enum {

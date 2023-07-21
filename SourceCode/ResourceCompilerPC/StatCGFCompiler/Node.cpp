@@ -17,7 +17,7 @@
 
 #include "Node.h"
 #include "Geom.h"
-#include "file.h"
+#include "File.h"
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction

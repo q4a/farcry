@@ -16,7 +16,7 @@
 #include "StdAfx.h"
 
 #include "DecalManager.h"
-#include "3dengine.h"
+#include "3DEngine.h"
 #include <IStatObj.h>
 #include "ObjMan.h"
 
