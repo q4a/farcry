@@ -8,7 +8,7 @@
 #define _strlwr strlwr
 #define DebugBreak __builtin_trap
 void OutputDebugString(const char* message);
-void RemoveCRLF(const std::string& str);
+void RemoveCRLF(std::string str);
 void GlobalMemoryStatus(LPMEMORYSTATUS lpmem);
 int comparePathNames(const char* cpFirst, const char* cpSecond, const unsigned int len);
 bool QueryPerformanceCounter(LARGE_INTEGER *counter);

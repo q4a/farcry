@@ -639,9 +639,10 @@ FILE *CCryPak::FOpen(const char *pName, const char *szMode,unsigned nFlags2)
 // the path must be absolute normalized lower-case with forward-slashes
 CCachedFileDataPtr CCryPak::GetFileData(const char* szName)
 {
-#if defined(LINUX)
+//Sorry Windows users, this breaks Linux.
+/*#if defined(LINUX)
 	replaceDoublePathFilename((char*)szName);
-#endif
+#endif*/
 	unsigned nNameLen = (unsigned)strlen(szName);
 	AUTO_LOCK(m_csZips);
 	// scan through registered pak files and try to find this file

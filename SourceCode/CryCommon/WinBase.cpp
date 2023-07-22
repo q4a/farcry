@@ -69,7 +69,7 @@ const int64 FILE_ATTRIBUTE_DIRECTORY = 0x10;
 
 typedef std::string string;
 
-void RemoveCRLF(std::string& str) {
+void RemoveCRLF(std::string str) {
     str.erase(std::remove(str.begin(), str.end(), '\r'), str.end());
     str.erase(std::remove(str.begin(), str.end(), '\n'), str.end());
 }

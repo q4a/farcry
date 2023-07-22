@@ -1,21 +1,14 @@
-SourceCode/.vs
-SourceCode/.vscode
-SourceCode/build
-
-Log.txt
-libCrySystem.so
-libCryScriptSystem.so
+.vs
+.vscode
+bin
+build
+Debug
+Debug_XBox
+Release
 
 CMakeFiles/
 cmake_install.cmake
 CMakeCache.txt
-Makefile 
+Makefile
 
-pthreads_test
-pthreads_test.cpp
-
-build
-
-FCData/
-Linux_port/FCData
 FCData.7z
