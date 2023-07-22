@@ -595,6 +595,7 @@ public:
 //////////////////////////////////////////////////////////////////////////
 bool CSystem::CreateGame( const SGameInitParams &params )
 {
+	CryLogAlways("CSystem::CreateGame Called!!");
 #if defined(WIN32) || defined(LINUX)
 	if (m_bEditor)
 	{

@@ -94,6 +94,7 @@ set(SRC_FILES
     "XVehicleProxy.cpp"
     "XVehicleProxyHeli.cpp"
     "XVehicleSystem.cpp"
+    "../CryCommon/WinBase.cpp"
 )
 
 add_library(${PROJECT_NAME} SHARED ${SRC_FILES})

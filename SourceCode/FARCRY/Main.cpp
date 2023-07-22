@@ -712,14 +712,6 @@ bool RunGame(HINSTANCE hInstance,const char *sCmdLine)
 		g_pISystem = CreateSystemInterface( sip );
 #endif
 
-//////////////////////////////////////////////////////////////////////////
-#ifdef GERMAN_GORE_CHECK
-			string sVar=string("g")+"_"+"g"+"o"+"r"+"e";
-			ICVar *pGore=g_pISystem->GetIConsole()->CreateVariable(sVar.c_str(),"1",VF_DUMPTODISK|VF_READONLY);
-			pGore->ForceSet("1");
-#endif
-//////////////////////////////////////////////////////////////////////////
-
 		// Enable Log verbosity.
 		g_pISystem->GetILog()->EnableVerbosity(true);
 
@@ -738,11 +730,6 @@ bool RunGame(HINSTANCE hInstance,const char *sCmdLine)
 			ip.sGameDLL = DLL_GAME;
 			if (szLocalCmdLine[0])
 				strncpy(ip.szGameCmdLine,szLocalCmdLine,sizeof(ip.szGameCmdLine));
-
-#ifdef GORE_CHECK
-			ICVar *pGore=g_pISystem->GetIConsole()->CreateVariable("g_gore","1",VF_DUMPTODISK|VF_READONLY);
-			pGore->ForceSet("1");
-#endif
 
 			if (!g_pISystem->CreateGame( ip ))
 			{
