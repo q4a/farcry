@@ -11,7 +11,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "Timer.h"
 #include <ISystem.h>
 #include <IConsole.h>
@@ -215,6 +215,7 @@ int64 CTimer::GetPerformanceCounterTime()
 
 	return lNow.QuadPart;
 }
+
 
 //get time from multimedia timer
 /////////////////////////////////////////////////////

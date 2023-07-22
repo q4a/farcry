@@ -15,11 +15,11 @@
 
 #include "StdAfx.h"
 #include "StatObj.h"
-#include "..\StatObjPanel.h"
+#include "../StatObjPanel.h"
 #include "selectiongroup.h"
 
-#include "..\Viewport.h"
-#include "..\AnimationContext.h"
+#include "../Viewport.h"
+#include "../AnimationContext.h"
 
 #include <I3DEngine.h>
 #include <IEntitySystem.h>

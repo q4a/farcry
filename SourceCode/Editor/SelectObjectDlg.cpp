@@ -1,7 +1,7 @@
 // SelectObjectDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "SelectObjectDlg.h"
 
 #include "Objects\Group.h"

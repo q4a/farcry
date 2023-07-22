@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <smartptr.h>
 #include "MTSafeAllocator.h"
 #include "ZipFileFormat.h"
@@ -10,6 +10,10 @@
 #include "ZipDirCacheFactory.h"
 #include "ZipDirFindRW.h"
 
+#ifdef LINUX 
+	#include "WinBase.h"
+	#include <unistd.h>
+#endif
 
 // declaration of Z_OK for ZipRawDecompress
 #include "zlib/zlib.h"

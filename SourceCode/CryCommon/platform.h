@@ -18,14 +18,15 @@
 #define _PLATFORM_H_
 
 #include "ProjectDefines.h"							// to get some defines available in every CryEngine project 
+#include "pthread.h"
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
 
-#if !defined(LINUX)
+#if defined(LINUX)
 typedef void *THREAD_HANDLE;
-typedef void *EVENT_HANDLE;
+typedef pthread_t EVENT_HANDLE;
 #endif
 
 #if defined(WIN32) || defined(WIN64)
@@ -105,7 +106,7 @@ typedef void *EVENT_HANDLE;
 //////////////////////////////////////////////////////////////////////////
 #ifndef NOT_USE_CRY_MEMORY_MANAGER
 #define USE_NEWPOOL
-#include <CryMemoryManager.h>
+#include "CryMemoryManager.h"
 #endif // NOT_USE_CRY_MEMORY_MANAGER
 
 #ifdef __cplusplus
@@ -255,6 +256,7 @@ static int64 GetTicks()
 
 #if defined(LINUX)
 	#define RC_EXECUTABLE "rc"
+#else
 	#include <WinBase.h>
 #endif
 

@@ -11,13 +11,13 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h" 
+#include "StdAfx.h" 
 #include "System.h"
 #include <time.h>
 #include "XConsole.h"
 #include <IGame.h>
 #include <IScriptSystem.h>
-#include "SystemCfg.h" 
+#include "SystemCFG.h" 
 #if defined(LINUX)
 #include "ILog.h"
 #endif
@@ -38,13 +38,15 @@ const SFileVersion& CSystem::GetProductVersion()
 void CSystem::QueryVersionInfo()   
 {
 #if defined(LINUX)
-		//do we need some other values here?
-		m_fileVersion.v[0] = VERSION_INFO; 
+		//Q. do we need some other values here? A. Yes we do, its a problem for future me though.
+		//m_fileVersion.v[0] = VERSION_INFO; 
+		m_fileVersion.v[0] = 1; 
 		m_fileVersion.v[1] = 1;
 		m_fileVersion.v[2] = 1;
 		m_fileVersion.v[3] = 1;
  
-		m_productVersion.v[0] = VERSION_INFO;
+		//m_productVersion.v[0] = VERSION_INFO;
+		m_productVersion.v[0] = 1;
 		m_productVersion.v[1] = 1;
 		m_productVersion.v[2] = 1;
 		m_productVersion.v[3] = 1;

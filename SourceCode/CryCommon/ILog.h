@@ -165,7 +165,7 @@ inline FILE * fxopen(const char *file, const char *mode)
   return fopen(name, mode);
 #else
 #if defined(LINUX)
-	return fopen_nocase(file, mode);
+	return fopen(file, mode); //It was `fopen_nocase` from `WinBase.cpp` and `winbase.h` but I changed it to a case sensitive function for the meantime
 #else
   return fopen(file, mode);
 #endif //LINUX

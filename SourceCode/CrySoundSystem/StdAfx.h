@@ -1,4 +1,4 @@
-// stdafx.h : include file for standard system include files,
+// StdAfx.h : include file for standard system include files,
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 //
@@ -47,12 +47,16 @@
 #ifdef WIN64
 #include <CrySound64.h>
 #else
-#include <CrySound.h>
+#include <crysound.h>
 #endif
 #include <Cry_Math.h>
 //#include <vector.h>
 #include <set>
 #include <algorithm>
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 #ifdef PS2
 inline void __CRYTEKDLL_TRACE(const char *sFormat, ... )
@@ -69,7 +73,7 @@ _inline void __cdecl __CRYTEKDLL_TRACE(const char *sFormat, ... )
 
 	strcat(sTraceString, "\n");
 
-	::OutputDebugString(sTraceString);	
+	OutputDebugString(sTraceString);	
 }
 
 #define TRACE __CRYTEKDLL_TRACE

@@ -1,7 +1,7 @@
 // InfoBar.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "InfoBar.h"
 #include "EditTool.h"
 #include "Objects\ObjectManager.h"

@@ -41,7 +41,7 @@
 				EnableFunctionLevelLinking="FALSE"
 				EnableEnhancedInstructionSet="0"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile=".\Release/CryAnimation.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
@@ -115,7 +115,7 @@
 				EnableFunctionLevelLinking="FALSE"
 				EnableEnhancedInstructionSet="0"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				AssemblerListingLocation=".\Profile/"
 				ObjectFile=".\Profile/"
 				ProgramDataBaseFileName=".\Profile/"
@@ -181,7 +181,7 @@
 				BufferSecurityCheck="TRUE"
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile=".\Debug/CryAnimation.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
@@ -246,7 +246,7 @@
 				RuntimeLibrary="1"
 				BufferSecurityCheck="FALSE"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile="$(IntDir)/CryAnimation.pch"
 				AssemblerListingLocation="$(IntDir)/"
 				ObjectFile="$(IntDir)/"
@@ -323,7 +323,7 @@
 				RuntimeLibrary="2"
 				BufferSecurityCheck="FALSE"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile="$(IntDir)/CryAnimation.pch"
 				AssemblerListingLocation="$(IntDir)/"
 				ObjectFile="$(IntDir)/"
@@ -654,7 +654,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="stdafx.h">
+				RelativePath="StdAfx.h">
 			</File>
 		</Filter>
 		<Filter
@@ -702,7 +702,7 @@
 				RelativePath="cvars.cpp">
 			</File>
 			<File
-				RelativePath="cvars.h">
+				RelativePath="CVars.h">
 			</File>
 		</Filter>
 		<Filter

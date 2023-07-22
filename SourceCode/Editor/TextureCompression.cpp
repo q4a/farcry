@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TextureCompression.h"
 #include <ddraw.h>
 #include "Util\dds.h"

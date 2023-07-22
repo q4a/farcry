@@ -10,7 +10,7 @@
 //
 //////////////////////////////////////////////////////////////////////
  
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <IStreamEngine.h>
 #include <ICryPak.h>
 #include "Game.h"
@@ -768,7 +768,7 @@ bool CXGame::Run(bool &bRelaunch)
 #include ".\game.h"
 #pragma comment (lib , "Winmm.lib")
 #else
-#define GetCurrentTime() ((unsigned int)(GetSystem()->GetITimer()->GetCurrTime() * 1000.f))
+	#define GetCurrentTime() ((unsigned int)(GetSystem()->GetITimer()->GetCurrTime() * 1000.f))
 #endif
 
 //////////////////////////////////////////////////////////////////////////
@@ -1202,7 +1202,7 @@ void CXGame::ProcessPMessages(const char *szMsg)
 	if (stricmp(szMsg,"Switch")==0)	// switch process (menu <> game)
 	{
 		//clear the current message
-//		::OutputDebugString("###############switch#############\n");
+//		OutputDebugString("###############switch#############\n");
 		//m_pSystem->GetIProcess()->SetPMessage("");				
 
     if(m_bEditor) return; // we are probably in the editor?
@@ -1231,7 +1231,7 @@ void CXGame::ProcessPMessages(const char *szMsg)
 		}	
 		else if (m_pUISystem->GetScriptObjectUI()->CanSwitch(1))
 		{
-//			::OutputDebugString("->menu\n");
+//			OutputDebugString("->menu\n");
       // quit if menu disabled (usefull during development)
 			ICVar * pCvarNoMenu = m_pSystem->GetIConsole()->CreateVariable("g_NoMenu","0",0);
 

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "XConsole.h"
 #include "XConsoleVariable.h"
 #include "Font.h"
@@ -157,7 +157,7 @@ ICVar *CXConsole::CreateVariable(const char *sName,const char *sValue,int nFlags
 	/*
 	char sTemp[200];
 	sprintf(sTemp,"%s=%s\n",sName,sValue);
-	::OutputDebugString(sTemp);
+	OutputDebugString(sTemp);
 	*/
 	//the script ovveride the .ini file
 	if(!pCVar->m_bLoadedFromScript){
@@ -1100,7 +1100,7 @@ void CXConsole::DumpCommandsVars(char *prefix)
 	if(!f) return;
 	
 	fprintf(f," CHEAT: stays in the default value if cheats are not disabled\n");
-	fprintf(f," REQUIRE_NET_SYNC: cannot be changed on client and when connecting it´s sent to the client\n");
+	fprintf(f," REQUIRE_NET_SYNC: cannot be changed on client and when connecting itï¿½s sent to the client\n");
 	fprintf(f," SAVEGAME: stored when saving a savegame\n");
 	fprintf(f," READONLY: can not be changed by the user\n");
 	fprintf(f,"-------------------------\n");

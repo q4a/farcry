@@ -1,7 +1,7 @@
 // ObjectPanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ObjectPanel.h"
 
 #ifdef _DEBUG

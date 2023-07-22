@@ -1,7 +1,7 @@
 // InfoProgressBar.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "cryedit.h"
 #include "InfoProgressBar.h"
 

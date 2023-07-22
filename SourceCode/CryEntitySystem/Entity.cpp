@@ -13,7 +13,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 #include "EntitySystem.h"
 
@@ -1674,7 +1674,8 @@ void CEntity::UpdatePhysics( SEntityUpdateContext &ctx )
 					pLB->InvalidateVideoBuffer();
 				}
 			}
-			if ((m_bVisible^m_bWasVisible) && (!m_bVisible || psb.wind*psb.airResistance>0))
+			//TODO: Check if this is the correct solution
+			if ((m_bVisible^m_bWasVisible) && (!m_bVisible || (*psb.wind) * psb.airResistance > 0))
 				m_physic->Action(&aa);
 		}
 
@@ -2732,7 +2733,7 @@ void CEntity::OnStartAnimation(const char *sAnimation)
 	ENTITY_PROFILER
 		//char sTemp[200];
 		//sprintf(sTemp,"OnStartAnimation(%s)\n",sAnimation);
-		//::OutputDebugString(sTemp);
+		//OutputDebugString(sTemp);
 
 		SendScriptEvent( ScriptEvent_StartAnimation,sAnimation );
 }

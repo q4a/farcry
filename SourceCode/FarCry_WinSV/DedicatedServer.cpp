@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "DedicatedServer.h"
 #include "CryLibrary.h"
 #include <IConsole.h>										// ICVar

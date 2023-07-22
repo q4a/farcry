@@ -16,7 +16,7 @@
 #include "StdAfx.h"
 #include "Volume.h"
 
-#include "..\Viewport.h"
+#include "../Viewport.h"
 
 //////////////////////////////////////////////////////////////////////////
 // CBase implementation.

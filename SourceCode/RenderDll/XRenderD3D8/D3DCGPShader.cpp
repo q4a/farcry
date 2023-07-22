@@ -7,7 +7,7 @@
 
 =============================================================================*/
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "GL_Renderer.h"
 #include "GLCGPShader.h"
 

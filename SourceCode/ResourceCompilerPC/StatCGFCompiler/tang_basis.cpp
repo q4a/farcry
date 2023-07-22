@@ -93,7 +93,7 @@ bool CSimpleLeafBuffer::compute_tangent( const float * v0, const float * v1, con
 }
 
 
-#include "NvTriStrip/NVTriStrip.h"
+#include "NvTriStrip/NvTriStrip.h"
 
 static _inline int sGetHash(float *v, float *n)
 {

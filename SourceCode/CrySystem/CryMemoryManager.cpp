@@ -1,11 +1,13 @@
 // CryMemoryManager.cpp : Defines the entry point for the DLL application.
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 
 #include <stdlib.h>
 #include <stdio.h>
+#ifndef LINUX
 #include <new.h>
+#endif 
 
 #include <ISystem.h>
 
@@ -22,7 +24,7 @@ size_t g_TotalAllocatedMemory = 0;
 size_t g_ScriptAllocatedMemory = 0;
 int g_nPrecaution = 0; // will cause delayed crash, will make engine extremally unstable.
 
-//#if !defined(LINUX)
+#if !defined(LINUX)
 
 extern ISystem* g_System;
 extern bool g_bProfilerEnabled;
@@ -100,7 +102,7 @@ static unsigned int biggestalloc = 0;
 #define MAXSTAT 1000
 static int stats[MAXSTAT];
 void addstat(int size) { if(size<0 || size>=MAXSTAT) size = MAXSTAT-1; stats[size]++; };
-void printstats() { for(int i = 0; i<MAXSTAT; i++) if(stats[i]) { char buf[100]; sprintf(buf, "bucket %d -> %d\n", i, stats[i]); ::OutputDebugString(buf); }; };
+void printstats() { for(int i = 0; i<MAXSTAT; i++) if(stats[i]) { char buf[100]; sprintf(buf, "bucket %d -> %d\n", i, stats[i]); OutputDebugString(buf); }; };
 int clearstats() { for(int i = 0; i<MAXSTAT; i++) stats[i] = 0; return 0; };
 static int foo = clearstats();
 */
@@ -232,11 +234,11 @@ public:
 				int waste = i*4*n/1024;
 				totalwaste += waste;
 				sprintf(buf, "bucket %d -> %d (%d k)\n", i*4, n, waste);
-				::OutputDebugString(buf); 
+				OutputDebugString(buf); 
 			};
 		};
 		sprintf(buf, "totalwaste %d k\n", totalwaste);
-		::OutputDebugString(buf); 
+		OutputDebugString(buf); 
 	};
 };
 
@@ -492,7 +494,7 @@ extern "C" void debug(int n)
 {
 	char buf[100];
 	sprintf(buf, "BESTFIT: %d\n", n);  
-	::OutputDebugString(buf); 
+	OutputDebugString(buf); 
 };
 */// CryMemoryManager.cpp : Defines the entry point for the DLL application.
-//#endif //LINUX
+#endif //LINUX

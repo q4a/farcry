@@ -13,12 +13,12 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 #include "StatObj.h"
 #include "MeshIdx.h"
-#include "../RenderDll/Common/shadow_renderer.h"
-#include <irenderer.h>
+#include "../RenderDll/Common/Shadow_Renderer.h"
+#include <IRenderer.h>
 #include <I3dIndoorEngine.h>
 #include <CrySizer.h>
 
@@ -717,8 +717,8 @@ bool CStatObj::IsSameObject(const char * szFileName, const char * szGeomName)
 }
 /*
 // SetHideability and SetBending will be removed from here
-#include "objman.h"
-#include "3dengine.h"
+#include "ObjMan.h"
+#include "3DEngine.h"
 
 void CStatObj::SetHideability(int nHideability) 
 { 

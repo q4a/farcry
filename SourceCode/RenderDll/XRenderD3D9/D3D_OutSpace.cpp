@@ -1,6 +1,6 @@
 #include "RenderPCH.h"
 #include "DriverD3D9.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 
 void CD3D9Renderer::PrepareOutSpaceTextures(CREOutSpace * pRE)
 {

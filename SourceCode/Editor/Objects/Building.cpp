@@ -17,8 +17,8 @@
 #include "Building.h"
 #include "Entity.h"
 
-#include "..\BuildingPanel.h"
-#include "..\Viewport.h"
+#include "../BuildingPanel.h"
+#include "../Viewport.h"
 
 #include <I3DEngine.h>
 #include "IPhysics.h"

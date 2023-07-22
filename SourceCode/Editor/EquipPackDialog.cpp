@@ -1,7 +1,7 @@
 // EquipPackDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "EquipPackDialog.h"
 #include "EquipPackLib.h"
 #include "EquipPack.h"

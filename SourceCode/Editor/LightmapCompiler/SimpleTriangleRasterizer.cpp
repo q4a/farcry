@@ -1,4 +1,4 @@
-#include "stdafx.h"										// precompiled headers
+#include "StdAfx.h"										// precompiled headers
 #include "SimpleTriangleRasterizer.h"					// CSimpleTriangleRastizer
 #include <math.h>										// sqrt()
 

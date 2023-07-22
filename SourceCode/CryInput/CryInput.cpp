@@ -1,7 +1,7 @@
 // CryInput.cpp : Defines the entry point for the DLL application.
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 #ifndef _XBOX 
 _ACCESS_POOL;

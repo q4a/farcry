@@ -11,7 +11,7 @@
 static char THIS_FILE[] = __FILE__;
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "PS2_Renderer.h"
 
 #include "CryFont/FBitmap.h"

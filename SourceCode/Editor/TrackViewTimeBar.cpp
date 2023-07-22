@@ -1,7 +1,7 @@
 // TrackViewTimeBar.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TrackViewTimeBar.h"
 
 #include "TrackViewKeyList.h"

@@ -17,8 +17,8 @@
 #include "TrackGizmo.h"
 #include "DisplayContext.h"
 
-#include "..\Viewport.h"
-#include "..\DisplaySettings.h"
+#include "../Viewport.h"
+#include "../DisplaySettings.h"
 #include "ObjectManager.h"
 
 #include <IMovieSystem.h>

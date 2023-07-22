@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ViewManager.h"
 #include "MainFrm.h"
 #include "LayoutWnd.h"

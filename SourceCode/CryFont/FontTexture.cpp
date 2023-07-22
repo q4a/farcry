@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------------------------------------
-// Author: Márcio Martins
+// Author: Mï¿½rcio Martins
 //
 // Purpose:
 //  - Create and update a texture with the most recently used glyphs
@@ -11,6 +11,40 @@
 #include "StdAfx.h"
 #include "FontTexture.h"
 
+#ifndef _BITMAPFILEHEADER_H_
+#define _BITMAPFILEHEADER_H_
+
+#include <cstdint> // Include this header for fixed-size integer types
+
+#pragma pack(push, 1) // Disable padding for the following structure
+
+struct BITMAPFILEHEADER
+{
+    uint16_t bfType;       // File type. Should be set to 'BM'.
+    uint32_t bfSize;       // Size of the BMP file in bytes.
+    uint16_t bfReserved1;  // Reserved; set to 0.
+    uint16_t bfReserved2;  // Reserved; set to 0.
+    uint32_t bfOffBits;    // Offset from the beginning of the file to the bitmap data.
+};
+
+struct BITMAPINFOHEADER
+{
+    uint32_t biSize;          // Size of the header (in bytes).
+    int32_t  biWidth;         // Width of the image (in pixels).
+    int32_t  biHeight;        // Height of the image (in pixels).
+    uint16_t biPlanes;        // Number of color planes (must be 1).
+    uint16_t biBitCount;      // Number of bits per pixel.
+    uint32_t biCompression;   // Compression type (0 for uncompressed).
+    uint32_t biSizeImage;     // Size of the image data (in bytes).
+    int32_t  biXPelsPerMeter; // Horizontal resolution (pixels per meter).
+    int32_t  biYPelsPerMeter; // Vertical resolution (pixels per meter).
+    uint32_t biClrUsed;       // Number of colors used (0 for full color images).
+    uint32_t biClrImportant;  // Number of important colors (0 when every color is important).
+};
+
+#pragma pack(pop) // Re-enable default padding settings
+
+#endif // _BITMAPFILEHEADER_H_
 
 //-------------------------------------------------------------------------------------------------
 CFontTexture::CFontTexture()

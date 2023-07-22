@@ -9,7 +9,7 @@
 
 #include "RenderPCH.h"
 #include "DriverD3D9.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 #include "D3DCGPShader.h"
 #include "D3DCGVProgram.h"
 

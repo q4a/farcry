@@ -22,6 +22,11 @@
 #pragma warning( disable : 4267 )
 #endif
 
+#ifdef LINUX 
+  #include "findfirst.h"
+  #include "WinBase.h"
+#endif
+
 extern char *gShObjectNotFound;
 
 //=================================================================================================
@@ -363,6 +368,7 @@ bool CShader::mfReloadShaderScript(const char *szShaderName, int nFlags, SShader
 
   return false;
 }
+
 
 bool SShader::Reload(int nFlags)
 {

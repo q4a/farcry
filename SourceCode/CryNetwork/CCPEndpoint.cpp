@@ -10,7 +10,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "CCPEndpoint.h"
 #include "Network.h"
 
@@ -434,7 +434,7 @@ bool CCCPEndpoint::ProcessPayload(unsigned char cFrameType, CStream &stmStream)
 				///////////////////////////////////////////////////
 				/*case FT_CCP_DISCONNECT:
 				{
-				::OutputDebugString("FT_CCP_DISCONNECT\n");
+				OutputDebugString("FT_CCP_DISCONNECT\n");
 				CCPDisconnect ccpDisconnect;
 				ccpDisconnect.Load(stmStream);
 				m_pParent->OnCCPDisconnect(ccpDisconnect.m_sCause.c_str());

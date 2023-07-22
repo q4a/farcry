@@ -189,7 +189,7 @@
     <ClInclude Include="ResourceCompilerPC.h">
       <Filter>Front-End</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="StdAfx.h">
       <Filter>Front-End</Filter>
     </ClInclude>
     <ClInclude Include="AutoFile.h">

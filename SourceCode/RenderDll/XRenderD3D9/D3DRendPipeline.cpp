@@ -10,10 +10,10 @@
 #include "RenderPCH.h"
 #include "DriverD3D9.h"
 #include <ICryAnimation.h>
-#include "..\common\shadow_renderer.h"
+#include "../common\Shadow_Renderer.h"
 #include "D3DCGPShader.h"
 #include "D3DCGVProgram.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 #include "CryHeaders.h"
 
 //============================================================================================
@@ -3581,7 +3581,7 @@ void CD3D9Renderer::EF_ApplyMatrixOps(TArray<SMatrixTransform>* MatrixOps, bool 
   }
 }
 
-#include "../Common/NvTriStrip/NVTriStrip.h"
+#include "../Common/NvTriStrip/NvTriStrip.h"
 
 // Commit changed states to the hardware before drawing
 bool CD3D9Renderer::EF_PreDraw(SShaderPass *sl, bool bSetVertexDecl)

@@ -1,7 +1,7 @@
 // EntityPanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "EntityPanel.h"
 #include "Objects\Entity.h"
 #include "Objects\ObjectManager.h"

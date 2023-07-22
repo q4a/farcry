@@ -11,7 +11,10 @@ right now this code is not GPL or LGPL in any way
 #pragma once
 #include "CryLibrary.h"
 
+#ifndef LINUX
 #include <commctrl.h>
+#endif
+
 #pragma comment (lib , "comctl32.lib")
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -56,7 +59,7 @@ __inline void __cdecl _TinyTrace(const char *sFormat, ...)
 
 	strcat(sTraceString, "\n");
 
-	::OutputDebugString(sTraceString);	
+	OutputDebugString(sTraceString);	
 }
 
 #define _TINY_CHECK_LAST_ERROR _TinyCheckLastError(__FILE__, __LINE__);

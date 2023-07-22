@@ -83,30 +83,30 @@ public:
 	// this is the array that's returned from the LeafBuffer
 	list2<CMatInfo>* getLeafBufferMaterials();
 
-  CryModelState(CryModel* pMesh);
-  ~CryModelState();
+	CryModelState(CryModel* pMesh);
+	~CryModelState();
 
-  //////////////////////////////////////////////////////////////////////////////////////////
-  // ------------------------------- BASIC CONTROL FUNCS -------------------------------- //
-  //////////////////////////////////////////////////////////////////////////////////////////
-    
-//  void PushEffector(CCryModEffector *eff);      // Puts an effector in list 
-  void ProcessSkinning(const Vec3& t,const Matrix44& mtxModel,int nTemplate, int nLod=-1, bool bForceUpdate=false);
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// ------------------------------- BASIC CONTROL FUNCS -------------------------------- //
+	//////////////////////////////////////////////////////////////////////////////////////////
+
+	//  void PushEffector(CCryModEffector *eff);      // Puts an effector in list 
+	void ProcessSkinning(const Vec3& t,const Matrix44& mtxModel,int nTemplate, int nLod=-1, bool bForceUpdate=false);
 
 	void Render(const struct SRendParams & RendParams, Matrix44& mtxObjMatrix, struct CryCharInstanceRenderParams& rCharParams, const Vec3& t);
-  
-  void ProcessAnimations(float deltatime_anim, bool bUpdateBones, CryCharInstance* instance); // Process this model's animations
 
-  CryModelState* MakeCopy();    // Makes an exact copy of this 
-                                // model and returns it
+	void ProcessAnimations(float deltatime_anim, bool bUpdateBones, CryCharInstance* instance); // Process this model's animations
+
+	CryModelState* MakeCopy();    // Makes an exact copy of this 
+								// model and returns it
 
 	int numLODs(); // number of LODs in the 0th submesh
 
 	// copies the given leaf buffers to this instance leaf buffers
 	void CopyLeafBuffers (CLeafBuffer** pLeafBuffers);
 
-  ICryBone * GetBoneByName(const char * szBoneName);
-  bool SetAnimationFrame(const char * szString, int nFrame);
+	ICryBone * GetBoneByName(const char * szBoneName);
+	bool SetAnimationFrame(const char * szString, int nFrame);
 
 	void BuildPhysicalEntity(IPhysicalEntity *pent,float mass,int surface_idx,float stiffness_scale, float scale,Vec3 offset, int nLod=0);
 	IPhysicalEntity *CreateCharacterPhysics(IPhysicalEntity *pHost, float mass,int surface_idx,float stiffness_scale, float scale,Vec3 offset, int nLod=0);
@@ -116,7 +116,7 @@ public:
 	void ForceReskin();
 	IPhysicalEntity *RelinquishCharacterPhysics();
 	void SetCharacterPhysParams(float mass,int surface_idx,float scale) { m_fMass=mass; m_iSurfaceIdx=surface_idx; m_fScale=scale; }
-  void ProcessPhysics(float fDeltaTimePhys, int nNeff);
+	void ProcessPhysics(float fDeltaTimePhys, int nNeff);
 	IPhysicalEntity *GetCharacterPhysics() { return m_pCharPhysics; }
 	IPhysicalEntity *GetCharacterPhysics(const char *pRootBoneName);
 	IPhysicalEntity *GetCharacterPhysics(int iAuxPhys);
@@ -124,7 +124,7 @@ public:
 
 	void ResetNonphysicalBoneRotations (int nLOD, float fBlend);
 
-  bool IsAnimStopped();
+	bool IsAnimStopped();
 
 	void DumpState();
 
@@ -132,17 +132,17 @@ public:
 	{
 		m_nLastSkinBBoxUpdateFrameId = 0;
 	}
-  //////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////
 
-  
-  //////////////////////////////////////////////////////////////////////////////////////////
-  // ------------------------------- EFFECTORS FUNCTIONS -------------------------------- //
-  //////////////////////////////////////////////////////////////////////////////////////////
-  //                                            
-  //////////////////////////////////////////////////////////////////////////////////////////
-  // RunAnimation:                                    
-  //   Searchs for the animation in animations list and starts palying it.        
-  //////////////////////////////////////////////////////////////////////////////////////////
+
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// ------------------------------- EFFECTORS FUNCTIONS -------------------------------- //
+	//////////////////////////////////////////////////////////////////////////////////////////
+	//                                            
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// RunAnimation:                                    
+	//   Searchs for the animation in animations list and starts palying it.        
+	//////////////////////////////////////////////////////////////////////////////////////////
 	bool RunAnimation (const char * szAnimName, const struct CryCharAnimationParams& Params, float fSpeed);
 	bool RunAnimation (int nAnimID, const CryCharAnimationParams& Params, float fSpeed, bool bInternal = false);
 	bool RunMorph (const char* szMorphTarget, const CryCharMorphParams& Params);
@@ -152,13 +152,13 @@ public:
 	void StopAllMorphs();
 	void FreezeAllMorphs();
 
- 
+
 
 	// returns the animation currently being played in the given layer, or -1
 	int GetCurrentAnimation (unsigned nLayer);
 
 	bool RunMorph (int nMorphTargetId, float fBlendInTime, float fBlendOutTime);
-	
+
 	// Enables/Disables the Default Idle Animation restart.
 	// If this feature is enabled, then the last looped animation will be played back after the current (non-loop) animation is finished.
 	// Only those animations started with the flag bTreatAsDefaultIdleAnimation == true will be taken into account
@@ -170,15 +170,15 @@ public:
 	// sets the given aniimation to the given layer as the default
 	void SetDefaultIdleAnimation(unsigned nLayer, const char* szAnimName);
 
-//  void ChangeBlendSpeedFactor(float factor, int layer);
-  //                                            
-  // ==================================================================================== //
-  // ResetAllAnimations:                                                                  //
-  //   Stops all running anims and sets the model to the default pose                     //
-  // ==================================================================================== //
-  void ResetAllAnimations();
-  //                                            //
-  //////////////////////////////////////////////////////////////////////////////////////////
+	//  void ChangeBlendSpeedFactor(float factor, int layer);
+	//                                            
+	// ==================================================================================== //
+	// ResetAllAnimations:                                                                  //
+	//   Stops all running anims and sets the model to the default pose                     //
+	// ==================================================================================== //
+	void ResetAllAnimations();
+	//                                            //
+	//////////////////////////////////////////////////////////////////////////////////////////
 	bool AddImpact(const int partid, vectorf point,vectorf impact,float scale);
 	int TranslatePartIdToDeadBody(int partid);
 	//////////////////////////////////////////////////////////////////////////////////////////
@@ -209,16 +209,16 @@ public:
 
 	//! render character's shadow volume 
 	void	RenderShadowVolumes(const SRendParams *rParams, int nLimitLOD);
-  
+
 	// Set the current time of the given layer, in seconds
 	void SetLayerTime (unsigned nLayer, float fTimeSeconds);
 	float GetLayerTime (unsigned nLayer) const;
 
 	// checks for possible memory corruptions in this object and its children
 	void SelfValidate ()const
-#ifndef _DEBUG
+	#ifndef _DEBUG
 	{}
-#endif
+	#endif
 		;
 
 	unsigned getInstanceNumber()const {return m_nInstanceNumber;}

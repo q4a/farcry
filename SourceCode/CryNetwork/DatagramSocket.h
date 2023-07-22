@@ -36,7 +36,8 @@
 #endif
 
 #ifdef LINUX
-#include <time.h>
+	#include <time.h>
+	#include <unistd.h>
 #endif //LINUX
 
 /*inline int	gethostname(char *__name, size_t __len)
@@ -96,7 +97,11 @@ public:
 	//!
 	NRESULT GetSocketAddresses(CIPAddress *pAddr, DWORD nMaCIPAddresses);
 	//!
-	int GetLastError(){return WSAGetLastError();}
+	#ifdef LINUX 
+		int GetLastError(){return -1;}
+	#else
+		int GetLastError(){return WSAGetLastError();}
+	#endif
 	//!
 	void Close();
 

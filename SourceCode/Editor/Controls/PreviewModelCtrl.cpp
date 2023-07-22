@@ -1,7 +1,7 @@
 // PreviewModelCtrl.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "PreviewModelCtrl.h"
 
 #include <I3DEngine.h>

@@ -1,7 +1,7 @@
 // SelectFileDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "SelectFileDlg.h"
 
 #include <sys/stat.h>

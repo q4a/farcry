@@ -15,7 +15,7 @@
 
 #include "StdAfx.h"
 #include "NamedData.h"
-#include "..\zlib\zlib.h"
+#include "../zlib\zlib.h"
 #include "PakFile.h"
 
 IMPLEMENT_SERIAL(CNamedData, CObject, 1)

@@ -750,7 +750,7 @@ void CD3D9Renderer::ReleaseBuffer(CVertexBuffer *bufptr)
 }
 
 
-#include "../Common/NvTriStrip/NVTriStrip.h"
+#include "../Common/NvTriStrip/NvTriStrip.h"
 
 ///////////////////////////////////////////
 void CD3D9Renderer::DrawBuffer(CVertexBuffer *src,SVertexStream *indicies,int numindices,int offsindex,int prmode,int vert_start,int vert_stop, CMatInfo *mi)

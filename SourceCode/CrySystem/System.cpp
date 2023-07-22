@@ -11,7 +11,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "System.h"
 #include <time.h>
 //#include "ini_vars.h"
@@ -48,12 +48,16 @@
 #include "CrySizerImpl.h"
 #include "DownloadManager.h"
 
-#include "XML\Xml.h"
+#include "XML/xml.h"
 #include "DataProbe.h"
 #include "ApplicationHelper.h"			// CApplicationHelper
 
 #include "CryWaterMark.h"
 WATERMARKDATA(_m);
+
+#ifdef LINUX 
+	#include <findfirst.h>
+#endif
 
 //#ifdef WIN32
 #define  PROFILE_WITH_VTUNE
@@ -217,7 +221,7 @@ CSystem::CSystem():
 
 	m_pCVarQuit=NULL;
 
-	m_pDownloadManager = 0;
+	//m_pDownloadManager = 0;
 
 	// default game MOD is root
 	memset(m_szGameMOD,0,256);
@@ -528,7 +532,7 @@ void CSystem::ShutDown(bool bRelaunch)
 	SAFE_DELETE(m_pStreamEngine);
 	SAFE_DELETE(m_pDefaultValidator);
 
-	SAFE_RELEASE(m_pDownloadManager);
+	//SAFE_RELEASE(m_pDownloadManager);
 
 	if (m_pLog)
 		m_pLog->EnableVerbosity(false);	// in order for the logs after this line to work
@@ -591,6 +595,7 @@ public:
 //////////////////////////////////////////////////////////////////////////
 bool CSystem::CreateGame( const SGameInitParams &params )
 {
+	CryLogAlways("CSystem::CreateGame Called!!");
 #if defined(WIN32) || defined(LINUX)
 	if (m_bEditor)
 	{
@@ -1048,10 +1053,10 @@ bool CSystem::Update( int updateFlags, int nPauseMode )
 		m_Time.MeasureTime("MusicSysUp");
 	}
 
-	if (m_pDownloadManager && !bNoUpdate)
+	/*if (m_pDownloadManager && !bNoUpdate)
 	{
 		m_pDownloadManager->Update();
-	}
+	}*/
 
 	//////////////////////////////////////////////////////////////////////////
 	// Strange, !do not remove... ask Timur for the meaning of this.
@@ -1245,6 +1250,7 @@ void CSystem::OpenLanguagePak( const char *sLanguage )
 		CryLogAlways("Localized language content(%s - %s) not available or modified from the original installation.",sLanguage,szPakName);
 	}
 
+	/* These extra .pak files do not exist in our current game version
 	// load patch language data
 	memset(szPakName,0,_MAX_PATH);
 	sprintf(szPakName,"%s/Localized/%s1.pak",DATA_FOLDER,sLanguage );
@@ -1254,6 +1260,7 @@ void CSystem::OpenLanguagePak( const char *sLanguage )
 	memset(szPakName,0,_MAX_PATH);
 	sprintf(szPakName,"%s/Localized/%s2.pak",DATA_FOLDER,sLanguage );
 	m_pIPak->OpenPack("",szPakName);
+	*/
 }
 
 //////////////////////////////////////////////////////////////////////////

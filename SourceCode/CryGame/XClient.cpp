@@ -10,7 +10,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "XClient.h"
 #include "XPlayer.h"
 
@@ -19,7 +19,7 @@
 #include "XSystemDummy.h"
 #include "IngameDialog.h"
 
-#include <I3dengine.h>
+#include <I3DEngine.h>
 
 #include <IEntitySystem.h>
 #include <IMovieSystem.h>
@@ -3069,7 +3069,7 @@ void CXClient::SoundEvent(EntityId idSrc,Vec3 &pos,float fRadius,float fThreat)
 				//LEFT
 				//left
 				m_fLeftSound+=1;
-				//::OutputDebugString("left\n");
+				//OutputDebugString("left\n");
 				if(m_fLeftSound>1)
 					m_fLeftSound=1;
 				
@@ -3080,7 +3080,7 @@ void CXClient::SoundEvent(EntityId idSrc,Vec3 &pos,float fRadius,float fThreat)
 				//FRONT!!
 				//front
 				m_fFrontSound+=1;
-				//::OutputDebugString("front\n");
+				//OutputDebugString("front\n");
 				if(m_fFrontSound>1)
 					m_fFrontSound=1;
 				
@@ -3093,7 +3093,7 @@ void CXClient::SoundEvent(EntityId idSrc,Vec3 &pos,float fRadius,float fThreat)
 				//BACK
 				//back
 				m_fBackSound+=1;
-				//::OutputDebugString("back\n");
+				//OutputDebugString("back\n");
 				if(m_fBackSound>1)
 					m_fBackSound=1;
 				
@@ -3103,7 +3103,7 @@ void CXClient::SoundEvent(EntityId idSrc,Vec3 &pos,float fRadius,float fThreat)
 				//RIGHT!!
 				m_fRightSound+=1;
 				//right
-				//::OutputDebugString("right\n");
+				//OutputDebugString("right\n");
 				if(m_fRightSound>1)
 					m_fRightSound=1;
 				

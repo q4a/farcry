@@ -10,10 +10,10 @@
 #include "RenderPCH.h"
 #include "GL_Renderer.h"
 #include <ICryAnimation.h>
-#include "..\common\shadow_renderer.h"
+#include "../common\Shadow_Renderer.h"
 #include "GLCGPShader.h"
 #include "GLCGVProgram.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 #include "CryHeaders.h"
 
 //==================================================================
@@ -3519,7 +3519,7 @@ void CGLRenderer::EF_ResetStateShaderState()
 }
 
 
-#include "../Common/NvTriStrip/NVTriStrip.h"
+#include "../Common/NvTriStrip/NvTriStrip.h"
 
 // Used for HW effectors for rendering of tri mesh (vertex array)
 void CGLRenderer::EF_DrawIndexedMesh (int nPrimType)

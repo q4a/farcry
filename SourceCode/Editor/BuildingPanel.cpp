@@ -1,7 +1,7 @@
 // BuildingPanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "BuildingPanel.h"
 
 #include "Objects\ObjectManager.h"

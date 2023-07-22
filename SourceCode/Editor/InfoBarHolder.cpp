@@ -1,7 +1,7 @@
 // InfoBarHolder.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "InfoBarHolder.h"
 #include "InfoBar.h"
 #include "InfoProgressBar.h"

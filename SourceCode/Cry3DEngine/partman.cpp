@@ -13,13 +13,13 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 #include "partman.h"
-#include "objman.h"
-#include "visareas.h"
+#include "ObjMan.h"
+#include "VisAreas.h"
 #include "ParticleEffect.h"
-#include "3dEngine.h"
+#include "3DEngine.h"
 
 #define PARTICLES_FILE_TYPE 2
 #define PARTICLES_FILE_VERSION 4
@@ -28,6 +28,10 @@
 #define ACTIVE_TIME 1
 
 #define EFFECTS_FOLDER "CRY"
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 //////////////////////////////////////////////////////////////////////////
 #pragma pack(push,1)

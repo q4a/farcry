@@ -5,7 +5,7 @@
 #ifdef DEBUG_KEYBOARD
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "Input.h"
 #include <ILog.h>
 #include <stdio.h>
@@ -534,7 +534,7 @@ unsigned char CXDebugKeyboard::XKEY2ASCII(unsigned short nCode)
   {
     switch(nCode)
     {
-      case XKEY_TILDE       :dik = '¬' ;break;
+      case XKEY_TILDE       :dik = 'ï¿½' ;break;
       case XKEY_EQUALS      :dik = '+' ;break;
       case XKEY_LBRACKET    :dik = '{' ;break;
       case XKEY_RBRACKET    :dik = '}' ;break;
@@ -630,7 +630,7 @@ void CXDebugKeyboard::SetupKeyNames()
 			m_AsciiTable[k].lc[0] =(char) ascii[1] ? ascii[1] : ( ascii[0] >> 8 );
     else if ( nResult == 1 )
 			m_AsciiTable[k].lc[0] =(char) ascii[0];
-    //::OutputDebugString(m_AsciiTable[k].lc); ::OutputDebugString("\n");
+    //OutputDebugString(m_AsciiTable[k].lc); OutputDebugString("\n");
 		
 		ascii[0] = ascii[1] = 0;
     sKState[VK_SHIFT] = 0x80;
@@ -641,7 +641,7 @@ void CXDebugKeyboard::SetupKeyNames()
 			m_AsciiTable[k].uc[0] =(char) ascii[1] ? ascii[1] : ( ascii[0] >> 8 );
     else if ( nResult == 1 )
 			m_AsciiTable[k].uc[0] =(char) ascii[0];
-    //::OutputDebugString(m_AsciiTable[k].uc); ::OutputDebugString("\n");
+    //OutputDebugString(m_AsciiTable[k].uc); OutputDebugString("\n");
 	}	
 }
 
@@ -834,7 +834,7 @@ void CXDebugKeyboard::Update()
         case '.' :dik = XKEY_DECIMAL     ;break;
         case '/' :dik = XKEY_SLASH       ;break;
 
-        case '¬' :dik = XKEY_TILDE       ;break;
+        case 'ï¿½' :dik = XKEY_TILDE       ;break;
         case '+' :dik = XKEY_EQUALS      ;break;
         case '{' :dik = XKEY_LBRACKET    ;break;
         case '}' :dik = XKEY_RBRACKET    ;break;

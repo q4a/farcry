@@ -20,7 +20,7 @@
 #include "EventTrack.h"
 #include "ConsoleTrack.h"
 #include "MusicTrack.h"
-#include "isystem.h"
+#include "ISystem.h"
 #include "igame.h"
 #include "AnimCameraNode.h"
 #include "Movie.h"

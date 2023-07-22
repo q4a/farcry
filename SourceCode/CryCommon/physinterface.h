@@ -15,7 +15,9 @@
 
 #if defined(LINUX)
 	#include "Stream.h"
-	#include "validator.h"
+	#include "../CryPhysics/utils.h" //Supposedly this has the definitions for VALIDATORS_START and more
+	//This file does not exist LMAO (Im slowly losing my sanity)
+	//#include "validator.h"
 #endif
 
 
@@ -121,7 +123,8 @@ struct pe_params_pos : pe_params { //	Sets postion and orientation of entity
 
 	VALIDATORS_START
 		VALIDATOR(pos)
-		VALIDATOR_NORM_MSG(q,"(perhaps non-uniform scaling was used?)",pos)
+		// No clue what this is, maybe we can re-enable it later
+		//VALIDATOR_NORM_MSG(q,"(perhaps non-uniform scaling was used?)",pos)
 		VALIDATOR(scale)
 	VALIDATORS_END
 };

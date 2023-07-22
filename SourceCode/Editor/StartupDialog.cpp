@@ -1,7 +1,7 @@
 // StartupDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "StartupDialog.h"
 #include "GameExporter.h"
 #include "StringDlg.h"

@@ -18,13 +18,13 @@
 #include "Dbghelp.h"
 #include "FileUtil.h"
 #include "PathUtil.h"
-#include "..\ResourceCompilerPC.h"
+#include "../ResourceCompilerPC.h"
 
 #include "StatCGFCompiler.h"
 #include "CryChunkedFile.h"
 #include "CryHeaders.h"
 
-#include "meshidx.h"
+#include "MeshIdx.h"
 #include "IShader.h"
 #include "NvTriStrip\NvTriStrip.h"
 

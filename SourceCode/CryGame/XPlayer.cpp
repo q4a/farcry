@@ -27,7 +27,7 @@
 #include <ISound.h>
 // <<FIXME>> look above
 #include "I3DEngine.h"
-#include <crycharanimationparams.h>
+#include <CryCharAnimationParams.h>
 
 
 // to use _isnan()
@@ -795,7 +795,7 @@ void CPlayer::AutoAiming()
 
 						Matrix44 m;
 						m.SetIdentity();
-						m=GetTranslationMat(pEnt->GetPos())*m;
+						m=Matrix44::GetTranslationMat(pEnt->GetPos())*m;
 						m=Matrix44::CreateRotationZYX(-pEnt->GetAngles()*gf_DEGTORAD)*m; //NOTE: angles in radians and negated 
 						Center=m.TransformPointOLD(Center);
 					}
@@ -4671,7 +4671,7 @@ bool CPlayer::Read( CStream &stream )
 			break;
 		default:
 			//DEBUG_BREAK;
-			::OutputDebugString("INVALID STANCE\n");
+			OutputDebugString("INVALID STANCE\n");
 			m_CurStance=(eStance)stance;
 			break;
 		}
@@ -7550,7 +7550,7 @@ bool CPlayer::Read_PATCH_1( CStream &stream )
 			break;
 		default:
 			//DEBUG_BREAK;
-			::OutputDebugString("INVALID STANCE\n");
+			OutputDebugString("INVALID STANCE\n");
 			m_CurStance=(eStance)stance;
 			break;
 		}

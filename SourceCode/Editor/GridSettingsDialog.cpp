@@ -1,7 +1,7 @@
 // GridSettingsDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 #include "GridSettingsDialog.h"
 #include "ViewManager.h"

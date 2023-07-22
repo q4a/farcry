@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ZViewport.h"
 #include "DisplaySettings.h"
 #include "ViewManager.h"

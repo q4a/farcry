@@ -1,5 +1,5 @@
-#include "stdafx.h"
-#include "cvars.h"
+#include "StdAfx.h"
+#include "CVars.h"
 #include <MakMatInfoFromMAT_ENTITY.h>
 #include <MeshIdx.h>
 #include <CryCompiledFile.h>
@@ -19,6 +19,10 @@
 #include "CryCharInstance.h"
 #include "DebugUtils.h"
 #include "Cry_Camera.h"
+
+#ifdef LINUX
+	#include "WinBase.h"
+#endif
 
 // initializes and binds the submesh to the given model
 // there's no way to change the model at runtime

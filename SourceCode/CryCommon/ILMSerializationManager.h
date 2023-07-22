@@ -10,7 +10,7 @@
 //  Description: LightMap Serialization interface
 // -------------------------------------------------------------------------
 //  History:
-//	 02/07/2003  Extracted declaration from I3dEngine.h to be able to easy
+//	 02/07/2003  Extracted declaration from I3DEngine.h to be able to easy
 //               modify it
 ////////////////////////////////////////////////////////////////////////////
 

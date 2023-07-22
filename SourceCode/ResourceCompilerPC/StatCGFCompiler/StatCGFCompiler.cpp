@@ -22,7 +22,7 @@
 #include "iconfig.h"
 #include "StatCGFCompiler.h"
 #define ISystem IRCLog
-#include "meshidx.h"
+#include "MeshIdx.h"
 #include "statcgfshadvol.h"
 
 CStatCFGCompiler::CStatCFGCompiler(void)

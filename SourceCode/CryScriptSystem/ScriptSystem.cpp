@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <string.h>
 #include <stdio.h>
 #include "ScriptSystem.h"
@@ -31,7 +31,7 @@ extern "C"
 #define new DEBUG_CLIENTBLOCK
 #endif
 
-#include "LuaCryPakIo.h"
+#include "LuaCryPakIO.h"
 
 //#ifndef WIN64 // experimental
 #define USE_RAW_CALL
@@ -49,7 +49,7 @@ extern "C"
 if (__nStack != lua_stackspace(m_pLS)) \
 {DEBUG_BREAK;}	\
 sprintf(sTemp, "STACK=%d\n", __nStack); \
-::OutputDebugString(sTemp);	\
+OutputDebugString(sTemp);	\
 }
 */
 
@@ -66,6 +66,10 @@ sprintf(sTemp, "STACK=%d\n", __nStack); \
 #define BEGIN_CHECK_STACK
 #define END_CHECK_STACK
 
+#endif
+
+#ifdef LINUX 
+	#import "WinBase.h"
 #endif
 
 
@@ -115,8 +119,8 @@ IScriptObject *CScriptSystem::GetLocalVariables(int nLevel)
 		{
 			lua_getref(m_pLS,nTable);
 			lua_pushstring(m_pLS,name);
-			//::OutputDebugString(name);
-			//::OutputDebugString("\n");
+			//OutputDebugString(name);
+			//OutputDebugString("\n");
 			lua_pushvalue(m_pLS,-3);
 			lua_rawset(m_pLS,-3);
 			//pop table and value
@@ -979,9 +983,9 @@ void CScriptSystem::UnloadScript(const char *sFileName)
 	if (itor != m_dqLoadedFiles.end())
 	{
 #if !defined(LINUX)
-		::OutputDebugString("ERASE : ");
-		::OutputDebugString(sTemp.c_str());
-		::OutputDebugString("\n");
+		OutputDebugString("ERASE : ");
+		OutputDebugString(sTemp.c_str());
+		OutputDebugString("\n");
 #endif
 		m_dqLoadedFiles.erase(itor);
 	}
@@ -1152,7 +1156,7 @@ void CScriptSystem::Release()
 		m_stkScriptObjectsPool.pop_back();
 #ifdef _DEBUG
 		sprintf(sTemp,"delete[%d] obj Pool size %d new\n",nCreationNumber,m_stkScriptObjectsPool.size());
-		::OutputDebugString(sTemp);
+		OutputDebugString(sTemp);
 #endif
 	}
 	delete this;
@@ -1745,7 +1749,7 @@ USER_DATA CScriptSystem::CreateUserData(INT_PTR nVal,int nCookie)	//AMD Port
 //	}
 //	else
 //	{
-		//::OutputDebugString("Reusing pointer\n");
+		//OutputDebugString("Reusing pointer\n");
 		//nRef=itor->second;
 //	}
 		Validate();
@@ -1782,7 +1786,7 @@ CScriptObject *CScriptSystem::CreateScriptObject()
 	if(m_stkScriptObjectsPool.empty())
 	{
 		//sprintf(sTemp,"Pool size %d new\n",m_stkScriptObjectsPool.size());
-		//::OutputDebugString(sTemp);
+		//OutputDebugString(sTemp);
 	//	if(m_nObjCreationNumber==42)
 	//		DEBUG_BREAK;
 		return new CScriptObject(m_nObjCreationNumber++);
@@ -1792,7 +1796,7 @@ CScriptObject *CScriptSystem::CreateScriptObject()
 	{
 		CScriptObject *pObj;
 //		sprintf(sTemp,"Pool size %d cached\n",m_stkScriptObjectsPool.size());
-		//::OutputDebugString(sTemp);
+		//OutputDebugString(sTemp);
 
 		pObj = m_stkScriptObjectsPool.back();
 		pObj->Recreate();
@@ -1811,7 +1815,7 @@ void CScriptSystem::ReleaseScriptObject(CScriptObject *p)
 	{
 		char sTemp[100];
 		sprintf(sTemp,"chached>> Pool size %d\n",m_stkScriptObjectsPool.size());
-		::OutputDebugString(sTemp);
+		OutputDebugString(sTemp);
 		delete p;
 		Validate();
 	}

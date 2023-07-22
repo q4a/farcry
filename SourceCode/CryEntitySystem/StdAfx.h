@@ -1,4 +1,4 @@
-// stdafx.h : include file for standard system include files,
+// StdAfx.h : include file for standard system include files,
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 //
@@ -29,6 +29,10 @@
 #endif
 #else
 #include <xtl.h>
+#endif
+
+#ifdef LINUX 
+	#include "WinBase.h"
 #endif
 
 //#define USE_MEM_POOL 
@@ -156,7 +160,7 @@ _inline void __cdecl ___TRACE(const char *sFormat, ... )
 	va_start(vl, sFormat);
 	vsprintf(sTraceString, sFormat, vl);
 	va_end(vl);
-	::OutputDebugString(sTraceString);
+	OutputDebugString(sTraceString);
 	
 }
 
@@ -182,7 +186,7 @@ _inline void __cdecl __CRYTEKDLL_TRACE(const char *sFormat, ... )
   strcat(sTraceString, "\n");
 
 #ifdef WIN32
-  ::OutputDebugString(sTraceString);	
+  OutputDebugString(sTraceString);	
 #endif
 
 #ifdef GAMECUBE

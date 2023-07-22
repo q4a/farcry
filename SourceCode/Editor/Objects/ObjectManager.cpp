@@ -16,7 +16,7 @@
 #include "StdAfx.h"
 #include "ObjectManager.h"
 
-#include "..\DisplaySettings.h"
+#include "../DisplaySettings.h"
 #include "Util\Crc32.h"
 
 #include "TagPoint.h"

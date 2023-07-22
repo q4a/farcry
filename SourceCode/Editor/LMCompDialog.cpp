@@ -1,7 +1,7 @@
 // LMCompDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "CryEdit.h"
 #include "LMCompDialog.h"
 #include "LightmapGen.h"

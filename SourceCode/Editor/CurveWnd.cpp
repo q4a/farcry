@@ -23,7 +23,7 @@
 // that you have found/implemented and I will fix/incorporate them into 
 // this file  
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "CurveWnd.h"
 
 #ifdef _DEBUG

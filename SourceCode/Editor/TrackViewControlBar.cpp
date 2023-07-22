@@ -1,7 +1,7 @@
 // TrackViewControlBar.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TrackViewControlBar.h"
 #include "IMovieSystem.h"
 

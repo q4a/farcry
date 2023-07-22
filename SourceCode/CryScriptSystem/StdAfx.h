@@ -1,4 +1,4 @@
-// stdafx.h : include file for standard system include files,
+// StdAfx.h : include file for standard system include files,
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 //
@@ -39,14 +39,16 @@
 #include <xtl.h>
 #endif
 
-#ifdef PS2
-#include "iostream.h"
+#if defined(PS2) || defined(LINUX)
 //wrapper for VC specific function
 inline void itoa(int n, char *str, int basen)
 {
  	sprintf(str,"%d", n);
 }
-  
+#endif
+
+#ifdef PS2
+#include "iostream.h"
 inline char *_strlwr(const char *str)
 {
     return PS2strlwr(str);

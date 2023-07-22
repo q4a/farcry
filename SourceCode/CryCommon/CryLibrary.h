@@ -1,6 +1,8 @@
 #ifndef CRYLIBRARY_H__
 #define CRYLIBRARY_H__
 
+#include "ISystem.h"
+
 /*!
 	CryLibrary
 	
@@ -53,6 +55,7 @@
 	// for compatibility with code written for windows
 	#define CrySharedLibraySupported true
 	#define CrySharedLibrayExtension ".so"
+	#define CryLoadLibrary dlopen
 	#define CryGetProcAddress(libHandle, procName) ::dlsym(libHandle, procName)
 	#define CryFreeLibrary(libHandle) ::dlclose(libHandle)
 
@@ -71,6 +74,7 @@
 
 	static HMODULE CryLoadLibrary(const char* libName, const bool cAppend = true, const bool cLoadLazy = false)
 	{
+		/*
 		string newLibName(GetModulePath());
 #if !defined(NDEBUG)
 		string t(libName);
@@ -78,11 +82,11 @@
 		if(cAppend)
 			t.replace(t.size()-3, c.size(), c.c_str());
 		newLibName += t;
-		printf("loading library  %s...\n",newLibName.c_str());
 #else
 		newLibName += libName;
-#endif
-		return ::dlopen(newLibName.c_str(), cLoadLazy?(RTLD_LAZY | RTLD_GLOBAL):(RTLD_NOW | RTLD_GLOBAL));
+#endif*/
+		CryLogAlways("loading library  %s...\n",libName);
+		return ::dlopen(libName, cLoadLazy?(RTLD_LAZY | RTLD_GLOBAL):(RTLD_NOW | RTLD_GLOBAL));
 	}
 
 

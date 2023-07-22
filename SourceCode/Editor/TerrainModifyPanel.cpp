@@ -1,7 +1,7 @@
 // TerrainModifyPanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TerrainModifyPanel.h"
 #include "TerrainModifyTool.h"
 

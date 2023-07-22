@@ -20,8 +20,8 @@
 #include "AnimSplineTrack.h"
 #include "ExprTrack.h"
 #include "BoolTrack.h"
-#include "isystem.h"
-#include "ilog.h"
+#include "ISystem.h"
+#include "ILog.h"
 #include "Movie.h"
 
 #include <ISound.h>

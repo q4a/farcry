@@ -1,6 +1,6 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "DriverD3D8.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 
 void CD3D8Renderer::PrepareOutSpaceTextures(CREOutSpace * pRE)
 {

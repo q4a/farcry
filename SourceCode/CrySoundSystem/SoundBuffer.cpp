@@ -24,11 +24,13 @@ CSoundBuffer::CSoundBuffer(CSoundSystem *pSoundSystem, SSoundBufferProps &Props)
 
 CSoundBuffer::~CSoundBuffer()
 {
-	if (m_pReadStream!=NULL)
+	m_pReadStream->Abort();
+	m_pReadStream=NULL;
+	/*if (m_pReadStream!=NULL)
 	{
 		m_pReadStream->Abort();
 		m_pReadStream=NULL;
-	}
+	}*/
 	DestroyData();
 }
 
@@ -311,12 +313,15 @@ bool CSoundBuffer::WaitForLoad()
 //////////////////////////////////////////////////////////////////////////
 void CSoundBuffer::AbortLoading()
 {
-	if (m_pReadStream!=NULL)
+	m_pReadStream->Abort();
+	m_pReadStream=NULL;
+	LoadFailed();
+	/*if (m_pReadStream!=NULL)
 	{
 		m_pReadStream->Abort();
 		m_pReadStream=NULL;
 		LoadFailed();
-	}
+	}*/
 }
 
 //////////////////////////////////////////////////////////////////////////

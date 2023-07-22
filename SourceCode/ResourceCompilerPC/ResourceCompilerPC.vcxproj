@@ -318,7 +318,7 @@
     <ClInclude Include="StatCGFCompiler\Node.h" />
     <ClInclude Include="StatCGFCompiler\StatCGFCompiler.h" />
     <ClInclude Include="StatCGFCompiler\StatCGFShadowVolume.h" />
-    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StdAfx.h" />
     <ClInclude Include="StencilShadowConnectivity.h" />
     <ClInclude Include="StencilShadowConnectivityBuilder.h" />
     <ClInclude Include="TangentSpaceCalculation.h" />

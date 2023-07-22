@@ -68,10 +68,10 @@ inline bool IsPower2(unsigned int x)
    Only supports input of RGB 24 or ARGB 32 bpp
 */
 
+#ifndef LINUX
 #ifdef NVDXTC
 extern "C" {
 #endif
-
 
 HRESULT nvDXTcompress(unsigned char * raw_data, // pointer to data (24 or 32 bit)
                 unsigned long w, // width in texels
@@ -84,6 +84,7 @@ HRESULT nvDXTcompress(unsigned char * raw_data, // pointer to data (24 or 32 bit
 
 #ifdef  NVDXTC
 }
+#endif
 #endif
 
 // if callback is == 0 (or not specified), then WriteDTXnFile is called with all file info

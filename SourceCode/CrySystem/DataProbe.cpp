@@ -22,10 +22,11 @@
 
 #if defined(LINUX)
 	#include <CryLibrary.h>
+	#include <WinBase.h>
 #endif
 
 #include "DataProbe.h"
-#include "zlib\zlib.h"
+#include "zlib/zlib.h"
 #include "ISystem.h"
 #include "CryFile.h"
 
@@ -504,6 +505,7 @@ bool CDataProbe::CheckLoader( void *pFunc )
 	};
 
 	m_rand.Seed( GetTickCount() );
+
 	// Data assumed to be 32 bytes (8 ints).
 	for (int  i = 0; i < 8; i++)
 	{

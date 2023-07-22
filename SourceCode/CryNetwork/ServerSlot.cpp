@@ -10,7 +10,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "CNP.h"
 #include "ServerSlot.h"
 #include "ClientLocal.h"
@@ -362,7 +362,7 @@ void CServerSlotImpl::ProcessPacket(unsigned char cFrameType,bool bSTC, CStream 
 			case FT_CTP_PONG:
 				if(bSTC)
 				{
-//					::OutputDebugString("<<NET LOW>>Packet received in secondary channel\n");
+//					OutputDebugString("<<NET LOW>>Packet received in secondary channel\n");
 					m_ctpEndpoint2.Update(m_nCurrentTime, cFrameType, pStream);
 				}
 				else

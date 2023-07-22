@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ScriptObject.h"
 #include "ScriptSystem.h"
 #include "StackGuard.h"
@@ -39,6 +39,10 @@
 
 #define GET_FUNCTION lua_rawget
 #define SET_FUNCTION lua_rawset
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 inline int CScriptObject::GetThisRef()
 {

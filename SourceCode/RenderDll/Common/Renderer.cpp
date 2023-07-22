@@ -13,14 +13,15 @@
 
 #include "RenderPCH.h"
 
-#include "shadow_renderer.h"
+#include "Shadow_Renderer.h"
 #include "IStatObj.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 #include <CREPolyMesh.h>
 
 #if defined(LINUX)
 	#include "ILog.h"
 	#include "WinBase.h"
+  #include "Cry_Matrix.h"
 #endif
 
 #ifdef USING_CRY_MEMORY_MANAGER
@@ -947,17 +948,17 @@ CRenderer::CRenderer()
   CV_r_glossdefault  = iConsole->CreateVariable("r_GlossDefault", "Defaults/gloss",NULL,
     "Name of default gloss map.\n"
     "Usage: r_GlossDefault filename\n"
-    "The texture 'defaults/gloss' is used by default. If you don’t specify a gloss map\n"
+    "The texture 'defaults/gloss' is used by default. If you donï¿½t specify a gloss map\n"
     "this is the texture that will be used.");
   CV_r_detaildefault  = iConsole->CreateVariable("r_DetailDefault", "Textures/Detail/rock",NULL,
     "Name of default detail texture.\n"
     "Usage: r_DetailDefault filename\n"
-    "The texture 'Textures/Detail/rock' is used by default. If you don’t\n"
+    "The texture 'Textures/Detail/rock' is used by default. If you donï¿½t\n"
     "specify a detail texture, this is the texture that will be used.");
   CV_r_opacitydefault  = iConsole->CreateVariable("r_OpacityDefault", "Textures/white",NULL,
     "Name of default opacity mask.\n"
     "Usage: r_OpacityDefault filename\n"
-    "The texture 'Textures/white' is used by default. If you don’t\n"
+    "The texture 'Textures/white' is used by default. If you donï¿½t\n"
     "specify an opacity mask, this is the mask that will be used.");
 
   iConsole->Register("r_DetailTextures", &CV_r_detailtextures, 1, VF_DUMPTODISK,
@@ -1841,9 +1842,10 @@ void CRenderer::FreeResources(int nFlags)
 {
   iLog->Log("*** Clearing render resources ***");
 
-#if defined(LINUX)
+//Commented because 1. Linux users can deal with it and 2. The function has no definition ðŸ’€
+/*#if defined(LINUX)
 	NotifySystemOnQuit();//tell linux that we are about to quit, on some situation it crashed and this will force a abort call in case of a crash
-#endif
+#endif*/
 
   int i;
 
@@ -3583,7 +3585,7 @@ bool CRenderer::EF_UpdateDLight(CDLight *dl)
 
 
       Matrix44 m=ViewMatrix(Angs*gf_DEGTORAD);
-      m=GetTranslationMat(le->m_LightOffset)*m;
+      m=Matrix44::GetTranslationMat(le->m_LightOffset)*m;
 
 
       dl->m_Origin[0] = dl->m_BaseOrigin[0] + m[3][0];
@@ -3667,7 +3669,7 @@ bool CRenderer::EF_UpdateDLight(CDLight *dl)
     
     //translate the vertex relative to the light position
 
-    dl->m_TextureMatrix = GetTranslationMat(-dl->m_Origin) * dl->m_TextureMatrix;      
+    dl->m_TextureMatrix = Matrix44::GetTranslationMat(-dl->m_Origin) * dl->m_TextureMatrix;      
 
 
   }

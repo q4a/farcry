@@ -1,7 +1,7 @@
 // ConsoleDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ConsoleDialog.h"
 
 #ifdef _DEBUG

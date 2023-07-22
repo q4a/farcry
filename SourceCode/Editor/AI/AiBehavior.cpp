@@ -15,10 +15,10 @@
 
 #include "StdAfx.h"
 #include "aibehavior.h"
-#include "..\Util\FileUtil.h"
+#include "../Util\FileUtil.h"
 #include "IScriptSystem.h"
 
-#include "..\Objects\ObjectManager.h"
+#include "../Objects\ObjectManager.h"
 
 //////////////////////////////////////////////////////////////////////////
 void CAIBehavior::ReloadScript()

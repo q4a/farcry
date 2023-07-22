@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------------------------------------
-// Author: Márcio Martins
+// Author: Mï¿½rcio Martins
 //
 // Purpose:
 //  - Manage and cache glyphs, retrieving them from the renderer as needed
@@ -18,7 +18,7 @@
 #define hash_map map
 #else
 #if defined(LINUX)
-#include <ext/hash_map>
+	#include <unordered_map>
 #else
 #include <hash_map>
 #endif
@@ -54,9 +54,8 @@ typedef struct CCacheSlot
 
 } CCacheSlot;
 
-
-typedef std::hash_map<wchar_t, CCacheSlot *>			CCacheTable;
-typedef std::hash_map<wchar_t, CCacheSlot *>::iterator	CCacheTableItor;
+typedef std::unordered_map<wchar_t, CCacheSlot *>			CCacheTable;
+typedef std::unordered_map<wchar_t, CCacheSlot *>::iterator	CCacheTableItor;
 
 typedef std::vector<CCacheSlot *>						CCacheSlotList;
 typedef std::vector<CCacheSlot *>::iterator				CCacheSlotListItor;

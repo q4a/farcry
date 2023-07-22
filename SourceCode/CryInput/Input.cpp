@@ -11,7 +11,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #pragma warning(disable:4786)
 #include <stdio.h>
 #include <ILog.h>
@@ -20,7 +20,7 @@
 #include "Input.h"
 //#include "ActionMap.h"
 #include "XActionMapManager.h"
-//#include "..\Common\Log.h"
+//#include "../Common\Log.h"
 
 #ifdef _DEBUG
 static char THIS_FILE[] = __FILE__;
@@ -227,6 +227,7 @@ bool CInput::Init(ISystem *pSystem,HINSTANCE hinst,HWND hwnd,bool dinput)
 	{
 		m_pLog->Log("Initializing Direct Input\n");
 
+		//m_g_pdi <-- THIS IS THE HANDLE THAT IS USED FOR KEYBOARD ACTIONS, TRACK IT DOWN.
 		HRESULT hr = DirectInput8Create(m_hinst,
 			DIRECTINPUT_VERSION, 
 			IID_IDirectInput8, 

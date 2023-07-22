@@ -308,9 +308,9 @@ namespace stl
 	template <class Key,class Value,class HashFunc>
 	class hash_map : 
 #ifdef _STLP_HASH_MAP // STL Port
-		std::hash_map<Key,Value,HashFunc,HashFunc>
+		std::unordered_map<Key,Value,HashFunc,HashFunc>
 #else
-		std::hash_map<Key,Value,HashFunc>
+		std::unordered_map<Key,Value,HashFunc>
 #endif // STL Port
 	{};
 #endif //LINUX

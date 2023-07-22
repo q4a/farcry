@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "crc32.h"
 
 Crc32Gen::Crc32Gen()

@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ViewManager.h"
 #include "Viewport.h"
 #include "EditTool.h"

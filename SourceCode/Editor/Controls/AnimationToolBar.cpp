@@ -1,7 +1,7 @@
 // AnimationToolBar.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "AnimationToolBar.h"
 
 #ifdef _DEBUG

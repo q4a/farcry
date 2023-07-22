@@ -13,11 +13,11 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "BrushPanel.h"
 
-#include "..\Objects\ObjectManager.h"
-#include "..\Objects\BrushObject.h"
+#include "../Objects\ObjectManager.h"
+#include "../Objects\BrushObject.h"
 
 // CBrushPanel dialog
 

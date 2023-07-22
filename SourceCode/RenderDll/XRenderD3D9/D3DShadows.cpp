@@ -15,7 +15,7 @@
 #include "D3DCGVProgram.h"
 #include "D3DCGPShader.h"
 
-#include "I3dengine.h"
+#include "I3DEngine.h"
 
 void WriteTGA8(byte *data8, int width, int height, char *filename);
 void BlurImage8(byte * pImage, int nSize, int nPassesNum);

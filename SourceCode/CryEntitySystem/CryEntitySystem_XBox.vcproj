@@ -30,7 +30,7 @@
 				BufferSecurityCheck="TRUE"
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="2"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile=".\Debug_XBox/CryEntitySystem.pch"
 				AssemblerListingLocation=".\Debug_XBox/"
 				ObjectFile=".\Debug_XBox/"
@@ -194,7 +194,7 @@
 				RelativePath=".\IDGenerator.h">
 			</File>
 			<File
-				RelativePath=".\stdafx.h">
+				RelativePath=".\StdAfx.h">
 			</File>
 		</Filter>
 		<Filter

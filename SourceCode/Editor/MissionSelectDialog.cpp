@@ -1,7 +1,7 @@
 // MissionSelectDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "MissionSelectDialog.h"
 #include "Mission.h"
 #include "cryeditdoc.h"

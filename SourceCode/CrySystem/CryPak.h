@@ -25,6 +25,9 @@
 #include "CritSection.h"
 #include "StlUtils.h"
 #include "PakVars.h"
+#ifdef LINUX
+	#include "WinBase.h"
+#endif
 
 extern CMTSafeHeap* g_pSmallHeap;
 extern CMTSafeHeap* g_pBigHeap;
@@ -338,6 +341,7 @@ public:
 		AUTO_LOCK(m_csCachedFiles);
 		m_setCachedFiles.erase (p);
 	}
+	
   // ICryPak interface
   virtual bool Init (const char *szBasePath);
   virtual void Release();

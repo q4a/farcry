@@ -18,7 +18,7 @@
 #include "Dbghelp.h"
 #include "FileUtil.h"
 #include "PathUtil.h"
-#include "..\ResourceCompilerPC.h"
+#include "../ResourceCompilerPC.h"
 
 #include "StatCGFCompiler.h"
 #include "CryChunkedFile.h"
@@ -26,7 +26,7 @@
 
 #include "NvTriStrip\NvTriStrip.h"
 
-#include "meshidx.h"
+#include "MeshIdx.h"
 #include <IShader.h>
 #include "Cry_Geo.h"
 
@@ -449,7 +449,7 @@ void CSimpleLeafBuffer::CompactBuffer(struct_VERTEX_FORMAT_P3F_N_COL4UB_TEX2F * 
   m_pLog->Log("  Vert buffer size after compression = %d %s ( %d -> %d )", ratio, "%", vert_num_before, *_vcount); 
 }
 
-#include "NvTriStrip/NVTriStrip.h"
+#include "NvTriStrip/NvTriStrip.h"
 
 void CSimpleLeafBuffer::StripifyMesh(int StripType, CBasis *pTangNonStrip)
 {

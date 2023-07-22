@@ -71,8 +71,8 @@ protected:
 	CHARFORMAT	m_cfDefault;
 
 	//typedef std::map<LPCSTR,SKeyword*,> Keywords;
-	//typedef std::hash_map<const char*,SKeyword*,stl::hash_strcmp<const char*> > Keywords;
-	typedef std::hash_map<const char*,SKeyword*,stl::hash_strcmp<const char*> > Keywords;
+	//typedef std::unordered_map<const char*,SKeyword*,stl::hash_strcmp<const char*> > Keywords;
+	typedef std::unordered_map<const char*,SKeyword*,stl::hash_strcmp<const char*> > Keywords;
 	Keywords m_keywords;
 
 //protected member functions

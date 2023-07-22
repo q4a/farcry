@@ -1,7 +1,7 @@
 // CrySoundSystem.cpp : Defines the entry point for the DLL application.
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 #ifdef USING_CRY_MEMORY_MANAGER
 #ifndef _XBOX
@@ -18,7 +18,7 @@ struct CryModuleMemoryInfo
 	//! Total number of memory allocations.
 	int num_allocations;
 };
-extern "C" __declspec(dllexport) void CryModuleGetMemoryInfo( CryModuleMemoryInfo *pMemInfo )
+/*extern "C" __declspec(dllexport) void CryModuleGetMemoryInfo( CryModuleMemoryInfo *pMemInfo )
 {
 #if (defined CS_VERSION_372) || (defined CS_VERSION_361)
   unsigned int nCurrentAlloced;
@@ -31,7 +31,7 @@ extern "C" __declspec(dllexport) void CryModuleGetMemoryInfo( CryModuleMemoryInf
 	pMemInfo->allocated = nMaxAlloced;
 	pMemInfo->freed = 0;
 	pMemInfo->num_allocations = 0;
-};
+};*/
 #endif //USING_CRY_MEMORY_MANAGER
 
 #include "DummySound.h"	
@@ -79,12 +79,14 @@ extern "C" ISoundSystem* CreateSoundSystem(struct ISystem* pISystem, void* pInit
 
 #ifndef __MWERKS__
 #ifndef _XBOX
+#ifndef LINUX
 ///////////////////////////////////////////////
 BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call,  LPVOID lpReserved)
 {
     return TRUE;
 }
+#endif //LINUX
 #endif //_XBOX
-#endif
+#endif 
 
 #include <CrtDebugStats.h>

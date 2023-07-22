@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TVConsoleKeyDialog.h"
 #include "CryEditDoc.h"
 #include "Objects\EntityScript.h"

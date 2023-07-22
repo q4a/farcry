@@ -20,6 +20,10 @@ class CControllerManager;
 #include "ChunkFileReader.h"
 #include <StlUtils.h>
 
+#ifdef LINUX
+	#include "findfirst.h"
+#endif
+
 class CryModelLoader
 {
 public:

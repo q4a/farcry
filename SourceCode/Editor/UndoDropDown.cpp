@@ -1,7 +1,7 @@
 // UndoDropDown.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "UndoDropDown.h"
 #include "Undo\Undo.h"
 

@@ -738,7 +738,7 @@ DLL_API int             F_API CS_GetSFXMasterVolume();
 DLL_API int             F_API CS_GetNumHardwareChannels();
 DLL_API int             F_API CS_GetChannelsPlaying();
 DLL_API float           F_API CS_GetCPUUsage();
-DLL_API void            F_API CS_GetMemoryStats(unsigned int *currentalloced, unsigned int *maxalloced);
+DLL_API void            F_API CS_GetMemoryStats(size_t *currentalloced, size_t *maxalloced);
 
 /* =================================== */
 /* Sample management / load functions. */

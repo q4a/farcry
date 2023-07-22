@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------------------------------------
-// Author: Márcio Martins
+// Author: Mï¿½rcio Martins
 //
 // Purpose:
 //  - Manage a list of widgets
@@ -14,11 +14,7 @@
 
 #define UICLASSNAME_SCREEN	"UIScreen"
 
-
-
 #include "UIWidget.h"
-
-
 
 class CUIScreen : public _ScriptableEx<CUIScreen>
 {

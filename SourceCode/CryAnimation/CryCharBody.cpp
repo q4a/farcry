@@ -9,7 +9,7 @@
 //	August 15, 2002: Created by Sergiy Migdalskiy <sergiy@crytek.de>
 //
 //////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
+#include "StdAfx.h"
 //#include "CryAnimation.h"
 #include "CryAnimationScriptCommands.h"
 #include "CryCharManager.h"
@@ -18,6 +18,10 @@
 #include "CryCharBody.h"
 #include "CryModelState.h"
 #include "CryModelLoader.h"
+
+#ifdef LINUX
+	#include "findfirst.h"
+#endif
 
 using namespace CryStringUtils;
 

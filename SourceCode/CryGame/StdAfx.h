@@ -1,4 +1,4 @@
-// stdafx.h : include file for standard system include files,
+// StdAfx.h : include file for standard system include files,
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 //
@@ -50,6 +50,7 @@
 #	include "platform.h"
 #	include "IGame.h"
 #	include "string.h"
+	#include "WinBase.h"
 #endif
 
 #if defined(_AMD64_) && !defined(LINUX)
@@ -91,7 +92,7 @@ _inline void __cdecl __CRYTEKDLL_TRACE(const char *sFormat, ... )
 
 	strcat(sTraceString, "\n");
 
-	::OutputDebugString(sTraceString);	
+	OutputDebugString(sTraceString);	
 }
 
 #if 1

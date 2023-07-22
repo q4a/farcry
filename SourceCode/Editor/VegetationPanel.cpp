@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "VegetationPanel.h"
 #include "VegetationTool.h"
 #include "Heightmap.h"

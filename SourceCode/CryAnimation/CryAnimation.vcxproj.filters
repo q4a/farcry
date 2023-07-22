@@ -356,7 +356,7 @@
     <ClInclude Include="CryCharManager.h">
       <Filter>Front-End</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="StdAfx.h">
       <Filter>Front-End</Filter>
     </ClInclude>
     <ClInclude Include="ControllerTCB.h">
@@ -377,7 +377,7 @@
     <ClInclude Include="cvars-list.h">
       <Filter>CVars</Filter>
     </ClInclude>
-    <ClInclude Include="cvars.h">
+    <ClInclude Include="CVars.h">
       <Filter>CVars</Filter>
     </ClInclude>
     <ClInclude Include="CryCharDecal.h">

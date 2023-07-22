@@ -29,7 +29,7 @@
 // sizecbar.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "scbarg.h"
 
 #ifdef _DEBUG

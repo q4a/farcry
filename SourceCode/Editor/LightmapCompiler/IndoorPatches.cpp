@@ -6,7 +6,7 @@
 //	- Partial rewrite for editor integration
 // ---------------------------------------------------------------------------------------------
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "LMCompCommon.h"
 #include <ISystem.h>
 #include <IStatObj.h>

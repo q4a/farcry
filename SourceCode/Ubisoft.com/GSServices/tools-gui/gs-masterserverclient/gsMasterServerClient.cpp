@@ -1,7 +1,7 @@
 // gsMasterServerClient.cpp : Defines the class behaviors for the application.
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "gsMasterServerClient.h"
 #include "gsMasterServerClientDlg.h"
 

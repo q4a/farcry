@@ -24,9 +24,13 @@
 #define TIMER_BASE	0x0000FFFF
 
 #ifndef PS2
-#define DEBUG_STRING(sss) ::OutputDebugString(sss);
+#define DEBUG_STRING(sss) OutputDebugString(sss);
 #else
 #define DEBUG_STRING(sss) cout << sss;
+#endif
+
+#ifdef LINUX 
+	#include "WinBase.h"
 #endif
 
 #define BEGIN_STATUS_MAP()	void _ProcessSignal(unsigned int dwIncomingSignal,ULONG_PTR dwParam)	\
@@ -40,7 +44,7 @@
 		break;
 
 #define END_STATUS_MAP()	default : \
-		::OutputDebugString("singal not handled\n"); \
+		OutputDebugString("singal not handled\n"); \
 	break; \
 	};	\
 	} \
@@ -78,7 +82,7 @@ protected:
 	{
 		m_dwTimerName=dwName;
 		m_dwTimerElapsed=dwElapsed;
-		m_dwTimerStart=::GetTickCount();
+		m_dwTimerStart=GetTickCount();
 	}
 	void ResetTimer()
 	{
@@ -120,7 +124,7 @@ public:
 	BOOL Update(unsigned int dwIncomingSignal=0,DWORD_PTR dwParam=0)
 	{
 		if(m_dwTimerName)
-			if((::GetTickCount()-m_dwTimerStart)>=m_dwTimerElapsed)
+			if((GetTickCount()-m_dwTimerStart)>=m_dwTimerElapsed)
 			{
 				unsigned int dwTimerName=m_dwTimerName;
 				ResetTimer();

@@ -1,7 +1,7 @@
 // XTIncludes.h : header file
 //
 // This file is a part of the Xtreme Toolkit for MFC.
-// ©1998-2003 Codejock Software, All Rights Reserved.
+// ï¿½1998-2003 Codejock Software, All Rights Reserved.
 //
 // This source code can only be used under the terms and conditions 
 // outlined in the accompanying license agreement.
@@ -53,7 +53,7 @@
 //
 //			Open the XTToolkit_Lib project workspace and select one of the 
 //			Win32 Dynamic build settings and build the library. Add the following lines 
-//			of code to your stdafx.h file:
+//			of code to your StdAfx.h file:
 //
 //			<pre>#define _XT_STATICLINK
 //			#include <XTToolkit.h></pre>

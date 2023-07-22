@@ -9,7 +9,7 @@
 
 #include "RenderPCH.h"
 #include "NULL_Renderer.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 
 //#include "../cry3dengine/StatObj.h"
 
@@ -22,7 +22,7 @@ void CREFlareGeom::mfCheckVis(CFColor &col, CCObject *obj)
 {
 }
 
-//#include "..\common\shadow_renderer.h"
+//#include "../common\Shadow_Renderer.h"
 
 ///////////////////////////////////////////////////////////////////
 

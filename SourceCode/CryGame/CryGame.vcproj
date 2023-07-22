@@ -33,7 +33,7 @@
 				BufferSecurityCheck="TRUE"
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile=".\Debug/CryGame.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
@@ -108,7 +108,7 @@
 				EnableFunctionLevelLinking="FALSE"
 				EnableEnhancedInstructionSet="0"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile=".\Release/CryGame.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
@@ -185,7 +185,7 @@
 				DisableLanguageExtensions="FALSE"
 				ForceConformanceInForLoopScope="FALSE"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile=".\Profile/CryGame.pch"
 				AssemblerListingLocation=".\Profile/"
 				ObjectFile=".\Profile/"
@@ -253,7 +253,7 @@
 				BufferSecurityCheck="FALSE"
 				EnableFunctionLevelLinking="FALSE"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile="$(IntDir)/$(ProjectName).pch"
 				AssemblerOutput="2"
 				AssemblerListingLocation="$(IntDir)/"
@@ -331,7 +331,7 @@
 				BufferSecurityCheck="FALSE"
 				EnableFunctionLevelLinking="FALSE"
 				UsePrecompiledHeader="3"
-				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderThrough="StdAfx.h"
 				PrecompiledHeaderFile="$(IntDir)/$(ProjectName).pch"
 				AssemblerListingLocation="$(IntDir)/"
 				ObjectFile="$(IntDir)/"
@@ -1016,7 +1016,7 @@
 					RelativePath="ScriptObjectSpectator.h">
 				</File>
 				<File
-					RelativePath=".\ScriptObjectStream.h">
+					RelativePath=".\ScriptObjectstream.h">
 				</File>
 				<File
 					RelativePath=".\ScriptObjectSynched2DTable.h">

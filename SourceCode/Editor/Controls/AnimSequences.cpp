@@ -1,7 +1,7 @@
 // AnimSequences.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "AnimSequences.h"
 
 #ifdef _DEBUG

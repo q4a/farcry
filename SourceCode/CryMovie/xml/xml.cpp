@@ -3,13 +3,17 @@
 #include <stdlib.h>
 
 #define XMLPARSEAPI(type) type
-#include "expat\expat.h"
+#include "Expat/expat.h"
 #include "xml.h"
 #include <string>
 
 // needed for crypak
 #include <ISystem.h>
 #include <ICryPak.h>
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 /**
  ******************************************************************************

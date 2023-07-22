@@ -68,7 +68,7 @@
 // new stuff.
 //------------------------------------------------------------------------------
 
-#include "stdafx.h"        // Standard windows header file
+#include "StdAfx.h"        // Standard windows header file
 #include "NewMenu.h"       // CNewMenu class declaration
 
 //#define _TRACE_MENU_

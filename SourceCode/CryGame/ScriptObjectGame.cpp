@@ -9,11 +9,11 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #if defined LINUX
-#include <sys/io.h>
+	#include <sys/io.h>
 #else
-#include <io.h>
+	#include <io.h>
 #endif
 #include "Game.h"
 #include "XServer.h"
@@ -21,7 +21,7 @@
 #include "UIHud.h"
 #include "ScriptObjectRenderer.h"
 #include "PlayerSystem.h"
-#include "Xplayer.h"
+#include "XPlayer.h"
 #include "Spectator.h"
 #include "IngameDialog.h"
 #include "XSystemBase.h"
@@ -49,6 +49,19 @@
 	#include <sys/stat.h>
 #endif
 
+#ifdef LINUX 
+	#include "WinBase.h"
+	#include "findfirst.h"
+#endif
+
+#if defined(PS2) || defined(LINUX)
+//wrapper for VC specific function
+inline char * itoa(int n, char *str, int basen)
+{
+ 	sprintf(str,"%d", n);
+	return *str;
+}
+#endif
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -1889,7 +1902,7 @@ int CScriptObjectGame::GetEntitiesScreenSpace(IFunctionHandler *pH)
 
 							Matrix44 m;
 							m.SetIdentity();
-							m=GetTranslationMat(pEnt->GetPos())*m;
+							m=Matrix44::GetTranslationMat(pEnt->GetPos())*m;
 							m=Matrix44::CreateRotationZYX(-pEnt->GetAngles()*gf_DEGTORAD)*m; //NOTE: angles in radians and negated 
 
 

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "MTSafeAllocator.h"
 #include "smartptr.h"
 #include "zlib/zlib.h"
@@ -6,6 +6,10 @@
 #include "ZipDirStructures.h"
 #include <time.h>
 #include <ISystem.h>
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 using namespace ZipFile;
 

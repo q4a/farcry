@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ScriptObjectSound.h"
 #include <ScriptObjectVector.h>
 #include <ISystem.h>
@@ -12,7 +12,7 @@
 #ifdef WIN64
 #include <CrySound64.h>
 #else
-#include <CrySound.h>
+#include <crysound.h>
 #endif
  
 //////////////////////////////////////////////////////////////////////
@@ -381,7 +381,7 @@ int CScriptObjectSound::Load3DSoundLocalized(IFunctionHandler *pH)
 */
 
 /*!	set the Environment model(EAX)
-sets one of the eax presets specified in isound.h
+sets one of the eax presets specified in ISound.h
 @param nPreset one of the presets
 */
 /////////////////////////////////////////////////////////////////////////////////

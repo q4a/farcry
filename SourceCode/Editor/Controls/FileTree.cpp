@@ -1,7 +1,7 @@
 // FileTree.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "FileTree.h"
 
 #ifdef _DEBUG

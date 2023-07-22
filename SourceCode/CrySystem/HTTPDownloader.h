@@ -1,10 +1,10 @@
 #pragma once
 
+#if !defined(LINUX) //Please don't try to compile this if we are targeting Linux
 
-#if !defined(LINUX)
-	#include <wininet.h>
-	#include <dbghelp.h>
-#endif
+#include <wininet.h>
+#include <dbghelp.h>
+
 #include <IScriptSystem.h>
 #include <_ScriptableEx.h>
 
@@ -20,7 +20,6 @@ enum
 	HTTP_STATE_ERROR,
 	HTTP_STATE_NONE,
 };
-
 
 class CDownloadManager;
 
@@ -80,4 +79,4 @@ private:
 	CDownloadManager	*m_pParent;
 };
 
-//#endif //LINUX
+#endif

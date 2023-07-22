@@ -20,7 +20,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 #include "DropListBox.h"
 #include "Resource.h"

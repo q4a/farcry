@@ -1,7 +1,7 @@
 // ResourceCompilerPC.cpp : Defines the entry point for the DLL application.
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "CgfConvertor.h"
 #include "GC_CgfConverter.h"
 #include "StatCGFCompiler\StatCGFCompiler.h"

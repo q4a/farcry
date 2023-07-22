@@ -1,7 +1,7 @@
 // SurfaceTypesDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "SurfaceTypesDialog.h"
 #include "SurfaceType.h"
 #include "CryEditDoc.h"

@@ -1,7 +1,7 @@
 // NumberDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "NumberDlg.h"
 
 #ifdef _DEBUG

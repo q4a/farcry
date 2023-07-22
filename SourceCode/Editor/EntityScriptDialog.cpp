@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "EntityScriptDialog.h"
 
 #include "Objects\EntityScript.h"

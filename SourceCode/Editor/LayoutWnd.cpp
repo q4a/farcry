@@ -1,7 +1,7 @@
 // LayoutWnd.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "LayoutWnd.h"
 #include "ViewPane.h"
 #include "ViewManager.h"

@@ -15,6 +15,7 @@
 #include <direct.h>
 #include <io.h>
 #elif defined(LINUX)
+  #include "findfirst.h"
 #endif
 
 

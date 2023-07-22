@@ -1,7 +1,7 @@
 // TVSequenceProps.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TVSequenceProps.h"
 #include "IMovieSystem.h"
 #include "TrackViewUndo.h"

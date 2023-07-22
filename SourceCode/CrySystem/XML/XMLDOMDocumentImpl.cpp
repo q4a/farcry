@@ -2,12 +2,16 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "XMLDOMDocumentImpl.h"
 #include "XMLDOMNodeImpl.h"
 #include "nanoxml.h"
-#include "ilog.h"
+#include "ILog.h"
 #include <ICryPak.h>
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -204,7 +208,7 @@ XDOM::IXMLDOMNodeList *CXMLDOMDocumentImpl::getChildNodes()
 {
 	return m_pChildNodes;
 }
-	
+
 void CXMLDOMDocumentImpl::setText(const char *sText)
 {
 	m_sText=sText; 

@@ -14,6 +14,10 @@
 #define CRYGEOSTRUCTS_H
 
 #include "Cry_Math.h" 
+#include "Cry_Vector3.h"
+
+//If I Don't do this the compiler will yell at me that it can't find the declared function 
+Plane GetPlane(  const Vec3 &normal, const Vec3 &point );
 
 #if _MSC_VER > 1000
 # pragma once

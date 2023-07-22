@@ -1,15 +1,21 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <TArrays.h>
-#include <ilog.h>
+#include <ILog.h>
 #include "RefStreamEngine.h"
 #include "RefReadStream.h"
 #include "RefReadStreamProxy.h"
+
 
 #ifndef SIZEOF_ARRAY
 #define SIZEOF_ARRAY(arr) (sizeof(arr)/sizeof((arr)[0]))
 #endif
 extern CMTSafeHeap* g_pSmallHeap;
 extern CMTSafeHeap* g_pBigHeap;
+
+#ifdef LINUX 
+	#import "WinBase.h"
+	#define INFINITE 999999000      /* Very large number */
+#endif
 
 //////////////////////////////////////////////////////////////////////////
 // useWorkerThreads is the number of worker threads  to use;
@@ -33,7 +39,8 @@ CRefStreamEngine::CRefStreamEngine (CCryPak* pPak, IMiniLog* pLog, unsigned useW
 	m_bEnableOverlapped (bOverlappedIO),
 	m_nSuspendCallbackTimeQuota(0)
 {
-	m_dwMainThreadId = GetCurrentThreadId();
+	//TODO: Implement this code properly
+	//m_dwMainThreadId = GetCurrentThreadId();
 	CheckOSCaps();
 
 	if (!QueryPerformanceFrequency((LARGE_INTEGER*)&m_nPerfFreq))
@@ -47,12 +54,14 @@ CRefStreamEngine::CRefStreamEngine (CCryPak* pPak, IMiniLog* pLog, unsigned useW
 	SetCallbackTimeQuota (50000);
 	m_dwMask=0;
 
+	//TODO: Re-implement this later if possible
 	m_hIOJob = CreateEvent (NULL, FALSE, FALSE, NULL);
 	m_hIOExecuted = CreateEvent (NULL, TRUE, FALSE, NULL);
 	m_hDummyEvent = CreateEvent (NULL, FALSE, FALSE, NULL);
 	memset (m_nSectorSizes, 0, sizeof(m_nSectorSizes));
 
 	if (useWorkerThreads)
+		bool m_bStopIOWorker = true;
 		StartWorkerThread();
 }
 
@@ -261,12 +270,12 @@ void CRefStreamEngine::Update(unsigned nFlags)
 // - may be called from any non-worker thread
 unsigned CRefStreamEngine::Wait(unsigned nMilliseconds, unsigned nFlags)
 {
-	ResetEvent (m_hIOExecuted);
+	//ResetEvent (m_hIOExecuted);
 	if (!IsMainThread())
 	{
 		// special case - this function is called from non-main thread
 		// just wait until some io gets executed, if there's anything to wait for
-		if (numIOJobs(eWaiting)+numIOJobs(ePending) > 0) // no sense to wait here if there are no waiting or pending jobs
+		//if (numIOJobs(eWaiting)+numIOJobs(ePending) > 0) // no sense to wait here if there are no waiting or pending jobs
 			WaitForSingleObject(m_hIOExecuted, nMilliseconds);
 		return 0;
 	}
@@ -278,7 +287,7 @@ unsigned CRefStreamEngine::Wait(unsigned nMilliseconds, unsigned nFlags)
 		unsigned nFinalized = FinalizeIOJobs(nFlags); // finalize whatever may not have been finalized
 		if (nFinalized)
 			return nFinalized; // we don't wait if we finalized something
-		if (numIOJobs(eWaiting)+numIOJobs(ePending) > 0) // no sense to wait here if there are no waiting or pending jobs
+		//if (numIOJobs(eWaiting)+numIOJobs(ePending) > 0) // no sense to wait here if there are no waiting or pending jobs
 			WaitForSingleObject(m_hIOExecuted, nMilliseconds);
 	}
 	else
@@ -344,7 +353,7 @@ unsigned CRefStreamEngine::FinalizeIOJobs(unsigned nFlags)
 		CRefReadStreamProxy_AutoPtr pProxy = m_queIOExecuted.front();
 		m_queIOExecuted.pop_front();
 		// to avoid locking the whole array during execution of the callbacks:
-		AUTO_UNLOCK(m_csIOExecuted);
+		//AUTO_UNLOCK(m_csIOExecuted);
 
 		assert(pProxy->IsIOExecuted());
 
@@ -386,7 +395,7 @@ void CRefStreamEngine::IOWorkerThread ()
 	AUTO_LOCK(m_csIOPending);
 	for (int nRetries = 0; nRetries < 100 && !m_setIOPending.empty(); ++nRetries)
 	{
-		AUTO_UNLOCK(m_csIOPending);
+		//AUTO_UNLOCK(m_csIOPending);
 		SleepEx(300, TRUE);
 	}
 }
@@ -442,9 +451,9 @@ unsigned CRefStreamEngine::StartIOJobs()
 			// temporary unlock both queue and set and start the reading
 			bool bReadStarted;
 			{
-				AUTO_UNLOCK(m_csIOPending);
+				//AUTO_UNLOCK(m_csIOPending);
 				{
-					AUTO_UNLOCK(m_csIOJobs);
+					//AUTO_UNLOCK(m_csIOJobs);
 					// try to start reading
 					bReadStarted = pProxy->StartRead();
 				}
@@ -588,7 +597,7 @@ unsigned CRefStreamEngine::GetDriveSectorSize (char cDrive)
 
 void CRefStreamEngine::StopWorkerThread()
 {
-	if (m_hIOWorker)
+	if (m_hIOWorker != (unsigned char *)-1)
 	{
 		m_bStopIOWorker = true;
 		SetEvent(m_hIOJob);
@@ -597,6 +606,7 @@ void CRefStreamEngine::StopWorkerThread()
 		m_hIOWorker = NULL;
 	}
 }
+
 
 void CRefStreamEngine::StartWorkerThread()
 {

@@ -66,4 +66,97 @@ typedef long long						LONGLONG;
 typedef	ULONG_PTR						SIZE_T;
 typedef unsigned char				byte;
 
+typedef __int64 __time64_t;
+
+typedef struct _SYSTEMTIME{
+	WORD wYear;
+	WORD wMonth;
+	WORD wDayOfWeek;
+	WORD wDay;
+	WORD wHour;
+	WORD wMinute;
+	WORD wSecond;
+	WORD wMilliseconds;
+} SYSTEMTIME, *PSYSTEMTIME, *LPSYSTEMTIME;
+
+typedef struct _TIME_FIELDS
+{
+	short Year;
+	short Month;
+	short Day;
+	short Hour;
+	short Minute;
+	short Second;
+	short Milliseconds;
+	short Weekday;
+} TIME_FIELDS, *PTIME_FIELDS;
+
+//error code stuff
+//not thread specific, just a coarse implementation for the main thread
+inline DWORD GetLastError() { return errno; }
+inline void SetLastError(DWORD dwErrCode) { errno = dwErrCode; }
+
+//////////////////////////////////////////////////////////////////////////
+#define GENERIC_READ                     (0x80000000L)
+#define GENERIC_WRITE                    (0x40000000L)
+#define GENERIC_EXECUTE                  (0x20000000L)
+#define GENERIC_ALL                      (0x10000000L)
+
+#define CREATE_NEW          1
+#define CREATE_ALWAYS       2
+#define OPEN_EXISTING       3
+#define OPEN_ALWAYS         4
+#define TRUNCATE_EXISTING   5
+
+#define FILE_SHARE_READ                     0x00000001
+#define FILE_SHARE_WRITE                    0x00000002
+#define OPEN_EXISTING                           3
+#define FILE_FLAG_OVERLAPPED            0x40000000
+#define INVALID_FILE_SIZE                   ((DWORD)0xFFFFFFFFl)
+#define FILE_BEGIN                              0
+#define FILE_CURRENT                            1
+#define FILE_END                                    2
+#define ERROR_NO_SYSTEM_RESOURCES 1450L
+#define ERROR_INVALID_USER_BUFFER   1784L
+#define ERROR_NOT_ENOUGH_MEMORY   8L
+#define ERROR_PATH_NOT_FOUND      3L
+#define FILE_FLAG_SEQUENTIAL_SCAN 0x08000000
+
+typedef struct _MEMORYSTATUS {
+  DWORD  dwLength;
+  DWORD  dwMemoryLoad;
+  SIZE_T dwTotalPhys;
+  SIZE_T dwAvailPhys;
+  SIZE_T dwTotalPageFile;
+  SIZE_T dwAvailPageFile;
+  SIZE_T dwTotalVirtual;
+  SIZE_T dwAvailVirtual;
+} MEMORYSTATUS, *LPMEMORYSTATUS;
+
+//critical section stuff
+#define pthread_attr_default NULL
+
+typedef pthread_mutex_t CRITICAL_SECTION;
+#ifdef __cplusplus
+inline void InitializeCriticalSection(CRITICAL_SECTION *lpCriticalSection)
+{
+pthread_mutexattr_t pthread_mutexattr_def;
+pthread_mutexattr_settype(&pthread_mutexattr_def, PTHREAD_MUTEX_RECURSIVE_NP);
+pthread_mutex_init(lpCriticalSection, &pthread_mutexattr_def);
+}
+inline void EnterCriticalSection(CRITICAL_SECTION *lpCriticalSection){pthread_mutex_lock(lpCriticalSection);}
+inline void LeaveCriticalSection(CRITICAL_SECTION *lpCriticalSection){pthread_mutex_unlock(lpCriticalSection);}
+inline void DeleteCriticalSection(CRITICAL_SECTION *lpCriticalSection){}
+#else
+static void InitializeCriticalSection(CRITICAL_SECTION *lpCriticalSection)
+{
+pthread_mutexattr_t pthread_mutexattr_def;
+pthread_mutexattr_settype(&pthread_mutexattr_def, PTHREAD_MUTEX_RECURSIVE_NP);
+pthread_mutex_init(lpCriticalSection, &pthread_mutexattr_def);
+}
+static void EnterCriticalSection(CRITICAL_SECTION *lpCriticalSection){pthread_mutex_lock(lpCriticalSection);}
+static void LeaveCriticalSection(CRITICAL_SECTION *lpCriticalSection){pthread_mutex_unlock(lpCriticalSection);}
+static void DeleteCriticalSection(CRITICAL_SECTION *lpCriticalSection){}
+#endif
+
 #endif //_CRY_COMMON_LINUX64_SPECIFIC_HDR_

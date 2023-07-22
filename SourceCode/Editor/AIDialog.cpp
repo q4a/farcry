@@ -1,7 +1,7 @@
 // AIDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "AIDialog.h"
 
 #include "Controls\PropertyCtrl.h"

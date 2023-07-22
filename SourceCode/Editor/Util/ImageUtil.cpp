@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ImageUtil.h"
 #include "ImageGif.h"
 #include "Image_DXTC.h"

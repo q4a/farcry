@@ -13,15 +13,15 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
-#include "geom.h"
+#include "Geom.h"
 #include "CryStaticModel.h"
 #include "StatCGFCompiler.h"
 
 #define ISystem IRCLog
 
-#include "meshidx.h"
+#include "MeshIdx.h"
 #include "MakMatInfoFromMAT_ENTITY.h"
 
 static void StripExtension (const char *in, char *out)
@@ -1111,7 +1111,7 @@ size_t CIndexedMesh::GetMemoryUsage()
   return nSize;
 }
 
-#include "..\TangentSpaceCalculation.h"
+#include "../TangentSpaceCalculation.h"
 
 // a proxy structure that gets passed to the tangent space calculation algorithm
 struct IndexedMeshProxy

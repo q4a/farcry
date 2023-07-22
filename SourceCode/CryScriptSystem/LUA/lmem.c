@@ -28,7 +28,7 @@ int gLuaAllocatedMemory = 0;
 
 #else
 
-	#include "..\RecycleAllocator.h"
+	#include "../RecycleAllocator.h"
 	#define l_realloc(b,os,s)	recycle_realloc(b,os,s)
 	#define l_free(b,s)			recycle_free(b,s)
 

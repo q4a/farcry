@@ -7,7 +7,7 @@
 
 =============================================================================*/
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "DriverD3D8.h"
 #include "D3DCGVProgram.h"
 #include "D3DCGPShader.h"
@@ -3816,7 +3816,7 @@ CVertexBuffer *CD3D8Renderer::CreateBuffer(int vertexcount,int vertexformat, con
   return(newbuf);
 }
 
-#include "../Common/NvTriStrip/NVTriStrip.h"
+#include "../Common/NvTriStrip/NvTriStrip.h"
 
 ///////////////////////////////////////////
 void CD3D8Renderer::DrawBuffer(CVertexBuffer *src,SVertexStream *indicies,int numindices,int offsindex, int prmode,int vert_start,int vert_stop, CMatInfo *mi)

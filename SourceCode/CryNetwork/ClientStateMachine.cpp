@@ -11,7 +11,7 @@
 //////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ClientStateMachine.h"
 
 #ifdef _DEBUG
@@ -36,7 +36,7 @@ CClientStateMachine::~CClientStateMachine()
 
 void CClientStateMachine::_Trace(char *s)
 {
-	//::OutputDebugString(s);
+	//OutputDebugString(s);
 }
 
 void CClientStateMachine::_TraceStatus(unsigned int dwStatus)

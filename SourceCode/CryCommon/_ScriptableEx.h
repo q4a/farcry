@@ -245,7 +245,9 @@ protected:
 		if(!pThis)
 		{
 			m_pSS->RaiseError("Null Self");
-			::OutputDebugString("Null Self\n");
+			#ifndef LINUX
+			OutputDebugString("Null Self\n");
+			#endif
 			return 0;
 		}
 		//int i=m_pFunctionHandler->GetFunctionID();

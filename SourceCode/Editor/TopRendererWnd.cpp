@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TopRendererWnd.h"
 #include "Heightmap.h"
 #include "VegetationMap.h"

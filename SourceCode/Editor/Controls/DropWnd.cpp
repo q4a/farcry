@@ -19,7 +19,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "DropWnd.h"
 #include "DropListBox.h"
 

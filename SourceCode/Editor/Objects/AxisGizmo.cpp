@@ -17,8 +17,8 @@
 #include "AxisGizmo.h"
 #include "DisplayContext.h"
 
-#include "..\Viewport.h"
-#include "..\DisplaySettings.h"
+#include "../Viewport.h"
+#include "../DisplaySettings.h"
 #include "ObjectManager.h"
 
 #include "GizmoManager.h"

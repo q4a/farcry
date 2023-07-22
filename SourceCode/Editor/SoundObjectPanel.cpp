@@ -1,7 +1,7 @@
 // SoundObjectPanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "SoundObjectPanel.h"
 #include "Objects\\SoundObject.h"
 

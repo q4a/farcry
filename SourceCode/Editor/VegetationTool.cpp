@@ -24,7 +24,7 @@
 #include "PanelPreview.h"
 #include "Settings.h"
 
-#include "I3dEngine.h"
+#include "I3DEngine.h"
 #include "IPhysics.h"
 
 //////////////////////////////////////////////////////////////////////////

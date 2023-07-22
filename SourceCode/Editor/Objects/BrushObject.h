@@ -21,7 +21,7 @@
 #endif
 
 #include "BaseObject.h"
-#include "..\Brush\Brush.h"
+#include "../Brush\Brush.h"
 
 struct SBrush;
 class CEdMesh;

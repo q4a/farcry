@@ -1,7 +1,7 @@
 // TerrainFormulaDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TerrainFormulaDlg.h"
 
 #ifdef _DEBUG

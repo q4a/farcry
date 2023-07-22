@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "PreferencesDialog.h"
 #include "PreferencesPropertyPage.h"
 #include "PreferencesStdPages.h"

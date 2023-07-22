@@ -1,6 +1,6 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ScriptSystem.h"
-#include <crysizer.h>
+#include <CrySizer.h>
 extern "C" {
 #define LUA_PRIVATE
 #include "lua.h"
@@ -70,7 +70,7 @@ void CScriptSystem::GetMemoryStatistics(ICrySizer *pSizer)
 	LSS->nUdataMem=0;
 #ifdef TRACE_TO_FILE
 	FILE *f=fopen("protodump.txt","w+");
-	if(!f)::OutputDebugString("opening 'protodump.txt' failed\n");
+	if(!f)OutputDebugString("opening 'protodump.txt' failed\n");
 #endif
 /////BYTECODE////////////////////////////////////////////
 	{
@@ -159,20 +159,20 @@ void CScriptSystem::GetMemoryStatistics(ICrySizer *pSizer)
 		
 	}
 	/*char sTemp[1000];
-	::OutputDebugString("-----LUA STATS------\n");
+	OutputDebugString("-----LUA STATS------\n");
 	sprintf(sTemp,"Proto num=%d memsize=%d kb\n",LSS->nProto,LSS->nProtoMem/1024);
-	::OutputDebugString(sTemp);
+	OutputDebugString(sTemp);
 	sprintf(sTemp,"Closure num=%d memsize=%d kb\n",LSS->nClosure,LSS->nClosureMem/1024);
-	::OutputDebugString(sTemp);
+	OutputDebugString(sTemp);
 	sprintf(sTemp,"Hash num=%d memsize=%d kb\n",LSS->nHash,LSS->nHashMem/1024);
-	::OutputDebugString(sTemp);
+	OutputDebugString(sTemp);
 	sprintf(sTemp,"Udata num=%d memsize=%d kb\n",LSS->nUdata,LSS->nUdataMem/1024);
-	::OutputDebugString(sTemp);
+	OutputDebugString(sTemp);
 	sprintf(sTemp,"String num=%d memsize=%d kb\n",LSS->nString,LSS->nStringMem/1024);
-	::OutputDebugString(sTemp);
+	OutputDebugString(sTemp);
 	sprintf(sTemp,"registry table memsize=%d kb\n",calctablesize(m_pLS->G->registry)/1024);
-	::OutputDebugString(sTemp);
+	OutputDebugString(sTemp);
 	sprintf(sTemp,"weak registry table memsize=%d kb\n",calctablesize(m_pLS->G->weakregistry)/1024);
-	::OutputDebugString(sTemp);
-	::OutputDebugString("-----END LUA STATS------\n");*/
+	OutputDebugString(sTemp);
+	OutputDebugString("-----END LUA STATS------\n");*/
 }

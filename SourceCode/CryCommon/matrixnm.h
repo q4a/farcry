@@ -259,6 +259,7 @@ typedef matrix_tpl<float> matrixf;
 extern int g_bHasSSE;
 #ifdef PIII_SSE
 void PIII_Mult00_6x6_6x6(float *src1, float *src2, float *dst);
+template <> //Forgive me for my sins
 inline void matrix_product_tpl<float>::assign_to(float *pdst) const {
 	if ((g_bHasSSE^1|nRows1-6|nCols1-6|nCols2-6)==0) 
 		PIII_Mult00_6x6_6x6(data1,data2, pdst);

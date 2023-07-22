@@ -3,7 +3,7 @@
 #include <ISound.h>
 #include <ISystem.h>
 #include <ICryPak.h>
-#include "oggdecoder.h"
+#include "OGGDecoder.h"
 #include "MusicSystem.h"
 
 COGGDecoder::COGGDecoder(IMusicSystem *pMusicSystem)
@@ -25,12 +25,7 @@ void getTicks(int64* pnTime)
 #ifdef WIN64
 	*pnTime = __rdtsc();
 #else
-	__asm {
-		mov ebx, pnTime
-		rdtsc
-		mov [ebx], eax
-		mov [ebx+4], edx
-	}
+	#include "WinBase.h"
 #endif
 }
 

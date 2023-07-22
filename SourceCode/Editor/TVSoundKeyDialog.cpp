@@ -1,7 +1,7 @@
 // TVSoundKeyDialog.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "TVSoundKeyDialog.h"
 #include <ISound.h>
 #include ".\tvsoundkeydialog.h"

@@ -39,7 +39,7 @@ union floatint {
 const int	imag	= (23+127)<<23 | 1<<22; 
 int float2int(float x);
 
-#elif defined(LINUX32)
+#elif defined(LINUX32) || defined(LINUX) //Defaults Linux build to 32Bit function definitions, we may need to change this later
 const int	imag	= (23+127)<<23 | 1<<22; 
 inline int float2int(float x) {
 	floatint u;
@@ -291,15 +291,6 @@ extern int g_bitcount[256];
 const int SINCOSTABSZ = 1024, SINCOSTABSZ_LOG2 = 10;
 extern float g_costab[SINCOSTABSZ],g_sintab[SINCOSTABSZ];
 
-// uncomment the following block to effectively disable validations
-/*#define VALIDATOR_LOG(pLog,str)
-#define VALIDATORS_START
-#define VALIDATOR(member)
-#define VALIDATOR_NORM(member)
-#define VALIDATOR_RANGE(member,minval,maxval)
-#define VALIDATOR_RANGE2(member,minval,maxval)
-#define VALIDATORS_END
-#define ENTITY_VALIDATE(strSource,pStructure)*/
 #if defined(WIN64) || defined(LINUX64)
 #define DoBreak {assert(0);}
 #else
@@ -307,7 +298,16 @@ extern float g_costab[SINCOSTABSZ],g_sintab[SINCOSTABSZ];
 #endif
 
 #if defined LINUX
-	#include "validator.h"
+	#define VALIDATOR_LOG(pLog,str)
+	#define VALIDATORS_START
+	#define VALIDATOR(member)
+	#define VALIDATOR_NORM(member)
+	#define VALIDATOR_RANGE(member,minval,maxval)
+	#define VALIDATOR_RANGE2(member,minval,maxval)
+	#define VALIDATORS_END
+	#define ENTITY_VALIDATE(strSource,pStructure)
+	#define ENTITY_VALIDATE_ERRCODE(strSource,pStructure,iErrCode)
+	//Uncommented the above because validation is for pussies (Duke Nukem voice)
 #else
 	#define VALIDATOR_LOG(pLog,str) pLog->Log(str) //OutputDebugString(str)
 	#define VALIDATORS_START bool validate( const char *strSource, ILog *pLog, const vectorf &pt,\

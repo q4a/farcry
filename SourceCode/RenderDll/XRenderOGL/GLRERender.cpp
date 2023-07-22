@@ -9,7 +9,7 @@
 
 #include "RenderPCH.h"
 #include "GL_Renderer.h"
-#include "I3dengine.h"
+#include "I3DEngine.h"
 
 // tiago:added
 #include "GLCGPShader.h"
@@ -60,7 +60,7 @@ void CREFlareGeom::mfCheckVis(CFColor &col, CCObject *obj)
   col.ClampAlpha();
 }
 
-//#include "..\common\shadow_renderer.h"
+//#include "../common\Shadow_Renderer.h"
 
 ///////////////////////////////////////////////////////////////////
 

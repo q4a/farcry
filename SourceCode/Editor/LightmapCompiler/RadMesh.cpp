@@ -6,9 +6,9 @@
 //	- Partial rewrite for editor integration
 // ---------------------------------------------------------------------------------------------
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <float.h>
-#include <I3dEngine.h>
+#include <I3DEngine.h>
 #include <IEntityRenderstate.h>
 //#include "IndoorLightPatches.h"
 #include <list2.h>

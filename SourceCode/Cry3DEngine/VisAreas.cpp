@@ -13,15 +13,19 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 #include "StatObj.h"
-#include "objman.h"
-#include "visareas.h"
+#include "ObjMan.h"
+#include "VisAreas.h"
 #include "terrain_sector.h"
-#include "3dengine.h"
+#include "3DEngine.h"
 #include "cbuffer.h"
-#include "3dengine.h"
+#include "3DEngine.h"
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 void CVisArea::Update(const Vec3d * pPoints, int nCount, const char * szName, float fHeight, const Vec3d & vAmbientColor, bool bAfectedByOutLights, bool bSkyOnly, const Vec3d & vDynAmbientColor, float fViewDistRatio, bool bDoubleSide, bool bUseDeepness, bool bUseInIndoors)
 {

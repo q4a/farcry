@@ -246,7 +246,7 @@
     <ClInclude Include="StlUtils.h">
       <Filter>Common_h</Filter>
     </ClInclude>
-    <ClInclude Include="Stream.h">
+    <ClInclude Include="stream.h">
       <Filter>Common_h</Filter>
     </ClInclude>
     <ClInclude Include="StreamData.h">

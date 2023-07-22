@@ -16,8 +16,8 @@
 #include "StdAfx.h"
 #include "AIAnchor.h"
 
-#include "..\AI\AIManager.h"
-#include "..\Viewport.h"
+#include "../AI\AIManager.h"
+#include "../Viewport.h"
 #include "Settings.h"
 
 #include <IAISystem.h>

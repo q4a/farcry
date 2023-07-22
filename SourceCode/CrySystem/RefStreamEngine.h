@@ -132,7 +132,7 @@ protected:
 
 protected:
 
-	DWORD				m_dwMask;			//!< default: 0, bitmask that affects the stram compression (look into Stream.h)
+	DWORD				m_dwMask;			//!< default: 0, bitmask that affects the stram compression (look into stream.h)
 
 	int64			m_nPerfFreq;
 	int64			m_nCallbackTimeQuota;
@@ -212,7 +212,7 @@ protected:
 	// This critical section protects the objects that can be written to by the main thread only
 	// It must be locked for the time of access from non-main thread and for the time of writing from the main thread
 	// Main thread can have read access to those objects anytime without serialization
-	//CCritSection m_csMainWriter;
+	CCritSection m_csMainWriter;
 };
 
 

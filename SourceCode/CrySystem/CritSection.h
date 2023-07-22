@@ -1,9 +1,12 @@
 #ifndef _CRIT_SECTION_CRY_SYSTEM_HDR_
 #define _CRIT_SECTION_CRY_SYSTEM_HDR_
 
+//Commenting this because the file does not exist
+/*
 #if defined(LINUX)
 	#include "WinBase.h"
 #endif
+*/
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Safe critical section robot: when constructing, it's locking the section, when
@@ -44,7 +47,6 @@ public:
 				m_csThis.Lock();
 			}
 };
-
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Abstraction of critical section synchronization object. Auto-constructs/destructs

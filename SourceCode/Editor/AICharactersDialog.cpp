@@ -13,7 +13,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "AICharactersDialog.h"
 
 #include "Controls\PropertyCtrl.h"

@@ -13,14 +13,18 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 #include "StatObj.h"
 #include "MeshIdx.h"
-#include "../RenderDll/Common/shadow_renderer.h"
-#include <irenderer.h>
+#include "../RenderDll/Common/Shadow_Renderer.h"
+#include <IRenderer.h>
 #include <CrySizer.h>
-#include "objman.h"
+#include "ObjMan.h"
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 float CStatObj::m_fStreamingTimePerFrame=0;
 

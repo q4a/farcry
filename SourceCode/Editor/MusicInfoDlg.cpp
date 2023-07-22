@@ -1,7 +1,7 @@
 // MusicInfoDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "MusicInfoDlg.h"
 #include <ISound.h>
 

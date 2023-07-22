@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "MTSafeAllocator.h"
 #include "TArrays.h"
 #include "zlib/zlib.h"
@@ -10,6 +10,10 @@
 #include "ZipDirCacheRW.h"
 #include "ZipDirCacheFactory.h"
 #include "ZipDirList.h"
+
+#ifdef LINUX 
+	#include "WinBase.h"
+#endif
 
 using namespace ZipFile;
 

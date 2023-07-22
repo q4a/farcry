@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "resource.h"
 #include "tipdlg.h"
 
@@ -73,7 +73,11 @@ CTipDlg::CTipDlg(CWnd* pParent /*=NULL*/)
 	// Reset the file position to 0 and write the latest timestamp to the
 	// ini file
 	struct __stat64 buf;
-	_fstat64(_fileno(m_pStream), &buf);
+	#if defined(LINUX)
+		fstat64(_fileno(m_pStream), &buf);
+	#else
+		_fstat64(_fileno(m_pStream), &buf);
+	#endif
 	CString strCurrentTime = _ctime64(&buf.st_ctime);
 	strCurrentTime.TrimRight();
 	CString strStoredTime = 

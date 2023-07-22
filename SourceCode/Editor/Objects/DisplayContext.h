@@ -20,7 +20,7 @@
 #pragma once
 #endif
 
-#include "..\IconManager.h"
+#include "../IconManager.h"
 
 // forward declarations.
 class CViewport;

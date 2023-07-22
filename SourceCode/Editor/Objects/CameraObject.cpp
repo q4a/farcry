@@ -16,7 +16,7 @@
 #include "StdAfx.h"
 #include "CameraObject.h"
 #include "ObjectManager.h"
-#include "..\Viewport.h"
+#include "../Viewport.h"
 
 //////////////////////////////////////////////////////////////////////////
 // CBase implementation.

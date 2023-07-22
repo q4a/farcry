@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+#include "StdAfx.h"
 /*
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "LoadingScreen.h"
 
 #ifdef _DEBUG

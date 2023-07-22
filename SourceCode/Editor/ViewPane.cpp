@@ -1,7 +1,7 @@
 // ViewPane.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "ViewPane.h"
 #include "ViewManager.h"
 

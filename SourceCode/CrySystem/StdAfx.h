@@ -3,7 +3,7 @@
 //  Crytek Engine Source File.
 //  Copyright (C), Crytek Studios, 2002.
 // -------------------------------------------------------------------------
-//  File name:   stdafx.h
+//  File name:   StdAfx.h
 //  Version:     v1.00
 //  Created:     30/9/2002 by Timur.
 //  Compilers:   Visual Studio.NET

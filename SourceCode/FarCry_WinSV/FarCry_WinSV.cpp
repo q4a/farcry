@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "DedicatedServer.h"				// InitDedicatedServer
 
 #if defined(LINUX)

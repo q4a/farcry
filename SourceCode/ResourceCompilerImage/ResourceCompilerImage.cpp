@@ -1,7 +1,7 @@
 // ResourceCompilerImage.cpp : Defines the entry point for the DLL application.
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include <assert.h>
 #include "ResourceCompilerImage.h"
 #include "IResCompiler.h"

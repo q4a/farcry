@@ -27,7 +27,7 @@ The GLRenderer interface Class
 
 //#include "list2.h"
 #include "Mygl.h"
-#include "Myglu.h"
+#include "MyGlu.h"
 
 // GL functions declare.
 #define GL_EXT(name) extern byte SUPPORTS##name;

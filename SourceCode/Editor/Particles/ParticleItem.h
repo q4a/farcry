@@ -18,7 +18,7 @@
 #pragma once
 
 #include "BaseLibraryItem.h"
-#include <I3dEngine.h>
+#include <I3DEngine.h>
 
 /*! CParticleItem contain definition of particle system spawning parameters.
  *	

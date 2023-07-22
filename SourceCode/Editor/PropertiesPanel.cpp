@@ -1,7 +1,7 @@
 // PropertiesPanel.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "PropertiesPanel.h"
 
 #include "Objects\\BaseObject.h"
