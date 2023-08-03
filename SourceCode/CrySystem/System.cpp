@@ -1250,7 +1250,6 @@ void CSystem::OpenLanguagePak( const char *sLanguage )
 		CryLogAlways("Localized language content(%s - %s) not available or modified from the original installation.",sLanguage,szPakName);
 	}
 
-	/* These extra .pak files do not exist in our current game version
 	// load patch language data
 	memset(szPakName,0,_MAX_PATH);
 	sprintf(szPakName,"%s/Localized/%s1.pak",DATA_FOLDER,sLanguage );
@@ -1260,7 +1259,6 @@ void CSystem::OpenLanguagePak( const char *sLanguage )
 	memset(szPakName,0,_MAX_PATH);
 	sprintf(szPakName,"%s/Localized/%s2.pak",DATA_FOLDER,sLanguage );
 	m_pIPak->OpenPack("",szPakName);
-	*/
 }
 
 //////////////////////////////////////////////////////////////////////////
