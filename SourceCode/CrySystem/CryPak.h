@@ -29,6 +29,9 @@
 	#include "WinBase.h"
 #endif
 
+#include <filesystem>
+#include <unordered_map>
+
 extern CMTSafeHeap* g_pSmallHeap;
 extern CMTSafeHeap* g_pBigHeap;
 
@@ -283,7 +286,11 @@ class CCryPak : public ICryPak
 
 	const PakVars* m_pPakVars;
 
-  bool InitPack(const char *szBasePath, unsigned nFlags = FLAGS_PATH_REAL);
+	bool InitPack(const char *szBasePath, unsigned nFlags = FLAGS_PATH_REAL);
+
+	// Resource paths
+	bool ResourcePathsFirstScan = true;
+	std::unordered_map<std::string, std::string> ResourcePaths;
 
 public:
 	// given the source relative path, constructs the full path to the file according to the flags
@@ -306,6 +313,11 @@ public:
 	~CCryPak();
 
 	const PakVars* GetPakVars()const {return m_pPakVars;}
+
+	// Resource paths
+	void AddEntryToResourcePaths(const std::filesystem::directory_entry &entry, std::string &CheckingPath);
+	void ScanResourcePaths();
+	std::string ConvertPathResource(const char *path);
 
 public:
 	PakInfo* GetPakInfo();

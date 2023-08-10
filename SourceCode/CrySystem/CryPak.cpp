@@ -209,16 +209,141 @@ char* CCryPak::BeautifyPath(char* dst)
 #import <algorithm>
 inline char* _fullpath(char* absPath, const char* relPath, size_t maxLength)
 {
-	char path[PATH_MAX];
+	char path[PATH_MAX] = "/0";
 
+	if (*relPath == 0)
+		realpath(std::filesystem::current_path().c_str(), path);
+	else
+		realpath(relPath, path);
 	// Don't need to check existence
-	realpath(relPath, path);
 	//if (realpath(relPath, path) == NULL)
 	//	return NULL;
 	const size_t len = std::min(strlen(path), maxLength - 1);
 	memcpy(absPath, path, len);
 	absPath[len] = 0;
 	return absPath;
+}
+
+std::string get_dir_iterator_path(const std::filesystem::path &path)
+{
+	std::string path_str = path.string();
+	size_t pos = path_str.find(std::string(".") + char(CCryPak::g_cNonNativeSlash));
+	if (pos != std::string::npos && pos == 0)
+	{
+		path_str.erase(0, 2);
+	}
+	return path_str;
+}
+
+std::string convert_path(const char *path)
+{
+	std::string conv;
+	size_t size = strlen(path);
+	for (int i = 0; i < size; ++i)
+	{
+		conv.push_back(path[i] == CCryPak::g_cNativeSlash ? CCryPak::g_cNonNativeSlash : path[i]);
+	}
+	return conv;
+}
+
+inline char *tolwr(char *str)
+{
+	char *result = str;
+	while (*str != '\0')
+	{
+		*str = tolower(*str);
+		str++;
+	}
+	return result;
+}
+
+inline bool starts_with(const std::string &str, const std::string &prefix)
+{
+	return str.size() >= prefix.size() && 0 == str.compare(0, prefix.size(), prefix);
+}
+
+inline bool ends_with(const std::string &str, const std::string &suffix)
+{
+	return str.size() >= suffix.size() && 0 == str.compare(str.size() - suffix.size(), suffix.size(), suffix);
+}
+
+void CCryPak::AddEntryToResourcePaths(const std::filesystem::directory_entry &entry, std::string &CheckingPath)
+{
+	if (entry.is_regular_file() || entry.is_directory())
+	{
+		std::string path = get_dir_iterator_path(entry.path());
+		std::string path_lwr = path.c_str();
+		tolwr(path_lwr.data());
+		if (starts_with(path_lwr, CheckingPath + "editor") ||
+			starts_with(path_lwr, CheckingPath + "fcdata") ||
+			starts_with(path_lwr, CheckingPath + "languages") ||
+			starts_with(path_lwr, CheckingPath + "levels") ||
+			starts_with(path_lwr, CheckingPath + "profiles") ||
+			starts_with(path_lwr, CheckingPath + "shaders") ||
+			ends_with(path_lwr, ".cfg"))
+		{
+			ResourcePaths[path_lwr] = path;
+		}
+	}
+}
+
+void CCryPak::ScanResourcePaths()
+{
+#ifndef _WIN32
+	if (ResourcePathsFirstScan)
+	{
+		// Seems like if static code calls us we need to do this manually to avoid any bugs
+		ResourcePaths = std::unordered_map<std::string, std::string>();
+	}
+	ResourcePaths.clear();
+	std::string ExePath = std::string(convert_path(m_strMasterCDRoot.c_str()));
+	auto it = std::filesystem::recursive_directory_iterator(ExePath);
+	tolwr(ExePath.data());
+	for (const auto &entry : it)
+	{
+		AddEntryToResourcePaths(entry, ExePath);
+	}
+#endif
+	ResourcePathsFirstScan = false;
+}
+
+std::string CCryPak::ConvertPathResource(const char *path)
+{
+#ifdef _WIN32
+	return std::string(path);
+#else
+	if (ResourcePathsFirstScan)
+	{
+		ScanResourcePaths();
+	}
+	std::string conv = std::string(path);
+	std::string path_lwr = conv; // save original string if we will need to create new file in existing folder
+	tolwr(path_lwr.data());
+	std::filesystem::path tmp_path = std::filesystem::u8path(path_lwr).lexically_normal(); // remove relative paths
+	path_lwr = tmp_path.string();
+	std::string result = ResourcePaths[path_lwr];
+	if (result.empty())
+	{
+		// if we need to create new file in existing folder, then we need to check ResourcePaths[parent_folder]
+		result = ResourcePaths[tmp_path.parent_path().string()];
+		if (result.empty())
+		{
+			// no such parent folder
+			return path_lwr;
+		}
+		else
+		{
+			// parent folder found
+			result = result + char(g_cNonNativeSlash) + std::filesystem::u8path(conv).filename().string();
+			ResourcePaths[path_lwr] = result;
+			return result;
+		}
+	}
+	else
+	{
+		return result;
+	}
+#endif
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -283,14 +408,18 @@ const char* CCryPak::AdjustFileName(const char *src, char *dst, unsigned nFlags,
 	else
 		strcpy(dst, adjustedFilename.c_str());
 	if ((nFlags & FLAGS_ADD_TRAILING_SLASH) && pEnd > dst && (pEnd[-1]!=g_cNativeSlash && pEnd[-1]!=g_cNonNativeSlash))
+	{
+		*pEnd = g_cNonNativeSlash;
+		*++pEnd = '\0';
+	}
 #else
 	// p now points to the end of string
 	if ((nFlags & FLAGS_ADD_TRAILING_SLASH) && pEnd > dst && pEnd[-1]!=g_cNativeSlash)
-#endif
 	{
 		*pEnd = g_cNativeSlash;
 		*++pEnd = '\0';
 	}
+#endif
 
 	unsigned nLength = pEnd - dst;
 
@@ -495,6 +624,7 @@ FILE *CCryPak::FOpen(const char *pName, const char *szMode,unsigned nFlags2)
 	}
 
 	const char *szFullPath = AdjustFileName(pName, szFullPathBuf, 0);
+	strcpy(szFullPathBuf, ConvertPathResource(szFullPath).c_str());
 
 	if (!nVarPakPriority) // if the file system files have priority now..
 	{
@@ -1618,6 +1748,7 @@ ICryArchive* CCryPak::OpenArchive (const char* szPath, unsigned nFlags)
 {
 	char szFullPathBuf[CCryPak::g_nMaxPath];
 	const char* szFullPath = AdjustFileName(szPath, szFullPathBuf, nFlags);
+	strcpy(szFullPathBuf, ConvertPathResource(szFullPath).c_str());
 
 	// if it's simple and read-only, it's assumed it's read-only
 	if (nFlags & ICryArchive::FLAGS_OPTIMIZED_READ_ONLY)
