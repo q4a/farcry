@@ -274,12 +274,12 @@ void CCryPak::AddEntryToResourcePaths(const std::filesystem::directory_entry &en
 		std::string path = get_dir_iterator_path(entry.path());
 		std::string path_lwr = path.c_str();
 		tolwr(path_lwr.data());
-		if (starts_with(path_lwr, CheckingPath + "editor") ||
-			starts_with(path_lwr, CheckingPath + "fcdata") ||
-			starts_with(path_lwr, CheckingPath + "languages") ||
-			starts_with(path_lwr, CheckingPath + "levels") ||
-			starts_with(path_lwr, CheckingPath + "profiles") ||
-			starts_with(path_lwr, CheckingPath + "shaders") ||
+		if (starts_with(path_lwr, CheckingPath + "/editor") ||
+			starts_with(path_lwr, CheckingPath + "/fcdata") ||
+			starts_with(path_lwr, CheckingPath + "/languages") ||
+			starts_with(path_lwr, CheckingPath + "/levels") ||
+			starts_with(path_lwr, CheckingPath + "/profiles") ||
+			starts_with(path_lwr, CheckingPath + "/shaders") ||
 			ends_with(path_lwr, ".cfg"))
 		{
 			ResourcePaths[path_lwr] = path;
@@ -297,11 +297,14 @@ void CCryPak::ScanResourcePaths()
 	}
 	ResourcePaths.clear();
 	std::string ExePath = std::string(convert_path(m_strMasterCDRoot.c_str()));
+	ExePath.pop_back(); // remove last slash
 	auto it = std::filesystem::recursive_directory_iterator(ExePath);
-	tolwr(ExePath.data());
+	std::string path_lwr = ExePath;
+	tolwr(path_lwr.data());
+	ResourcePaths[path_lwr] = ExePath;
 	for (const auto &entry : it)
 	{
-		AddEntryToResourcePaths(entry, ExePath);
+		AddEntryToResourcePaths(entry, path_lwr);
 	}
 #endif
 	ResourcePathsFirstScan = false;
