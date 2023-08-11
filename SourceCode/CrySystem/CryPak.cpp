@@ -69,8 +69,8 @@ m_mapMissingFiles ( std::less<string>(), MissingFileMapAllocator(g_pBigHeap) )
 		{
 			if (*p == g_cNonNativeSlash)
 				*p = g_cNativeSlash;
-			else
-				*p = tolower(*p);
+			//else
+			//	*p = tolower(*p);
 		}
 		// add the trailing slash if needed
 #if defined(LINUX)
