@@ -25,19 +25,19 @@ jobs:
         arch: [x64]
     name: 'Linux [${{ matrix.arch }}, ${{ matrix.configuration }}]'
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: 'recursive'
     - name: Install libs
       run: |
-        sudo apt-get update && sudo apt-get install meson libgl-dev
+        sudo apt-get update && sudo apt-get install libsdl2-dev libopenal-dev libvorbis-dev libglu1-mesa-dev libgl-dev libcg libcggl
     - name: Configure and build
       run: |
         mkdir build && cd build
-        cmake .. -G Ninja -DCMAKE_BUILD_TYPE=${{matrix.configuration}}
+        cmake .. -G Ninja -DCMAKE_BUILD_TYPE=${{matrix.configuration}} -DCG_LIB_PATH=/usr/lib/x86_64-linux-gnu
         ninja
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: farcry.${{ matrix.arch }}-${{ matrix.configuration }}
         path: bin/${{ matrix.arch }}-${{ matrix.configuration }}
